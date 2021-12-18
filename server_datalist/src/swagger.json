@@ -23,8 +23,8 @@
   "paths": {
     "/data/search": {
       "post": {
-        "tags": ["Data"],
-        "summary": "Checks the input product from the user",
+        "tags": ["Data by catagory"],
+        "summary": "Checks the data list for a catagory",
         "parameters": [
           {
             "name": "input",
@@ -41,6 +41,30 @@
               "required": []
             }
           }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/data/{id}": {
+      "get": {
+        "tags": ["Data by id"],
+        "summary": "Checks the data of a id",
+        "parameters": [
+          {  
+            "name":"id",
+            "in":"path",
+            "required":true,
+            "type":"string",
+            "format":"string"
+         }
         ],
         "produces": ["application/json"],
         "responses": {

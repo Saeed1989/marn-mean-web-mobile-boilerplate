@@ -46,6 +46,7 @@ const search = async (payload) => {
   let query = { $and: [dateQuery, searchQuery] };
 
   const items = await Model.find(query).limit(100).sort({ updatedAt: -1 });
+  console.log(items);
   let viewModels = items.map((item) => DataViewModel.convert(item));
   return viewModels;
 };

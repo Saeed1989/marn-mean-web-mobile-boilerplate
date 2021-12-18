@@ -6,4 +6,4 @@ class DataViewModel {
   };
 }
 
-module.exports.DatatViewModel = DataViewModel;
+module.exports.DataViewModel = DataViewModel;

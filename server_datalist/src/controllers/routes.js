@@ -9,6 +9,5 @@ let router = express.Router();
 router.use("/data", dataRoutes);
 router.use("/permissions", permissionRoutes);
 router.use("/filters", filterRoutes);
-//router.use("/auth", authRoutes);
 
 module.exports = router;
