@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Space } from "antd";
+import { Layout } from "antd";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import { MainLayout } from "./layout/MainLayout";
@@ -9,15 +9,23 @@ function App() {
   return (
     <Layout>
       <Header>
-        <Space>
-          <div className="logo">
-            <h1 className="header">MERN Boilerplate</h1>
+        <div class="container d-flex" style={{ maxWidth: 960 }}>
+          <div class="row justify-content-center align-self-center">
+            <div className="logo">
+              <h1 className="header">MERN Boilerplate</h1>
+            </div>
           </div>
-        </Space>
+        </div>
       </Header>
-      <Router>
-        <MainLayout />
-      </Router>
+
+      <div class="container d-flex" style={{ maxWidth: 960 }}>
+        <div class="row justify-content-center align-self-center">
+          <Router>
+            <MainLayout />
+          </Router>
+        </div>
+      </div>
+
       <Footer />
     </Layout>
   );
