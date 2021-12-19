@@ -1,9 +1,7 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { NotFound } from "../Pages/NotFound";
 import PropTypes from "prop-types";
 import { Badge } from "react-bootstrap";
-import { Space } from "antd";
+import { AppContext } from "../contexts/app";
 
 const CatagoryView = (props) => {
   const { catName, ...rest } = props;
@@ -14,18 +12,15 @@ const CatagoryView = (props) => {
   );
 };
 
-export const CatagoryHierarchyComponent = (props) => {
-  const { catagoryList, ...rest } = props;
-  console.log(catagoryList);
+export const CatagoryHierarchyComponent = () => {
+  const [state] = React.useContext(AppContext);
+  const { selctedCatList } = state;
+  console.log(selctedCatList);
   return (
     <div>
-      {catagoryList.map((cat, indx) => (
+      {selctedCatList.map((cat, indx) => (
         <CatagoryView key={indx} catName={cat.catName}></CatagoryView>
       ))}
     </div>
   );
-};
-
-CatagoryHierarchyComponent.propTypes = {
-  catagoryList: PropTypes.array.isRequired,
 };

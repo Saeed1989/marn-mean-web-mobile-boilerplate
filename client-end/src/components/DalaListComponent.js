@@ -1,8 +1,6 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { NotFound } from "../Pages/NotFound";
-import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
+import { AppContext } from "../contexts/app";
 
 export const DataView = (props) => {
   const { name, ...rest } = props;
@@ -13,8 +11,9 @@ export const DataView = (props) => {
   );
 };
 
-export const DalaListComponent = (props) => {
-  const { dataList, ...rest } = props;
+export const DalaListComponent = () => {
+  const [state] = React.useContext(AppContext);
+  const { dataList } = state;
   console.log(dataList);
   return (
     <div className="d-grid gap-2" style={{ minWidth: "18rem" }}>
@@ -23,8 +22,4 @@ export const DalaListComponent = (props) => {
       ))}
     </div>
   );
-};
-
-DalaListComponent.propTypes = {
-  dataList: PropTypes.array.isRequired,
 };

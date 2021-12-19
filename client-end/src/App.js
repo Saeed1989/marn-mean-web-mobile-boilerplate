@@ -3,6 +3,7 @@ import { Layout } from "antd";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import { MainLayout } from "./layout/MainLayout";
+import { AppProvider } from "./contexts/app";
 const { Header, Footer } = Layout;
 
 function App() {
@@ -20,9 +21,11 @@ function App() {
 
       <div className="container d-flex" style={{ maxWidth: 960 }}>
         <div className="row justify-content-center align-self-center">
-          <Router>
-            <MainLayout />
-          </Router>
+          <AppProvider>
+            <Router>
+              <MainLayout />
+            </Router>
+          </AppProvider>
         </div>
       </div>
 

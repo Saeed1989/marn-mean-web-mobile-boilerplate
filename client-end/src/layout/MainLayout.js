@@ -1,11 +1,16 @@
 import React from "react";
 import { Layout } from "antd";
-import { Stack, Row } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import { CatagoryHierarchyComponent } from "../components/CatagoryHierarchyComponent";
 import { DalaListComponent } from "../components/DalaListComponent";
+import { AppContext } from "../contexts/app";
+import { useEffect } from "react";
+import { UPDATE_DATA, UPDATE_SELECT_CAT_LIST } from "../constants/appActions";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const MainLayout = () => {
+  const [state, dispatch] = React.useContext(AppContext);
+
   const catList = [
     {
       catName: "Main Cat 1",
@@ -102,16 +107,25 @@ export const MainLayout = () => {
     },
   ];
 
+  useEffect(() => {
+    dispatch({
+      type: UPDATE_SELECT_CAT_LIST,
+      selctedCatList: catList,
+    });
+    dispatch({
+      type: UPDATE_DATA,
+      dataList: dataList,
+    });
+  }, []);
+
   return (
     <Layout>
       <Stack gap={4}>
         <div>
-          <CatagoryHierarchyComponent
-            catagoryList={catList}
-          ></CatagoryHierarchyComponent>
+          <CatagoryHierarchyComponent />
         </div>
         <div>
-          <DalaListComponent dataList={dataList}></DalaListComponent>
+          <DalaListComponent />
         </div>
       </Stack>
     </Layout>
