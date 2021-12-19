@@ -9,8 +9,8 @@ function App() {
   return (
     <Layout>
       <Header>
-        <div class="container d-flex" style={{ maxWidth: 960 }}>
-          <div class="row justify-content-center align-self-center">
+        <div className="container d-flex" style={{ maxWidth: 960 }}>
+          <div className="row justify-content-center align-self-center">
             <div className="logo">
               <h1 className="header">MERN Boilerplate</h1>
             </div>
@@ -18,8 +18,8 @@ function App() {
         </div>
       </Header>
 
-      <div class="container d-flex" style={{ maxWidth: 960 }}>
-        <div class="row justify-content-center align-self-center">
+      <div className="container d-flex" style={{ maxWidth: 960 }}>
+        <div className="row justify-content-center align-self-center">
           <Router>
             <MainLayout />
           </Router>
