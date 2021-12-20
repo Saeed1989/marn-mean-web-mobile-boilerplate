@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Badge } from "react-bootstrap";
 import { AppContext } from "../contexts/app";
 import { UPDATE_DATA, UPDATE_SELECT_CAT_LIST } from "../constants/appActions";
@@ -41,8 +40,27 @@ export const CatagoryHierarchyComponent = () => {
     }
   };
 
+  const onClear = () => {
+    dispatch({
+      type: UPDATE_SELECT_CAT_LIST,
+      selctedCatList: [],
+    });
+
+    dispatch({
+      type: UPDATE_DATA,
+      dataList: getSelectedCatList(state.catagoryList, ""),
+    });
+  };
+
   return (
     <div>
+      {selctedCatList.length > 0 ? (
+        <span>
+          <Badge bg="danger" as="button" onClick={onClear}>
+            X
+          </Badge>{" "}
+        </span>
+      ) : null}
       {selctedCatList.map((cat, indx) => (
         <CatagoryView
           key={indx}
