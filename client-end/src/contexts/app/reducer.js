@@ -1,4 +1,5 @@
 import * as AppActions from "../../constants/appActions";
+import { getSelectedCatList } from "../../utils/CatHierarchy";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -12,13 +13,25 @@ export const reducer = (state, action) => {
       return {
         ...state,
         catagoryList: action.catagoryList,
+        dataList: getSelectedCatList(action.catagoryList, ""),
       };
 
     case AppActions.UPDATE_SELECT_CAT_LIST:
-      console.log(action.selctedCatList);
       return {
         ...state,
         selctedCatList: action.selctedCatList,
+      };
+
+    case AppActions.UPDATE_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
+
+    case AppActions.UPDATE_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading,
       };
 
     default:
@@ -30,4 +43,6 @@ export const initialState = {
   dataList: [],
   catagoryList: [],
   selctedCatList: [],
+  error: {},
+  isLoading: false,
 };

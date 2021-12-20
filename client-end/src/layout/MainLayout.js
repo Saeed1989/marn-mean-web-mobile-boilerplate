@@ -5,121 +5,58 @@ import { CatagoryHierarchyComponent } from "../components/CatagoryHierarchyCompo
 import { DalaListComponent } from "../components/DalaListComponent";
 import { AppContext } from "../contexts/app";
 import { useEffect } from "react";
-import { UPDATE_DATA, UPDATE_SELECT_CAT_LIST } from "../constants/appActions";
+import * as DATA_API from "../services/dataService";
+import * as CAT_API from "../services/catagoryService";
+import {
+  UPDATE_CAT_LIST,
+  UPDATE_DATA,
+  UPDATE_ERROR,
+  UPDATE_LOADING,
+} from "../constants/appActions";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const MainLayout = () => {
   const [state, dispatch] = React.useContext(AppContext);
+  const { error, isLoading } = state;
 
-  const catList = [
-    {
-      catName: "Main Cat 1",
-      sku: "maincat001",
-      description: "A description",
-      parentSku: "",
-    },
-    {
-      catName: "Sub Cat 1",
-      sku: "Subcat002",
-      description: "A description",
-      parentSku: "",
-    },
-    {
-      catName: "Sub Cat 2",
-      sku: "Subcat003",
-      description: "A description",
-      parentSku: "",
-    },
-    {
-      catName: "Sub Cat 3",
-      sku: "Subcat004",
-      description: "A description",
-      parentSku: "",
-    },
-    {
-      catName: "Main Cat 4",
-      sku: "maincat005",
-      description: "A description",
-      parentSku: "",
-    },
-    {
-      catName: "sub cat 5",
-      sku: "subcat1",
-      description: "A description",
-      parentSku: "maincat001",
-    },
-  ];
+  const setLoading = (isLoading) => {
+    dispatch({
+      type: UPDATE_LOADING,
+      isLoading: isLoading,
+    });
+  };
 
-  const dataList = [
-    {
-      name: "Name one",
-      catagory: "/maincat001",
-      secondDataField: "two",
-      thirdDataField: "third",
-      description: "A description",
-      createdAt: "2021-01-01T00:00:00.000Z",
-      updatedAt: "2021-01-01T00:00:00.000Z",
-    },
-    {
-      name: "Name two",
-      catagory: "/maincat001",
-      secondDataField: "two",
-      thirdDataField: "third",
-      description: "A description",
-      createdAt: "2021-01-01T00:00:00.000Z",
-      updatedAt: "2021-01-01T00:00:00.000Z",
-    },
-    {
-      name: "Name three",
-      catagory: "/maincat001",
-      secondDataField: "two",
-      thirdDataField: "third",
-      description: "A description",
-      createdAt: "2021-01-01T00:00:00.000Z",
-      updatedAt: "2021-01-01T00:00:00.000Z",
-    },
-    {
-      name: "Name four",
-      catagory: "/maincat001",
-      secondDataField: "two",
-      thirdDataField: "third",
-      description: "A description",
-      createdAt: "2021-01-01T00:00:00.000Z",
-      updatedAt: "2021-01-01T00:00:00.000Z",
-    },
-    {
-      name: "Name six",
-      catagory: "/maincat001/subcat1",
-      secondDataField: "two",
-      thirdDataField: "third",
-      description: "A description",
-      createdAt: "2021-01-01T00:00:00.000Z",
-      updatedAt: "2021-01-01T00:00:00.000Z",
-    },
-    {
-      name: "Name seven",
-      catagory: "/maincat001/subcat1",
-      secondDataField: "two",
-      thirdDataField: "third",
-      description: "A description",
-      createdAt: "2021-01-01T00:00:00.000Z",
-      updatedAt: "2021-01-01T00:00:00.000Z",
-    },
-  ];
+  const reloadCatList = async () => {
+    CAT_API.getAllCatagory()
+      .then((catList) => {
+        dispatch({
+          type: UPDATE_CAT_LIST,
+          catagoryList: catList,
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: UPDATE_ERROR,
+          error: {
+            msg: "Something went wrong",
+          },
+        });
+      });
+  };
 
   useEffect(() => {
-    dispatch({
-      type: UPDATE_SELECT_CAT_LIST,
-      selctedCatList: catList,
-    });
-    dispatch({
-      type: UPDATE_DATA,
-      dataList: dataList,
-    });
+    const load = async () => {
+      setLoading(true);
+      await reloadCatList();
+      setLoading(false);
+    };
+
+    load();
   }, []);
 
   return (
     <Layout>
+      {error ? error.msg : null}
       <Stack gap={4}>
         <div>
           <CatagoryHierarchyComponent />
