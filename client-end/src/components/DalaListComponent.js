@@ -6,7 +6,7 @@ import {
   UPDATE_SELECT_CAT_LIST,
 } from "../constants/appActions";
 import { AppContext } from "../contexts/app";
-import { getSelectedCatList } from "../utils/CatHierarchy";
+import { getSelectedCatList } from "../utils/catHierarchy";
 import * as DATA_API from "../services/dataService";
 
 export const DataView = (props) => {

@@ -1,5 +1,5 @@
 import * as AppActions from "../../constants/appActions";
-import { getSelectedCatList } from "../../utils/CatHierarchy";
+import { getSelectedCatList } from "../../utils/catHierarchy";
 
 export const reducer = (state, action) => {
   switch (action.type) {
