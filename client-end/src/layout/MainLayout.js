@@ -1,19 +1,14 @@
 import React from "react";
-import { Layout } from "antd";
-import { Stack } from "react-bootstrap";
-import { CatagoryHierarchyComponent } from "../components/CatagoryHierarchyComponent";
-import { DalaListComponent } from "../components/DalaListComponent";
+import { CatagoryHierarchyComponent } from "../components/organisms/CatagoryHierarchyComponent";
+import { DalaListComponent } from "../components/organisms/DalaListComponent";
 import { AppContext } from "../contexts/app";
 import { useEffect } from "react";
-import * as DATA_API from "../services/dataService";
 import * as CAT_API from "../services/catagoryService";
 import {
   UPDATE_CAT_LIST,
-  UPDATE_DATA,
   UPDATE_ERROR,
   UPDATE_LOADING,
 } from "../constants/appActions";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export const MainLayout = () => {
   const [state, dispatch] = React.useContext(AppContext);
@@ -55,16 +50,19 @@ export const MainLayout = () => {
   }, []);
 
   return (
-    <Layout>
+    <div className="container-fluid mt-10">
       {error ? error.msg : null}
-      <Stack gap={4}>
-        <div>
-          <CatagoryHierarchyComponent />
+      <div className="row">
+        <CatagoryHierarchyComponent />
+      </div>
+      <div className="row">
+        <DalaListComponent />
+      </div>
+      {isLoading ? (
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
-        <div>
-          <DalaListComponent />
-        </div>
-      </Stack>
-    </Layout>
+      ) : null}
+    </div>
   );
 };

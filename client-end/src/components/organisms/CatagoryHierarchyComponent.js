@@ -1,9 +1,11 @@
 import React from "react";
-import { Badge } from "react-bootstrap";
-import { AppContext } from "../contexts/app";
-import { UPDATE_DATA, UPDATE_SELECT_CAT_LIST } from "../constants/appActions";
-import { getSelectedCatList } from "../utils/catHierarchy";
-import { YesNoModal } from "./YesNoModal";
+import { AppContext } from "../../contexts/app";
+import {
+  UPDATE_DATA,
+  UPDATE_SELECT_CAT_LIST,
+} from "../../constants/appActions";
+import { getSelectedCatList } from "../../utils/catHierarchy";
+import { YesNoModal } from "../molecules/YesNoModal";
 
 const CatagoryView = (props) => {
   const { cat, onSelect } = props;
@@ -12,11 +14,11 @@ const CatagoryView = (props) => {
   };
 
   return (
-    <span>
-      <Badge bg="secondary" as="button" onClick={onClick}>
+    <>
+      <button className="badge bg-secondary" onClick={onClick}>
         {cat.catName}
-      </Badge>{" "}
-    </span>
+      </button>{" "}
+    </>
   );
 };
 
@@ -71,12 +73,12 @@ export const CatagoryHierarchyComponent = () => {
 
   return (
     <>
-      <div>
+      <h5>
         {selctedCatList.length > 0 ? (
           <span>
-            <Badge bg="danger" as="button" onClick={onClearAll}>
+            <button className="badge bg-danger" onClick={onClearAll}>
               X
-            </Badge>{" "}
+            </button>{" "}
           </span>
         ) : null}
         {selctedCatList.map((cat, indx) => (
@@ -86,7 +88,7 @@ export const CatagoryHierarchyComponent = () => {
             onSelect={() => onSelect(indx)}
           ></CatagoryView>
         ))}
-      </div>
+      </h5>
       <div>
         <YesNoModal
           isShow={showConfirmDialog}

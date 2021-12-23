@@ -1,13 +1,12 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import {
   UPDATE_DATA,
   UPDATE_ERROR,
   UPDATE_SELECT_CAT_LIST,
-} from "../constants/appActions";
-import { AppContext } from "../contexts/app";
-import { getSelectedCatList } from "../utils/catHierarchy";
-import * as DATA_API from "../services/dataService";
+} from "../../constants/appActions";
+import { AppContext } from "../../contexts/app";
+import { getSelectedCatList } from "../../utils/catHierarchy";
+import * as DATA_API from "../../services/dataService";
 
 export const DataView = (props) => {
   const { data, onSelect } = props;
@@ -17,9 +16,9 @@ export const DataView = (props) => {
   };
 
   return (
-    <Button variant="primary" size="lg" onClick={onClick}>
+    <button type="button" className="btn btn-primary" onClick={onClick}>
       {data.name || data.catName}
-    </Button>
+    </button>
   );
 };
 

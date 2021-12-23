@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 // import * as Sentry from "@sentry/react"; // Uncommnet to enable Sentry
