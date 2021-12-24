@@ -10,7 +10,7 @@ import {
   UPDATE_LOADING,
 } from "../constants/appActions";
 
-export const MainLayout = () => {
+export const Main = () => {
   const [state, dispatch] = React.useContext(AppContext);
   const { error, isLoading } = state;
 
@@ -50,7 +50,7 @@ export const MainLayout = () => {
   }, []);
 
   return (
-    <div className="container-fluid mt-10">
+    <div className="container mt-10">
       {error ? error.msg : null}
       <div className="row">
         <CatagoryHierarchyComponent />

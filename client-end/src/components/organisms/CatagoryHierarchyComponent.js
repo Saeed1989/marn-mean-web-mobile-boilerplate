@@ -72,7 +72,7 @@ export const CatagoryHierarchyComponent = () => {
   };
 
   return (
-    <>
+    <div className="container">
       <h5>
         {selctedCatList.length > 0 ? (
           <span>
@@ -96,6 +96,6 @@ export const CatagoryHierarchyComponent = () => {
           message={CONFIRM_MESSAGE}
         ></YesNoModal>
       </div>
-    </>
+    </div>
   );
 };

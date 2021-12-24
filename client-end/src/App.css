@@ -98,3 +98,7 @@
   /* background: rgba(0, 0, 0, 0.05); */
   border-radius: 4px;
 }
+
+body {
+  min-height: 100vh;
+}
