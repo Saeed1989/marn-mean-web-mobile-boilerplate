@@ -1,6 +1,6 @@
 import { get } from "./httpService";
 
-const URL = ":5000/api/catagory";
+const URL = ":5000/api/catagories";
 
 const catList = [
   {
@@ -42,6 +42,12 @@ const catList = [
 ];
 
 export const getAllCatagory = async () => {
-  return catList;
-  return get(URL);
+  //return catList;
+  return get(URL)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      throw err;
+    });
 };

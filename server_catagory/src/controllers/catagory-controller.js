@@ -2,6 +2,7 @@
 const express = require("express");
 const { getAll, getBySku } = require("../services/catagory-service");
 const { NotFound } = require("../utils/errors");
+const cors = require("cors");
 
 const router = express.Router();
 
@@ -34,8 +35,8 @@ const getBySkuHandler = async (req, res, next) => {
   }
 };
 
-router.get("/:catSku", getBySkuHandler);
+router.get("/:catSku", cors(), getBySkuHandler);
 
-router.get("/", getHandler);
+router.get("/", cors(), getHandler);
 
 module.exports = router;

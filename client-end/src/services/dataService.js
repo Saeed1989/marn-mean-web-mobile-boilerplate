@@ -1,6 +1,6 @@
 import { post } from "./httpService";
 
-const URL = ":5000/api/data";
+const URL = ":5001/api/data/search";
 
 const dataList = [
   {
@@ -65,6 +65,6 @@ export const getData = async (catagory) => {
     payload = { searchText: catagory, ...payload };
   }
 
-  return dataList;
+  //return dataList;
   return post(URL, payload);
 };
