@@ -5,7 +5,7 @@ import {
   UPDATE_SELECT_CAT_LIST,
 } from "../../constants/appActions";
 import { AppContext } from "../../contexts/app";
-import { getSelectedCatList } from "../../utils/catHierarchy";
+import { getCatHierarchy, getSelectedCatList } from "../../utils/catHierarchy";
 import * as DATA_API from "../../services/dataService";
 
 export const DataView = (props) => {
@@ -48,7 +48,8 @@ export const DalaListComponent = () => {
   };
 
   const reloadData = async (catagoryList) => {
-    DATA_API.getData()
+    console.log(catagoryList);
+    DATA_API.getData(getCatHierarchy(catagoryList))
       .then((dataList) => {
         dispatch({
           type: UPDATE_DATA,

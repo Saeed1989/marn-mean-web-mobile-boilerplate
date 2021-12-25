@@ -42,7 +42,6 @@ const catList = [
 ];
 
 export const getAllCatagory = async () => {
-  //return catList;
   return get(URL)
     .then((res) => {
       return res.data;

@@ -65,6 +65,11 @@ export const getData = async (catagory) => {
     payload = { searchText: catagory, ...payload };
   }
 
-  //return dataList;
-  return post(URL, payload);
+  return post(URL, payload)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      throw err;
+    });
 };

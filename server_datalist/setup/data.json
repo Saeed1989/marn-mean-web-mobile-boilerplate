@@ -1,7 +1,7 @@
 [
   {
     "name": "Name one",
-    "catagory": "/maincat001",
+    "catagory": "/maincat001/subcat1",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -10,7 +10,7 @@
   },
   {
     "name": "Name two",
-    "catagory": "/maincat001",
+    "catagory": "/maincat001/subcat1",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -19,7 +19,7 @@
   },
   {
     "name": "Name three",
-    "catagory": "/maincat001",
+    "catagory": "/maincat001/subcat1",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -28,7 +28,7 @@
   },
   {
     "name": "Name four",
-    "catagory": "/maincat001",
+    "catagory": "/maincat003",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -37,7 +37,7 @@
   },
   {
     "name": "Name six",
-    "catagory": "/maincat001/subcat1",
+    "catagory": "/maincat004",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -46,7 +46,7 @@
   },
   {
     "name": "Name seven",
-    "catagory": "/maincat001/subcat1",
+    "catagory": "/maincat005",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
