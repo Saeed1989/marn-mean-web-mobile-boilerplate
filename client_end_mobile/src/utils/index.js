@@ -1,3 +1,3 @@
-import * as NavUtils from './navigateUtils';
+import * as NavUtils from './nav/navigateUtils';
 
 export {NavUtils};

@@ -16,11 +16,10 @@ const ApplicationNavigator = () => {
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <StatusBar />
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Startup" component={Startup} />
         <Stack.Screen
-          name="Home"
+          name="MainNavigator"
           component={MainNavigator}
           options={{
             animationEnabled: false,

@@ -5,7 +5,7 @@ import {NavUtils} from '@/utils';
 import {Example} from '@/components';
 
 const {navigateAndSimpleReset} = NavUtils;
-export const Home = () => {
+export const About = () => {
   const {Layout, Fonts} = Theme;
 
   const init = async () => {
@@ -19,7 +19,7 @@ export const Home = () => {
 
   return (
     <View style={[Layout.fill, Layout.colCenter]}>
-      <Example />
+      <Text style={Fonts.textCenter}>About us works</Text>
     </View>
   );
 };
