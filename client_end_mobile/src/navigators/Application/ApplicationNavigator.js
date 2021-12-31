@@ -6,6 +6,7 @@ import {Home, Startup} from '@/screens';
 import {Layout, Colors} from '@/assets/styles';
 import {MainNavigator} from '@/navigators/Main/MainNavigator';
 import {NavUtils} from '@/utils';
+import {AppProvider} from '../../contexts/app';
 
 const Stack = createStackNavigator();
 const {navigationRef} = NavUtils;

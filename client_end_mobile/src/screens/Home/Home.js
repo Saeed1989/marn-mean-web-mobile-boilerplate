@@ -4,24 +4,72 @@ import * as Theme from '@/assets/styles';
 import {NavUtils} from '@/utils';
 import {getAllCatagory} from '@/services';
 import {Example} from '@/components';
+import {CatagoryHierarchyComponent} from '@/components';
+import {
+  UPDATE_CAT_LIST,
+  UPDATE_ERROR,
+  UPDATE_LOADING,
+} from '@/constants/appActions';
+import {AppContext} from '../../contexts/app';
+import {AppProvider} from '../../contexts/app';
+import {DalaListComponent} from '../../components/DataList/DalaListComponent';
 
 const {navigateAndSimpleReset} = NavUtils;
-export const Home = () => {
+export const HomeComponent = () => {
   const {Layout, Fonts} = Theme;
 
-  const init = async () => {
-    getAllCatagory().then(res => {
-      console.log(res);
+  const [state, dispatch] = React.useContext(AppContext);
+  const {error, isLoading} = state;
+
+  const setLoading = isLoading => {
+    dispatch({
+      type: UPDATE_LOADING,
+      isLoading: isLoading,
     });
   };
 
+  const reloadCatList = async () => {
+    getAllCatagory()
+      .then(catList => {
+        dispatch({
+          type: UPDATE_CAT_LIST,
+          catagoryList: catList,
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: UPDATE_ERROR,
+          error: {
+            msg: 'Something went wrong',
+          },
+        });
+      });
+  };
+
   useEffect(() => {
-    init();
-  });
+    const load = async () => {
+      setLoading(true);
+      await reloadCatList();
+      setLoading(false);
+    };
+
+    load();
+  }, []);
 
   return (
     <View style={[Layout.fill, Layout.colCenter]}>
-      <Example />
+      <CatagoryHierarchyComponent />
+      <DalaListComponent />
     </View>
+  );
+};
+
+export const Home = () => {
+  return (
+    <>
+      <AppProvider>
+        <HomeComponent />
+      </AppProvider>
+    </>
   );
 };
