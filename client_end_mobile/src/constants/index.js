@@ -1,3 +1,3 @@
 export const config = {
-    page: 10
-  };
+  page: 10,
+};

@@ -1,12 +1,9 @@
 import React from 'react';
-import {Button, Text, StatusBar} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {Home, Startup} from '@/screens';
-import {Layout, Colors} from '@/assets/styles';
+import {Startup} from '@/screens';
 import {MainNavigator} from '@/navigators/Main/MainNavigator';
 import {NavUtils} from '@/utils';
-import {AppProvider} from '../../contexts/app';
 
 const Stack = createStackNavigator();
 const {navigationRef} = NavUtils;

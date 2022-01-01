@@ -3,14 +3,14 @@ import {
   UPDATE_DATA,
   UPDATE_ERROR,
   UPDATE_SELECT_CAT_LIST,
-} from '../../constants/appActions';
-import {AppContext} from '../../contexts/app';
+} from '@/constants/appActions';
+import {AppContext} from '@/contexts/app';
 import {
   getCatHierarchy,
   getSelectedCatList,
-} from '../../utils/catHierarchy/catHierarchy';
+} from '@/utils/catHierarchy/catHierarchy';
 import {getData} from '@/services';
-import {ThemeColors as Colors, Layout, Sizes, Fonts} from '../../assets/styles';
+import {ThemeColors as Colors, Layout, Sizes, Fonts} from '@/assets/styles';
 import {ActivityIndicator, View, Text} from 'react-native';
 import {PrimaryButton} from '@/components';
 

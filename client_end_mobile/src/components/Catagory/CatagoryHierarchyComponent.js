@@ -1,9 +1,9 @@
 import React from 'react';
-import {AppContext} from '../../contexts/app';
+import {AppContext} from '@/contexts/app';
 import {ActivityIndicator, View, Text} from 'react-native';
-import {UPDATE_DATA, UPDATE_SELECT_CAT_LIST} from '../../constants/appActions';
-import {getSelectedCatList} from '../../utils/catHierarchy/catHierarchy';
-import {ThemeColors as Colors, Layout, Sizes, Fonts} from '../../assets/styles';
+import {UPDATE_DATA, UPDATE_SELECT_CAT_LIST} from '@/constants/appActions';
+import {getSelectedCatList} from '@/utils/catHierarchy/catHierarchy';
+import {ThemeColors as Colors, Layout, Sizes, Fonts} from '@/assets/styles';
 //import {YesNoModal} from '../molecules/YesNoModal';
 
 const CatagoryView = props => {

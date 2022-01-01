@@ -2,7 +2,6 @@ import React from 'react';
 import {ActivityIndicator, View, Text} from 'react-native';
 import * as Theme from '@/assets/styles';
 import {NavUtils} from '@/utils';
-import {Example} from '@/components';
 
 const {navigateAndSimpleReset} = NavUtils;
 export const About = () => {
