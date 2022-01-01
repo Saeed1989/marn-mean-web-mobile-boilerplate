@@ -12,6 +12,7 @@ import {
 import {getData} from '@/services';
 import {ThemeColors as Colors, Layout, Sizes, Fonts} from '../../assets/styles';
 import {ActivityIndicator, View, Text} from 'react-native';
+import {PrimaryButton} from '@/components';
 
 export const DataView = props => {
   const {data, onSelect} = props;
@@ -22,9 +23,7 @@ export const DataView = props => {
 
   return (
     <>
-      <Text style={[Layout.fill, Fonts.textCenter, Fonts.textSmall]}>
-        {data.name || data.catName}
-      </Text>
+      <PrimaryButton title={data.name || data.catName} onPress={onClick} />
     </>
   );
 };
@@ -74,7 +73,7 @@ export const DalaListComponent = () => {
   };
 
   return (
-    <View style={[Layout.row, Layout.rowHCenter]}>
+    <View style={[Layout.row, Layout.colVCenter]}>
       {dataList.map((data, indx) => (
         <DataView key={indx} onSelect={onSelect} data={data} />
       ))}

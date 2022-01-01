@@ -1,6 +1,9 @@
+import React from 'react';
 import {StyleSheet} from 'react-native';
+import {ThemeColors as Colors, Layout} from '@/assets/styles';
+import {TouchableOpacity, Text} from 'react-native';
 
-export default function ({Colors, Layout}) {
+const ButtonStyle = () => {
   const base = {
     ...Layout.center,
     height: 40,
@@ -27,4 +30,13 @@ export default function ({Colors, Layout}) {
       borderColor: Colors.primary,
     },
   });
-}
+};
+
+export const PrimaryButton = props => {
+  let {onPress, title} = props;
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text style={ButtonStyle}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
