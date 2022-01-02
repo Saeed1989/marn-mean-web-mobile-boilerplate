@@ -21,9 +21,9 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/products/search": {
+    "/catagories": {
       "post": {
-        "tags": ["Product"],
+        "tags": ["Catagory"],
         "summary": "Checks the input product from the user",
         "parameters": [
           {
@@ -34,9 +34,18 @@
               "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
               "properties": {
-                "searchText": {
+                "catName": {
                   "type": "string"
-                }               
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parentSku": {
+                  "type": "string"
+                }                  
               },
               "required": []
             }

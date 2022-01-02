@@ -12,7 +12,7 @@ let router = express.Router();
 router.use("/users", userRoutes);
 router.use("/roles", roleRoutes);
 router.use("/catagories", catagoryRoutes);
-router.use("/products", dataRoutes);
+router.use("/data", dataRoutes);
 router.use("/permissions", permissionRoutes);
 router.use("/filters", filterRoutes);
 router.use("/auth", authRoutes);

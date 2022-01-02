@@ -1,7 +1,8 @@
 const logger = require("pino")();
 const app = require("./app");
 
-const connectWithDb = require("./mongo");
+const mongo = require("./mongo");
+const connectWithDb = mongo.connectWithDb;
 
 const PORT = 5003;
 app.listen(PORT, () => {
