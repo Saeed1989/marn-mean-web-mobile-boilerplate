@@ -9,8 +9,6 @@ const router = express.Router();
 const postHandler = async (req, res, next) => {
   try {
     const body = req.body;
-    body.createdAt = new Date();
-    body.updatedAt = new Date();
     const id = await save(body);
     res.status(201).send(id);
   } catch (error) {
@@ -21,7 +19,6 @@ const postHandler = async (req, res, next) => {
 const putHandler = async (req, res, next) => {
   try {
     const body = req.body;
-    body.updatedAt = new Date();
     const id = await update(body);
     res.status(200).send(id);
   } catch (error) {
