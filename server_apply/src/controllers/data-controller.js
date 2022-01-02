@@ -1,7 +1,11 @@
 const express = require("express");
 const { save, update, deleteById } = require("../services/data-service");
 const validators = require("../models/request-models");
-const { handleValidation } = require("../middlewares");
+const {
+  handleValidation,
+  logRequest,
+  checkAuthentication,
+} = require("../middlewares");
 const { NotFound } = require("../utils/errors");
 
 const router = express.Router();
@@ -36,8 +40,20 @@ const deleteHandler = async (req, res, next) => {
   }
 };
 
-router.post("/", postHandler);
-router.put("/:id", putHandler);
-router.delete("/:id", deleteHandler);
+const commonMiddleware = [logRequest, checkAuthentication];
+
+router.post(
+  "/",
+  commonMiddleware,
+  handleValidation(validators.dataSchemaValidate),
+  postHandler
+);
+router.put(
+  "/:id",
+  commonMiddleware,
+  handleValidation(validators.dataSchemaValidate),
+  putHandler
+);
+router.delete("/:id", commonMiddleware, deleteHandler);
 
 module.exports = router;
