@@ -5,6 +5,7 @@ const {
   handleValidation,
   logRequest,
   checkAuthentication,
+  checkPermission,
 } = require("../middlewares");
 const { NotFound } = require("../utils/errors");
 
@@ -41,7 +42,7 @@ const deleteHandler = async (req, res, next) => {
   }
 };
 
-const commonMiddleware = [logRequest, checkAuthentication];
+const commonMiddleware = [logRequest, checkAuthentication, checkPermission];
 
 router.post(
   "/",

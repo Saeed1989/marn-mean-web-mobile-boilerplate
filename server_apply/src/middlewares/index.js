@@ -1,6 +1,7 @@
 const { handleError, handleRequest, handleValidation } = require("./common");
 const { logRequest } = require("./requestLogger");
 const { checkAuthentication } = require("./authGuard");
+const {checkPermission} = require("./permissionGuard");
 
 module.exports = {
   handleError,
@@ -8,4 +9,5 @@ module.exports = {
   handleValidation,
   logRequest,
   checkAuthentication,
+  checkPermission
 };
