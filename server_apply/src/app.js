@@ -26,7 +26,13 @@ app.use(handleRequest);
 const swaggerDocument = require("./swagger.json");
 const swaggerDocumentCat = require("./swagger-paths/catagory-path-swagger.json");
 const swaggerDocumentData = require("./swagger-paths/data-path-swagger.json");
-swaggerDocument.paths = {...swaggerDocument.paths, ...swaggerDocumentCat.paths, ...swaggerDocumentData.paths}
+const swaggerDocumentLogin = require("./swagger-paths/login-path-swagger.json");
+swaggerDocument.paths = {
+  ...swaggerDocument.paths,
+  ...swaggerDocumentCat.paths,
+  ...swaggerDocumentData.paths,
+  ...swaggerDocumentLogin.paths,
+};
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 try {

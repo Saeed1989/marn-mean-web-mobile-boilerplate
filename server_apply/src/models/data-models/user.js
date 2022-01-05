@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+const mongo = require("../../mongo");
 const bcrypt = require('bcrypt');
+const connectWithUserDb = mongo.connectWithUserDb;
 
 const userSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
@@ -14,18 +16,16 @@ const userSchema = new mongoose.Schema({
     updatedAt: { type: Date, required: true },
 });
 
-const User = mongoose.model("User", userSchema);
+const User = connectWithUserDb().model("User", userSchema);
 
 async function getPasswordHash(password) {
-        return await bcrypt.hash(password, 10);
+        return await bcrypt.hash(password, 5);
 }
 
 
 User.createNew = async (user) => {
         user._id = new mongoose.Types.ObjectId();
         const model = new User(user);
-        let hash = await getPasswordHash(user.password);
-        model.passwordHash = hash;
         return model;
 };
 

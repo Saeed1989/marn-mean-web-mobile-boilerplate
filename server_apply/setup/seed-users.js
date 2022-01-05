@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 require("dotenv").config();
 
-const { upsert } = require("../src/services/product-service");
+const { upsert } = require("../src/services/user-service");
 
 console.log("Seed starting");
 const uri = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME_USER}`;
@@ -14,14 +14,14 @@ const connectWithDb = () => {
       console.error(err);
     } else {
       console.log("Database connection established");
-      fs.readFile("./setup/products.json", (err, data) => {
+      fs.readFile("./setup/users.json", (err, data) => {
         if (err) {
           console.log(err);
         } else {
-          const products = JSON.parse(data);
-          products.forEach(async (product) => {
-            const newProduct = await upsert(product);
-            console.log(newProduct);
+          const users = JSON.parse(data);
+          users.forEach(async (user) => {
+            const newuser = await upsert(user);
+            console.log(newuser);
           });
         }
       });
