@@ -1,0 +1,137 @@
+{
+  "paths": {
+    "/data": {
+      "post": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Add data",
+        "parameters": [
+          {
+            "name": "input",
+            "in": "body",
+            "description": "parameters of the data",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "catagory": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/data/{id}": {
+      "put": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Update data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the data",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          },
+          {
+            "name": "input",
+            "in": "body",
+            "description": "parameters of the data",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "catagory": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Add data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the data",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

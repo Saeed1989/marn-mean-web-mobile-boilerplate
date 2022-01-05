@@ -23,8 +23,11 @@ app.use(helmet());
 app.use(pino);
 app.use(handleRequest);
 
-const swaggerDocumentCatagory = require("./swagger.json");
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocumentCatagory));
+const swaggerDocument = require("./swagger.json");
+const swaggerDocumentCat = require("./swagger-paths/catagory-path-swagger.json");
+const swaggerDocumentData = require("./swagger-paths/data-path-swagger.json");
+swaggerDocument.paths = {...swaggerDocument.paths, ...swaggerDocumentCat.paths, ...swaggerDocumentData.paths}
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 try {
   configureRoutes(app);

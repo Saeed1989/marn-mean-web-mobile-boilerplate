@@ -1,0 +1,143 @@
+{
+  "paths": {
+    "/catagories": {
+      "post": {
+        "tags": [
+          "Catagory"
+        ],
+        "summary": "Add catagory",
+        "parameters": [
+          {
+            "name": "input",
+            "in": "body",
+            "description": "parameters of the catagory",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "catName": {
+                  "type": "string"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parentSku": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/catagories/{id}": {
+      "put": {
+        "tags": [
+          "Catagory"
+        ],
+        "summary": "Update catagory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the catagory",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          },
+          {
+            "name": "input",
+            "in": "body",
+            "description": "parameters of the catagory",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "catName": {
+                  "type": "string"
+                },
+                "sku": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parentSku": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Catagory"
+        ],
+        "summary": "Delete catagory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the catagory",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
