@@ -6,6 +6,11 @@
           "Catagory"
         ],
         "summary": "Add catagory",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "input",
@@ -51,6 +56,11 @@
           "Catagory"
         ],
         "summary": "Update catagory",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -109,6 +119,11 @@
           "Catagory"
         ],
         "summary": "Delete catagory",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",

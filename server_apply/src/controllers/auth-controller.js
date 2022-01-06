@@ -1,6 +1,6 @@
 const express = require("express");
 const { checkUser, searchOne, changePassword } = require("../services/auth-service");
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 // import { search as searchPermissions } from "../services/permission-service";
 
 const router = express.Router();

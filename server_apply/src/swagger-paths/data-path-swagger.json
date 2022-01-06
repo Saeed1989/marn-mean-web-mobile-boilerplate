@@ -6,6 +6,11 @@
           "Data"
         ],
         "summary": "Add data",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "input",
@@ -48,6 +53,11 @@
           "Data"
         ],
         "summary": "Update data",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -103,6 +113,11 @@
           "Data"
         ],
         "summary": "Add data",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
