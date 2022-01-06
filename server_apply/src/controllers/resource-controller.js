@@ -5,8 +5,7 @@ const {
     update,
     deleteById,
     getById,
-    search
-} = require("../services/role-service");
+} = require("../services/resource-service");
 const validators = require("../models/request-models");
 const {
     handleValidation,
@@ -34,7 +33,7 @@ const getByIdHandler = async (req, res, next) => {
         if (item) {
             res.status(200).send(item);
         } else {
-            throw new NotFound("Role not found by the id: " + id);
+            throw new NotFound("Resource not found by the id: " + id);
         }
     } catch (error) {
         return next(error, req, res);
@@ -51,20 +50,11 @@ const postHandler = async (req, res, next) => {
     }
 };
 
-const searchHandler = async (req, res, next) => {
-    try {
-        const body = req.body;
-        const result = await search(body);
-        res.status(200).send(result);
-    } catch (error) {
-        return next(error, req, res);
-    }
-};
-
 const putHandler = async (req, res, next) => {
     try {
-        const body = req.body;
-        const id = await update(body);
+        const id = req.params.id;
+        const body = { ...req.body, id: id };
+        await update(body);
         res.status(200).send(id);
     } catch (error) {
         return next(error, req, res);
@@ -75,7 +65,7 @@ const deleteHandler = async (req, res, next) => {
     try {
         const id = req.params.id;
         await deleteById(id);
-        res.status(200).send("Role deleted");
+        res.status(200).send("Resource deleted");
     } catch (error) {
         return next(error, req, res);
     }
@@ -87,7 +77,7 @@ router.get("/:id", logRequest, getByIdHandler);
 router.post(
   "/",
   commonMiddleware,
-  handleValidation(validators.roleSchemaValidate),
+  handleValidation(validators.resourceSchemaValidate),
   postHandler
 );
 router.put("/:id", commonMiddleware, putHandler);

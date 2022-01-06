@@ -1,0 +1,54 @@
+{
+  "paths": {
+    "/permissions": {
+      "post": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Permission",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "input",
+            "in": "body",
+            "description": "add Permission",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "roleName": {
+                  "type": "string"
+                },
+                "resourceName": {
+                  "type": "string"
+                },
+                "isAllowed": {
+                  "type": "string"
+                },
+                "isDisabled": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

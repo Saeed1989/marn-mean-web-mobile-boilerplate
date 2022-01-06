@@ -1,0 +1,48 @@
+{
+  "paths": {
+    "/roles": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Role",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "input",
+            "in": "body",
+            "description": "add Role",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "alias": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
