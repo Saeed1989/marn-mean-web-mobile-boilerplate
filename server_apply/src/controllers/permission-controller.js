@@ -8,11 +8,11 @@ const {
 } = require("../services/permission-service");
 const validators = require("../models/request-models");
 const {
-    handleValidation,
-    logRequest,
-    checkAuthentication,
-    checkPermission,
-  } = require("../middlewares");
+  handleValidation,
+  logRequest,
+  checkAuthentication,
+  checkPermission,
+} = require("../middlewares");
 const { NotFound } = require("../utils/errors");
 
 const router = express.Router();
@@ -70,7 +70,17 @@ const deleteHandler = async (req, res, next) => {
   }
 };
 
-const commonMiddleware = [logRequest, checkAuthentication, checkPermission];
+const addReourceName = async (req, res, next) => {
+  req.resourceName = "permission-edit";
+  next();
+};
+
+const commonMiddleware = [
+  addReourceName,
+  logRequest,
+  checkAuthentication,
+  checkPermission,
+];
 
 router.get("/:id", logRequest, getByIdHandler);
 router.post(

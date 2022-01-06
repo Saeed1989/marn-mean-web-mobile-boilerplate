@@ -16,10 +16,12 @@
               "type": "object",
               "properties": {
                 "username": {
-                  "type": "string"
+                  "type": "string",
+                  "example": "saeed.sharman"
                 },
                 "password": {
-                  "type": "string"
+                  "type": "string",
+                  "example": "password1"
                 }
               },
               "required": []

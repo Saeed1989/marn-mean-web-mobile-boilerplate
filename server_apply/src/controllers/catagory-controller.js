@@ -42,7 +42,17 @@ const deleteHandler = async (req, res, next) => {
   }
 };
 
-const commonMiddleware = [logRequest, checkAuthentication, checkPermission];
+const addReourceName = async (req, res, next) => {
+  req.resourceName = "catagory-edit";
+  next();
+};
+
+const commonMiddleware = [
+  addReourceName,
+  logRequest,
+  checkAuthentication,
+  checkPermission,
+];
 
 router.post(
   "/",

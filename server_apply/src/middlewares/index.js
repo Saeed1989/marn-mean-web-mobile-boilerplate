@@ -1,7 +1,7 @@
 const { handleError, handleRequest, handleValidation } = require("./common");
-const { logRequest } = require("./requestLogger");
-const { checkAuthentication } = require("./authGuard");
-const {checkPermission} = require("./permissionGuard");
+const { logRequest } = require("./request-logger");
+const { checkAuthentication } = require("./auth-guard");
+const {checkPermission} = require("./permission-guard");
 
 module.exports = {
   handleError,
