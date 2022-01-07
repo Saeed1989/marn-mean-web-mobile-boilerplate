@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <ul class="navbar-nav navbar-right">
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <span>{{ userName }}</span>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a class="nav-link" (click)="logOut()" style="cursor: pointer">Log Out</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container-fluid">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/home">Home</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/data">Data</a>
+    </li>
+  </ul>
+</div>

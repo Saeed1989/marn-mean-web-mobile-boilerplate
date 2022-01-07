@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-4">
+    <app-data-list
+      [errorMessage]="errorMessage$ | async"
+      [displayCode]="displayCode$ | async"
+      [dataList]="dataList$ | async"
+      [selectedData]="selectedData$ | async"
+      (displayCodeChanged)="checkChanged()"
+      (initializeNewData)="newData()"
+      (dataSelect)="dataSelected($any($event))"
+    >
+    </app-data-list>
+  </div>
+  <div class="col-md-8">
+    <app-data-edit
+      [selectedData]="selectedData$ | async"
+      (create)="saveData($any($event))"
+      (update)="updateData($any($event))"
+      (delete)="deleteData($any($event))"
+    ></app-data-edit>
+  </div>
+</div>

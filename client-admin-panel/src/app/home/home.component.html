@@ -1,0 +1,12 @@
+﻿<div class="card">
+  <div class="card-header btn-light">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <app-alert [alerts]="alerts$ | async"></app-alert>
+  </div>
+  <app-menu></app-menu>
+</div>
+<div *ngIf="errorMessage$ | async" class="alert alert-danger">
+  Error: {{ errorMessage$ | async }}
+</div>
