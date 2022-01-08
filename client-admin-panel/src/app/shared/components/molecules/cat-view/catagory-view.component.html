@@ -1,0 +1,7 @@
+<ul *ngFor = "let item of data; let i=index" class="list-group">
+  <li class="list-group-item">
+    {{ item.name }}
+    <button *ngIf="!item.sub" type="button" class="btn btn-info" (click)="select(item)" >Select</button>
+    <app-catagory-view *ngIf="item.sub"[data]="item.sub"></app-catagory-view>
+  </li>
+</ul>

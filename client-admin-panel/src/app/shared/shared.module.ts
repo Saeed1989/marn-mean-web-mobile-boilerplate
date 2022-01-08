@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/organisms/menu/menu.component';
 import { PageNotFoundComponent } from './components/organisms/no-page/page-not-found.component';
 import { LoadingIndicatorComponent } from './components/organisms/loading-indicator/loading-indicator.component';
+import { CatagoryTreeComponent } from './components/organisms/catagory-tree/catagory-tree.component';
+import { CatagoryViewComponent } from './components/molecules/cat-view/catagory-view.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
@@ -12,6 +14,8 @@ import { LoadingIndicatorComponent } from './components/organisms/loading-indica
     MenuComponent,
     PageNotFoundComponent,
     LoadingIndicatorComponent,
+    CatagoryTreeComponent,
+    CatagoryViewComponent
   ],
   exports: [
     CommonModule,
@@ -20,6 +24,7 @@ import { LoadingIndicatorComponent } from './components/organisms/loading-indica
     MenuComponent,
     PageNotFoundComponent,
     LoadingIndicatorComponent,
+    CatagoryTreeComponent,
   ],
 })
 export class SharedModule {}
