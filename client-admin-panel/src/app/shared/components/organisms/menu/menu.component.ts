@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
 
   get userName(): string {
     if (this.authService.currentUser) {
-      return this.authService.currentUser.userName;
+      return this.authService.currentUser.type;
     }
     return '';
   }

@@ -13,7 +13,7 @@ export class SetRootUrlInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const url = 'http://localhost:3000/v1';
+    const url = 'http://localhost:';
     req = req.clone({
       url: url + req.url,
     });

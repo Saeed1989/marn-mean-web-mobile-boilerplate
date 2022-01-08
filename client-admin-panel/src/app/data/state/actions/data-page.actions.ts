@@ -18,7 +18,8 @@ export const initializeCurrentData = createAction(
   '[Data Page] Initialize Current Data'
 );
 
-export const loadDataList = createAction('[Data Page] Load');
+export const loadDataList = createAction('[Data Page] Load',
+props<{ catHierarchy: string }>());
 
 export const updateData = createAction(
   '[Data Page] Update Data',

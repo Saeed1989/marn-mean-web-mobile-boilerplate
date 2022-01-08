@@ -5,36 +5,36 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Data } from '../modles/data.model';
+import { Data } from '../../modles/data.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NetworkService {
+export class DataNetworkService {
+  rootUrl = '5001';
   constructor(private http: HttpClient) {}
 
-  getAllDataList(): Observable<Data[]> {
+  getDataByCatagory(catHiararcy: string): Observable<Data[]> {
     console.log('Getting all data from the server.');
-    return this.http.get<Data[]>(`/api/dataList`);
+    return this.http.post<Data[]>(`${this.rootUrl}/api/data/search`, {
+      catagory: catHiararcy
+    });
   }
 
   getDataById(id: number): Observable<Data> {
-    return this.http.get<Data>(`/api/dataList/${id}`);
+    return this.http.get<Data>(`/api/data/${id}`);
   }
 
   addData(data: Data): Observable<Data> {
-    return this.http.post<Data>('/api/dataList', data);
+    return this.http.post<Data>('/api/data', data);
   }
 
   updateData(updatedData: Data): Observable<void> {
-    return this.http.patch<void>(
-      `/api/dataList/${updatedData.id}`,
-      updatedData
-    );
+    return this.http.patch<void>(`/api/data/${updatedData.id}`, updatedData);
   }
 
   deleteData(dataID: number): Observable<void> {
-    return this.http.delete<void>(`/api/dataList/${dataID}`);
+    return this.http.delete<void>(`/api/data/${dataID}`);
   }
 
   getAlerts(userId: string): Observable<void> {

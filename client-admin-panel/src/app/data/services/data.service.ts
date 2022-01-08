@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map, finalize } from 'rxjs/operators';
 import { Data } from '../../core/modles/data.model';
-import { NetworkService } from 'src/app/core/services/network.service';
+import { DataNetworkService } from 'src/app/core/services/network/data-network.service';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
 import * as LoadingPageActions from 'src/app/state/loading.actions';
@@ -12,13 +12,13 @@ import { AppFetchErrorHandlerService } from 'src/app/core/services/fetch-error-h
 export class DataService {
   constructor(
     private appFetchErrorHandlerService: AppFetchErrorHandlerService,
-    private networkService: NetworkService,
+    private networkService: DataNetworkService,
     private store: Store<State>
   ) {}
 
-  getDataList(): Observable<Data[]> {
+  getDataList(catHiararcy: string): Observable<Data[]> {
     return this.addLaoding(
-      this.networkService.getAllDataList().pipe(
+      this.networkService.getDataByCatagory(catHiararcy).pipe(
         tap((data) => console.log(JSON.stringify(data))),
         catchError(this.handleError.bind(this))
       )

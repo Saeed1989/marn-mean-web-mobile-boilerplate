@@ -21,7 +21,7 @@ export const getMaskUserName = createSelector(
 
 export const getCurrentUser = createSelector(
   getUserFeatureState,
-  state => state.currentUser
+  state => state?.currentUser || null
 );
 
 export const userReducer = createReducer<UserState>(

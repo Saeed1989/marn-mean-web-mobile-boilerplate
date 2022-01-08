@@ -15,8 +15,8 @@ export class DataEffects {
   loadDataList$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(DataPageActions.loadDataList),
-      mergeMap(() =>
-        this.dataService.getDataList().pipe(
+      mergeMap((action) =>
+        this.dataService.getDataList(action.catHierarchy).pipe(
           map((dataList) => DataApiActions.loadDataSuccess({ dataList })),
           catchError((error) =>
             of(DataApiActions.loadDataFailure({ error }))

@@ -23,7 +23,7 @@ export class DataContainerComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(DataPageActions.loadDataList());
+
     this.dataList$ = this.store.select(getDataList);
     this.errorMessage$ = this.store.select(getError);
     this.selectedData$ = this.store.select(getCurrentData);
@@ -67,5 +67,9 @@ export class DataContainerComponent implements OnInit {
     if (data) {
       this.store.dispatch(DataPageActions.updateData({ data }));
     }
+  }
+
+  onSelectCatagory(catHiararcy): void {
+    this.store.dispatch(DataPageActions.loadDataList({catHierarchy: (catHiararcy || '')}));
   }
 }

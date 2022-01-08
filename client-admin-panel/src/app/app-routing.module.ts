@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   },
   {
     path: SelfUrl.HOME,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
@@ -20,6 +20,7 @@ const appRoutes: Routes = [
   },
   {
     path: SelfUrl.DATA,
+    canActivate: [AuthGuard],
     loadChildren: () => import('./data/data.module').then((m) => m.DataModule),
   },
 ]

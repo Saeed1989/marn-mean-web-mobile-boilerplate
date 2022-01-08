@@ -5,6 +5,7 @@ import { setCurrentUser } from 'src/app/login/state/user.actions';
 import { getCurrentUser, userReducer } from 'src/app/login/state/user.reducer';
 import { User } from '../modles/user.model';
 import { SessionStorageService } from './sessiont-storage.service';
+import { LoginNetworkService } from './network/login-network.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class AuthService {
 
   constructor(
     private store: Store<State>,
-    private ssService: SessionStorageService
+    private ssService: SessionStorageService,
+    private loginNetworkService: LoginNetworkService
   ) {
     // get user from session storage
     let currUser = this.ssService.getCurrentUser();
@@ -33,13 +35,16 @@ export class AuthService {
     // Code here would log into a back end service
     // and return user information
     // This is just hard-coded here.
-    this.currentUser = {
-      id: 2,
-      userName,
-      isAdmin: false,
-    };
-    this.ssService.setCurrentUser(this.currentUser);
-    this.store.dispatch(setCurrentUser({ currentUser: this.currentUser }));
+    this.loginNetworkService.login(userName, password).subscribe(res=>{
+      this.currentUser = {
+        accessToken: res.accessToken,
+        type: res.type,
+        isAdmin: false,
+      };
+      this.ssService.setCurrentUser(this.currentUser);
+      this.store.dispatch(setCurrentUser({ currentUser: this.currentUser }));
+    })
+
   }
 
   logout(): void {

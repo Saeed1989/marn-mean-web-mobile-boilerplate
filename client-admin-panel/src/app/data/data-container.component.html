@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-4">
-    <app-catagory-tree></app-catagory-tree> 
+    <app-catagory-tree
+    (select)="onSelectCatagory($event)"></app-catagory-tree> 
     <app-data-list
       [errorMessage]="errorMessage$ | async"
       [displayCode]="displayCode$ | async"

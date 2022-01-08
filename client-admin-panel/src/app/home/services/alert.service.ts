@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map, finalize } from 'rxjs/operators';
-import { NetworkService } from 'src/app/core/services/network.service';
+import { DataNetworkService } from 'src/app/core/services/network/data-network.service';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
 import * as LoadingPageActions from 'src/app/state/loading.actions';
@@ -12,7 +12,7 @@ import { Alert } from 'src/app/core/modles/alert.model';
 export class AlertService {
   constructor(
     private appFetchErrorHandlerService: AppFetchErrorHandlerService,
-    private networkService: NetworkService,
+    private networkService: DataNetworkService,
     private store: Store<State>
   ) {}
 
