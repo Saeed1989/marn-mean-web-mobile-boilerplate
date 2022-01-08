@@ -10,9 +10,9 @@
       <button class="list-group-item list-group-item-action rounded-0"
               *ngFor="let data of dataList"
               [ngClass]="{'active': data?.id === selectedData?.id}"
-              (click)="onDataSelected(data)">{{ data.dataName }}
+              (click)="onDataSelected(data)">{{ data.name }}
         <ng-container *ngIf="displayCode">
-          ({{ data.jerseyNumber }})
+          ({{ data.id }})
         </ng-container>
       </button>
     </div>
@@ -26,7 +26,7 @@
                  type="checkbox"
                  (change)="checkChanged()"
                  [checked]="displayCode">
-          Display Jersey Number
+          Display Id
         </label>
       </div>
       <div class="col-md-4 text-right">

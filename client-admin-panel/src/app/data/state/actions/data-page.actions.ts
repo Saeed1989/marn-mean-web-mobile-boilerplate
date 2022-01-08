@@ -2,7 +2,7 @@ import { Data } from '../../../core/modles/data.model';
 import { createAction, props } from '@ngrx/store';
 
 export const toggleDataCode = createAction(
-  '[Data Page] Toggle Jersey Number'
+  '[Data Page] Toggle Dat Code'
 );
 
 export const setCurrentData = createAction(

@@ -44,12 +44,9 @@ export class DataEditComponent implements OnInit, OnChanges {
         minlength: 'Data name must be at least three characters.',
         maxlength: 'Data name cannot exceed 50 characters.',
       },
-      jerseyNumber: {
+      catagory: {
         required: 'Data code is required.',
-      },
-      starRating: {
-        range: 'Rate the data between 1 (lowest) and 5 (highest).',
-      },
+      }
     };
 
     // Define an instance of the validator for use with this form,
@@ -68,8 +65,7 @@ export class DataEditComponent implements OnInit, OnChanges {
           Validators.maxLength(50),
         ],
       ],
-      jerseyNumber: ['', Validators.required],
-      starRating: ['', NumberValidators.range(1, 10)],
+      catagory: ['', Validators.required],
       description: '',
     });
 
@@ -107,14 +103,13 @@ export class DataEditComponent implements OnInit, OnChanges {
       if (data.id === 0) {
         this.pageTitle = 'Add Data';
       } else {
-        this.pageTitle = `Edit Data: ${data.dataName}`;
+        this.pageTitle = `Edit Data: ${data.name}`;
       }
 
       // Update the data on the form
       this.dataForm.patchValue({
-        dataName: data.dataName,
-        jerseyNumber: data.jerseyNumber,
-        starRating: data.starRating,
+        dataName: data.name,
+        catagory: data.catagory,
         description: data.description,
       });
     }

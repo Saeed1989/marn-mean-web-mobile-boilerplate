@@ -25,10 +25,9 @@ export const getCurrentData = createSelector(
     if (currentDataId === 0) {
       return {
         id: 0,
-        dataName: '',
-        jerseyNumber: '',
-        description: '',
-        starRating: 0,
+        name: '',
+        catagory: '',
+        description: ''
       };
     } else {
       return currentDataId

@@ -1,8 +1,7 @@
 /* data entity */
 export interface Data {
   id: number | null;
-  dataName: string;
-  jerseyNumber: string;
+  name: string;
+  catagory: string;
   description: string;
-  starRating: number;
 }

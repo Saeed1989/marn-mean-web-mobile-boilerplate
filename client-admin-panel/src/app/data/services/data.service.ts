@@ -20,6 +20,11 @@ export class DataService {
     return this.addLaoding(
       this.networkService.getDataByCatagory(catHiararcy).pipe(
         tap((data) => console.log(JSON.stringify(data))),
+        map((res) => {
+          if (!res?.data) return [];
+          res.data.map((d) => (d.id = d._id));
+          return res.data;
+        }),
         catchError(this.handleError.bind(this))
       )
     );

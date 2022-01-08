@@ -28,41 +28,21 @@
 
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="dataCodeId"
-            >Jersey Number</label
+            >Catagory</label
           >
 
           <div class="col-md-9">
             <input
-              [ngClass]="{ 'is-invalid': displayMessage.jerseyNumber }"
+              [ngClass]="{ 'is-invalid': displayMessage.catagory }"
               class="form-control"
               id="dataCodeId"
               type="text"
               placeholder="Code (required)"
-              formControlName="jerseyNumber"
+              formControlName="catagory"
               (blur)="blur()"
             />
-            <span class="invalid-feedback" *ngIf="displayMessage.jerseyNumber">
-              {{ displayMessage.jerseyNumber }}
-            </span>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label" for="starRatingId"
-            >Star Rating (1-10)</label
-          >
-
-          <div class="col-md-9">
-            <input
-              [ngClass]="{ 'is-invalid': displayMessage.starRating }"
-              class="form-control"
-              id="starRatingId"
-              type="text"
-              placeholder="Rating"
-              formControlName="starRating"
-            />
-            <span class="invalid-feedback" *ngIf="displayMessage.starRating">
-              {{ displayMessage.starRating }}
+            <span class="invalid-feedback" *ngIf="displayMessage.catagory">
+              {{ displayMessage.catagory }}
             </span>
           </div>
         </div>

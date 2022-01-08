@@ -46,7 +46,7 @@ export class DataContainerComponent implements OnInit {
 
   deleteData(data: Data): void {
     if (data && data.id) {
-      if (confirm(`Really delete the data: ${data.dataName}?`)) {
+      if (confirm(`Really delete the data: ${data.name}?`)) {
         this.store.dispatch(
           DataPageActions.deleteData({ dataId: data.id })
         );

@@ -14,10 +14,10 @@ export class DataNetworkService {
   rootUrl = '5001';
   constructor(private http: HttpClient) {}
 
-  getDataByCatagory(catHiararcy: string): Observable<Data[]> {
+  getDataByCatagory(catHiararcy: string): Observable<any> {
     console.log('Getting all data from the server.');
-    return this.http.post<Data[]>(`${this.rootUrl}/api/data/search`, {
-      catagory: catHiararcy
+    return this.http.post<any>(`${this.rootUrl}/api/data/search`, {
+      searchText: catHiararcy
     });
   }
 
