@@ -1,1 +1,8 @@
-<app-shell></app-shell>
+<div>
+  <div class="position-absolute w-100 h-100">
+    <app-shell></app-shell>
+  </div>
+  <div class="position-absolute">
+    <app-loading-overlay [isLoading]="isLoading"></app-loading-overlay>
+  </div>
+</div>

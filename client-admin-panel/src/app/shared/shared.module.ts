@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './components/organisms/no-page/page-not-f
 import { LoadingIndicatorComponent } from './components/organisms/loading-indicator/loading-indicator.component';
 import { CatagoryTreeComponent } from './components/organisms/catagory-tree/catagory-tree.component';
 import { CatagoryViewComponent } from './components/molecules/cat-view/catagory-view.component';
+import { LoadingOverlayComponent } from './components/organisms/loading-overlay/loading-overlay.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
@@ -15,7 +16,8 @@ import { CatagoryViewComponent } from './components/molecules/cat-view/catagory-
     PageNotFoundComponent,
     LoadingIndicatorComponent,
     CatagoryTreeComponent,
-    CatagoryViewComponent
+    CatagoryViewComponent,
+    LoadingOverlayComponent,
   ],
   exports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { CatagoryViewComponent } from './components/molecules/cat-view/catagory-
     PageNotFoundComponent,
     LoadingIndicatorComponent,
     CatagoryTreeComponent,
+    LoadingOverlayComponent,
   ],
 })
 export class SharedModule {}
