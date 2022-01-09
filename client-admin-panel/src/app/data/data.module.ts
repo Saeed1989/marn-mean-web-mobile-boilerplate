@@ -11,6 +11,10 @@ import { StoreModule } from '@ngrx/store';
 import { dataReducer } from './state/data.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { DataEffects } from './state/data.effects';
+import { CatagoryService } from './services/catagory.service';
+import { CatagoryListComponent } from './catagory-list/catagory-list.component';
+import { catagoryReducer } from './state/catagory.reducer';
+import { CatagoryEffects } from './state/catagory.effects';
 
 const dataRoutes: Routes = [{ path: '', component: DataContainerComponent }];
 
@@ -19,13 +23,15 @@ const dataRoutes: Routes = [{ path: '', component: DataContainerComponent }];
     SharedModule,
     RouterModule.forChild(dataRoutes),
     StoreModule.forFeature('dataList', dataReducer),
-    EffectsModule.forFeature([DataEffects]),
+    StoreModule.forFeature('catagoryList', catagoryReducer),
+    EffectsModule.forFeature([DataEffects, CatagoryEffects]),
   ],
   declarations: [
     DataContainerComponent,
     DataListComponent,
     DataEditComponent,
+    CatagoryListComponent,
   ],
-  providers: [DataService],
+  providers: [DataService, CatagoryService],
 })
 export class DataModule {}

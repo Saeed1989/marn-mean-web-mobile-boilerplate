@@ -1,3 +1,5 @@
+import { Catagory } from '../modles/catagory.model';
+
 /**
  *
  */
@@ -33,15 +35,25 @@ export class CatagoryUtil {
     return catHierarchy;
   }
 
-  public static getCatListHierarchy(catList, catSku) {
-    const resultList = []
-    const cat =  catList.find(cat=> cat.catSku === catSku);
-    if(cat && cat.parentSku) {
-      resultList.push(this.getCatListHierarchy(catList, cat.parentSku));
-    } else if(cat) {
-      resultList.push(cat);
-    }
+  public static getCatListStructure(
+    catList: Catagory[],
+    parentSku: String = '',
+    catHierarchy: String = ''
+  ): any {
+    const newCatList: Catagory[] = catList.filter((cat) => {
+      return cat.parentSku === parentSku;
+    });
 
-    return resultList;
+    if (!newCatList || newCatList.length === 0) return null;
+
+    return newCatList.map((cat) => {
+      const hierarcy = `${catHierarchy}/${cat.sku}`;
+      return {
+        name: cat.catName,
+        sku: cat.sku,
+        catHierarchy: hierarcy,
+        sub: this.getCatListStructure(catList, cat.sku, hierarcy),
+      };
+    });
   }
 }
