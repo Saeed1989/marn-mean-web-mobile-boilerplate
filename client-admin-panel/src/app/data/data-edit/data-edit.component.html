@@ -6,22 +6,22 @@
     <form novalidate (ngSubmit)="saveData(data)" [formGroup]="dataForm">
       <fieldset>
         <div class="form-group row">
-          <label class="col-md-3 col-form-label" for="dataNameId"
+          <label class="col-md-3 col-form-label" for="nameId"
             >Data Name</label
           >
 
           <div class="col-md-9">
             <input
-              [ngClass]="{ 'is-invalid': displayMessage.dataName }"
+              [ngClass]="{ 'is-invalid': displayMessage.name }"
               class="form-control"
-              id="dataNameId"
+              id="nameId"
               type="text"
               placeholder="Name (required)"
-              formControlName="dataName"
+              formControlName="name"
               (blur)="blur()"
             />
-            <span class="invalid-feedback" *ngIf="displayMessage.dataName">
-              {{ displayMessage.dataName }}
+            <span class="invalid-feedback" *ngIf="displayMessage.name">
+              {{ displayMessage.name }}
             </span>
           </div>
         </div>
@@ -40,6 +40,7 @@
               placeholder="Code (required)"
               formControlName="catagory"
               (blur)="blur()"
+              readonly
             />
             <span class="invalid-feedback" *ngIf="displayMessage.catagory">
               {{ displayMessage.catagory }}
@@ -53,15 +54,16 @@
           >
 
           <div class="col-md-9">
-            <textarea
+            <input
               [ngClass]="{ 'is-invalid': displayMessage.description }"
               class="form-control"
               id="descriptionId"
               placeholder="Description"
               rows="3"
+              cols="80"
               formControlName="description"
-            >
-            </textarea>
+            />
+   
             <span class="invalid-feedback" *ngIf="displayMessage.description">
               {{ displayMessage.description }}
             </span>

@@ -1,6 +1,6 @@
 /* data entity */
 export interface Data {
-  id: number | null;
+  id: string;
   name: string;
   catagory: string;
   description: string;

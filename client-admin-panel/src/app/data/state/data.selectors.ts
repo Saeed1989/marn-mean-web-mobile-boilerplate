@@ -18,15 +18,21 @@ export const getCurrentDataId = createSelector(
   (state) => state.currentDataId
 );
 
+export const getCurrentCatHiararcy = createSelector(
+  getDataFeatureState,
+  (state) => state.currentCatHiararchy
+);
+
+
 export const getCurrentData = createSelector(
   getDataFeatureState,
   getCurrentDataId,
   (state, currentDataId) => {
-    if (currentDataId === 0) {
+    if (currentDataId === '0') {
       return {
-        id: 0,
+        id: '0',
         name: '',
-        catagory: '',
+        catagory: state.currentCatHiararchy,
         description: ''
       };
     } else {

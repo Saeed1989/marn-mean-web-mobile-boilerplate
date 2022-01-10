@@ -33,7 +33,7 @@ export const createDataFailure = createAction(
 
 export const deleteDataSuccess = createAction(
   '[Data API] Delete Data Success',
-  props<{ dataId: number }>()
+  props<{ dataId: string }>()
 );
 
 export const deleteDataFailure = createAction(

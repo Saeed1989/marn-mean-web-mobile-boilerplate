@@ -39,7 +39,7 @@ export class DataEditComponent implements OnInit, OnChanges {
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or database.
     this.validationMessages = {
-      dataName: {
+      name: {
         required: 'Data name is required.',
         minlength: 'Data name must be at least three characters.',
         maxlength: 'Data name cannot exceed 50 characters.',
@@ -57,7 +57,7 @@ export class DataEditComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     // Define the form group
     this.dataForm = this.fb.group({
-      dataName: [
+      name: [
         '',
         [
           Validators.required,
@@ -100,7 +100,7 @@ export class DataEditComponent implements OnInit, OnChanges {
       this.dataForm.reset();
 
       // Display the appropriate page title
-      if (data.id === 0) {
+      if (data.id === '0') {
         this.pageTitle = 'Add Data';
       } else {
         this.pageTitle = `Edit Data: ${data.name}`;
@@ -108,7 +108,7 @@ export class DataEditComponent implements OnInit, OnChanges {
 
       // Update the data on the form
       this.dataForm.patchValue({
-        dataName: data.name,
+        name: data.name,
         catagory: data.catagory,
         description: data.description,
       });
@@ -133,7 +133,7 @@ export class DataEditComponent implements OnInit, OnChanges {
         // This ensures values not on the form, such as the Id, are retained
         const data = { ...originalData, ...this.dataForm.value };
 
-        if (data.id === 0) {
+        if (data.id === '0') {
           this.create.emit(data);
         } else {
           this.update.emit(data);

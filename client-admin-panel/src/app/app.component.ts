@@ -17,7 +17,9 @@ export class AppComponent {
 
   ngAfterViewInit(): void {
     this.store.select(getCurrentLoading).subscribe((val) => {
-      this.isLoading = val;
+      setTimeout(() => {
+        this.isLoading = val;
+      });
     });
   }
 }

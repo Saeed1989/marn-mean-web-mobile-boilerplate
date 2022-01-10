@@ -11,33 +11,46 @@ import { Data } from '../../modles/data.model';
   providedIn: 'root',
 })
 export class DataNetworkService {
-  rootUrl = '5001';
+  rootUrlRead = '5001';
+  rootUrlWrite = '5003';
   constructor(private http: HttpClient) {}
 
   getDataByCatagory(catHiararcy: string): Observable<any> {
     console.log('Getting all data from the server.');
-    return this.http.post<any>(`${this.rootUrl}/api/data/search`, {
+    return this.http.post<any>(`${this.rootUrlRead}/api/data/search`, {
       searchText: catHiararcy
     });
   }
 
   getDataById(id: number): Observable<Data> {
-    return this.http.get<Data>(`/api/data/${id}`);
+    return this.http.get<Data>(`${this.rootUrlRead}/api/data/${id}`);
   }
 
-  addData(data: Data): Observable<Data> {
-    return this.http.post<Data>('/api/data', data);
+  addData(data: Data): Observable<String> {
+    const payload = {
+      name: data.name,
+      catagory: data.catagory,
+      description: data.description
+    }
+    return this.http.post<String>(`${this.rootUrlWrite}/api/data`, payload);
   }
 
-  updateData(updatedData: Data): Observable<void> {
-    return this.http.patch<void>(`/api/data/${updatedData.id}`, updatedData);
+  updateData(updatedData: Data): Observable<String> {
+
+    const ops = { observe: 'response', responseType: 'text' }
+    const payload = {
+      name: updatedData.name,
+      catagory: updatedData.catagory,
+      description: updatedData.description
+    }
+    return this.http.put(`${this.rootUrlWrite}/api/data/${updatedData.id}`, payload, {responseType: 'text'});
   }
 
-  deleteData(dataID: number): Observable<void> {
-    return this.http.delete<void>(`/api/data/${dataID}`);
+  deleteData(dataID: string): Observable<String> {
+    return this.http.delete(`${this.rootUrlWrite}/api/data/${dataID}`,{responseType: 'text'});
   }
 
   getAlerts(userId: string): Observable<void> {
-    return this.http.get<void>(`/api/alerts/${userId}`);
+    return this.http.get<void>(`${this.rootUrlRead}/api/alerts/${userId}`);
   }
 }

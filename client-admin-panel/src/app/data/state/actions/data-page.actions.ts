@@ -7,7 +7,7 @@ export const toggleDataCode = createAction(
 
 export const setCurrentData = createAction(
   '[Data Page] Set Current Data',
-  props<{ currentDataId: number }>()
+  props<{ currentDataId: string }>()
 );
 
 export const clearCurrentData = createAction(
@@ -33,5 +33,10 @@ export const createData = createAction(
 
 export const deleteData = createAction(
   '[Data Page] Delete Data',
-  props<{ dataId: number }>()
+  props<{ dataId: string }>()
+);
+
+export const setCurrentCatHiararcy = createAction(
+  '[Data Page] Set current cat Hiararcy',
+  props<{ catHiararcy: string }>()
 );

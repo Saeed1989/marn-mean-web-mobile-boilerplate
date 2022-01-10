@@ -73,7 +73,7 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
       }
     } else {
       // No need to delete, it was never saved
-      this.dataStore.dispatch(DataPageActions.clearCurrentData());
+      // this.dataStore.dispatch(DataPageActions.clearCurrentData());
     }
   }
 
@@ -90,6 +90,11 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
   }
 
   onSelectcatagory(catHiararcy): void {
+    // set current cat hiararcy
+    this.dataStore.dispatch(
+      DataPageActions.setCurrentCatHiararcy({ catHiararcy: catHiararcy })
+    );
+    //  load data list for this cat hiararcy
     this.dataStore.dispatch(
       DataPageActions.loadDataList({ catHierarchy: catHiararcy || '' })
     );

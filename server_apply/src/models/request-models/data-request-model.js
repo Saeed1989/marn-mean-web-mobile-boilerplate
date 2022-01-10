@@ -3,7 +3,7 @@ const Joi = require("joi");
 const schema = Joi.object().keys({
   name: Joi.string().required(),
   catagory: Joi.string().required(),
-  description: Joi.string().alphanum().required(),
+  description: Joi.string().required(),
 });
 
 const validate = (data) => {

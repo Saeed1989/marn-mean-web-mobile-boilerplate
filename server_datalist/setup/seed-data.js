@@ -5,7 +5,7 @@ require("dotenv").config();
 const { upsert } = require("../src/services/data-service");
 
 console.log("Seed starting");
-const uri = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+const uri = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME_DATA}`;
 console.log(uri);
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 const connectWithDb = () => {

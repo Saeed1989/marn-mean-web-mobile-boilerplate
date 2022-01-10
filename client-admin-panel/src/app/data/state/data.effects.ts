@@ -7,10 +7,7 @@ import { DataApiActions, DataPageActions } from './actions';
 
 @Injectable()
 export class DataEffects {
-  constructor(
-    private actions$: Actions,
-    private dataService: DataService
-  ) {}
+  constructor(private actions$: Actions, private dataService: DataService) {}
 
   loadDataList$ = createEffect(() => {
     return this.actions$.pipe(
@@ -18,9 +15,7 @@ export class DataEffects {
       mergeMap((action) =>
         this.dataService.getDataList(action.catHierarchy).pipe(
           map((dataList) => DataApiActions.loadDataSuccess({ dataList })),
-          catchError((error) =>
-            of(DataApiActions.loadDataFailure({ error }))
-          )
+          catchError((error) => of(DataApiActions.loadDataFailure({ error })))
         )
       )
     );
@@ -32,9 +27,7 @@ export class DataEffects {
       concatMap((action) =>
         this.dataService.updateData(action.data).pipe(
           map((data) => DataApiActions.updateDataSuccess({ data })),
-          catchError((error) =>
-            of(DataApiActions.updateDataFailure({ error }))
-          )
+          catchError((error) => of(DataApiActions.updateDataFailure({ error })))
         )
       )
     );
@@ -45,11 +38,13 @@ export class DataEffects {
       ofType(DataPageActions.createData),
       concatMap((action) =>
         this.dataService.createData(action.data).pipe(
-          tap((data) => console.log(data)),
-          map((data) => DataApiActions.createDataSuccess({ data })),
-          catchError((error) =>
-            of(DataApiActions.createDataFailure({ error }))
-          )
+          tap((dataId) => console.log(dataId)),
+          map((dataId) =>
+            DataApiActions.createDataSuccess({
+              data: { ...action.data, id: dataId },
+            })
+          ),
+          catchError((error) => of(DataApiActions.createDataFailure({ error })))
         )
       )
     );
@@ -63,9 +58,7 @@ export class DataEffects {
           map(() =>
             DataApiActions.deleteDataSuccess({ dataId: action.dataId })
           ),
-          catchError((error) =>
-            of(DataApiActions.deleteDataFailure({ error }))
-          )
+          catchError((error) => of(DataApiActions.deleteDataFailure({ error })))
         )
       )
     );

@@ -4,7 +4,8 @@ import { createReducer, on } from '@ngrx/store';
 
 export interface DataState {
   showDataCode: boolean;
-  currentDataId: number | null;
+  currentDataId: string;
+  currentCatHiararchy: string;
   dataList: Data[];
   error: string;
 }
@@ -12,6 +13,7 @@ export interface DataState {
 const initialState: DataState = {
   showDataCode: true,
   currentDataId: null,
+  currentCatHiararchy: '',
   dataList: [],
   error: '',
 };
@@ -39,7 +41,13 @@ export const dataReducer = createReducer<DataState>(
   on(DataPageActions.initializeCurrentData, (state): DataState => {
     return {
       ...state,
-      currentDataId: 0,
+      currentDataId: '0',
+    };
+  }),
+  on(DataPageActions.setCurrentCatHiararcy, (state, action): DataState => {
+    return {
+      ...state,
+      currentCatHiararchy: action.catHiararcy,
     };
   }),
   on(DataApiActions.loadDataSuccess, (state, action): DataState => {

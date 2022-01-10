@@ -30,7 +30,7 @@ export class DataService {
     );
   }
 
-  createData(data: Data): Observable<Data> {
+  createData(data: Data): Observable<string> {
     // Data Id must be null for the Web API to assign an Id
     const newData = { ...data, id: null };
     return this.addLaoding(
@@ -41,7 +41,7 @@ export class DataService {
     );
   }
 
-  deleteData(id: number): Observable<void> {
+  deleteData(id: string): Observable<void> {
     return this.addLaoding(
       this.networkService.deleteData(id).pipe(
         tap((data) => console.log('deleteData: ' + id)),

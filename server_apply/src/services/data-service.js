@@ -15,6 +15,8 @@ const update = async (data) => {
   let model = await Model.findById(id);
   if (model) {
     model.name = data.name;
+    model.description = data.description;
+    model.catagory = data.catagory;
     model.updatedAt = Date.now().toString();
     model.save();
     return model._id;

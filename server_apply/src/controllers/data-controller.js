@@ -44,6 +44,7 @@ const deleteHandler = async (req, res, next) => {
 
 const addReourceName = async (req, res, next) => {
   req.resourceName = "data-edit";
+  next();
 };
 
 const commonMiddleware = [

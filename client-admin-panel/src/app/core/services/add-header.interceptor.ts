@@ -6,14 +6,19 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { SessionStorageService } from './sessiont-storage.service';
 
 @Injectable()
 export class AddHeaderInterceptor implements HttpInterceptor {
+
+  constructor(private ssService: SessionStorageService) {}
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const userToken = 'dummy-user-token';
+    const user = this.ssService.getCurrentUser();
+    const userToken = (user && user.accessToken) ? `Bearer ${user.accessToken}` : '';
     req.headers.set('Authorization', `${userToken}`);
     let modifiedReq = req.clone({
       headers: req.headers
