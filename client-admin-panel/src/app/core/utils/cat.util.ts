@@ -37,8 +37,8 @@ export class CatagoryUtil {
 
   public static getCatListStructure(
     catList: Catagory[],
-    parentSku: String = '',
-    catHierarchy: String = ''
+    parentSku: string = '',
+    catHierarchy: string = ''
   ): any {
     const newCatList: Catagory[] = catList.filter((cat) => {
       return cat.parentSku === parentSku;
@@ -52,6 +52,7 @@ export class CatagoryUtil {
         name: cat.catName,
         sku: cat.sku,
         catHierarchy: hierarcy,
+        catagory: cat,
         sub: this.getCatListStructure(catList, cat.sku, hierarcy),
       };
     });

@@ -5,6 +5,7 @@ import { Catagory } from 'src/app/core/modles/catagory.model';
 export interface CatagoryState {
   showCatagoryCode: boolean;
   currentCatagoryId: string | null;
+  currentParentSku: string;
   catagoryList: Catagory[];
   error: string;
 }
@@ -12,6 +13,7 @@ export interface CatagoryState {
 const initialState: CatagoryState = {
   showCatagoryCode: true,
   currentCatagoryId: null,
+  currentParentSku: '',
   catagoryList: [],
   error: '',
 };
@@ -36,10 +38,11 @@ export const catagoryReducer = createReducer<CatagoryState>(
       currentCatagoryId: null,
     };
   }),
-  on(CatagoryPageActions.initializeCurrentCatagory, (state): CatagoryState => {
+  on(CatagoryPageActions.initializeCurrentCatagory, (state, action): CatagoryState => {
     return {
       ...state,
       currentCatagoryId: '0',
+      currentParentSku: action.parentSku
     };
   }),
   on(CatagoryApiActions.loadCatagorySuccess, (state, action): CatagoryState => {
@@ -75,9 +78,12 @@ export const catagoryReducer = createReducer<CatagoryState>(
   }),
   // After a create, the currentCatagory is the new catagory.
   on(CatagoryApiActions.createCatagorySuccess, (state, action): CatagoryState => {
+    console.log('create cat success');
+    console.log(action.catagory);
+    const updatedCatagoryList = [...state.catagoryList, action.catagory];
     return {
       ...state,
-      catagoryList: [...state.catagoryList, action.catagory],
+      catagoryList: updatedCatagoryList,
       currentCatagoryId: action.catagory.id,
       error: '',
     };

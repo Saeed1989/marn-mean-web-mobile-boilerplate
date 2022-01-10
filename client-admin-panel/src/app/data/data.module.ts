@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { DataContainerComponent } from './data-container.component';
+import { DataContainerComponent } from './data-container/data-container.component';
 import { DataListComponent } from './data-list/data-list.component';
 import { DataEditComponent } from './data-edit/data-edit.component';
 import { DataService } from './services/data.service';
@@ -15,8 +15,15 @@ import { CatagoryService } from './services/catagory.service';
 import { CatagoryListComponent } from './catagory-list/catagory-list.component';
 import { catagoryReducer } from './state/catagory.reducer';
 import { CatagoryEffects } from './state/catagory.effects';
+import { DataShellComponent } from './data-shell.component';
+import { CatagoryContainerComponent } from './catagory-container/catagory-container.component';
+import { CatagoryEditComponent } from './catagory-edit/catagory-edit.component';
 
-const dataRoutes: Routes = [{ path: '', component: DataContainerComponent }];
+const dataRoutes: Routes = [{ path: '', component: DataShellComponent, children: [
+  { path: '', redirectTo: 'data-edit', pathMatch: 'full' },
+  { path: 'data-edit', component: DataContainerComponent },
+  { path: 'catagory-edit', component: CatagoryContainerComponent }
+] }];
 
 @NgModule({
   imports: [
@@ -28,9 +35,12 @@ const dataRoutes: Routes = [{ path: '', component: DataContainerComponent }];
   ],
   declarations: [
     DataContainerComponent,
+    CatagoryContainerComponent,
     DataListComponent,
     DataEditComponent,
+    CatagoryEditComponent,
     CatagoryListComponent,
+    DataShellComponent
   ],
   providers: [DataService, CatagoryService],
 })

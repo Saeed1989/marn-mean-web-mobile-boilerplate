@@ -11,30 +11,46 @@ import { Catagory } from '../../modles/catagory.model';
   providedIn: 'root',
 })
 export class CatagoryNetworkService {
-  rootUrl = '5000';
+  readPort = '5000';
+  writePort = '5003';
   constructor(private http: HttpClient) {}
 
   getCatagories(): Observable<any> {
     console.log('Getting all catagory from the server.');
-    return this.http.get<any>(`${this.rootUrl}/api/catagories`);
+    return this.http.get<any>(`${this.readPort}/api/catagories`);
   }
 
   getCatagoryById(id: number): Observable<Catagory> {
-    return this.http.get<Catagory>(`/api/catagories/${id}`);
+    return this.http.get<Catagory>(`${this.readPort}/api/catagories/${id}`);
   }
 
-  addCatagory(catagory: Catagory): Observable<Catagory> {
-    return this.http.post<Catagory>('/api/catagories', catagory);
+  addCatagory(catagory: Catagory): Observable<string> {
+    const paylodad = {
+      catName: catagory.catName,
+      sku: catagory.sku,
+      description: catagory.description,
+      parentSku: catagory.parentSku,
+    };
+    return this.http.post<string>(`${this.writePort}/api/catagories`, paylodad);
   }
 
-  updateCatagory(updatedCatagory: Catagory): Observable<void> {
-    return this.http.patch<void>(
-      `/api/catagories/${updatedCatagory.id}`,
-      updatedCatagory
+  updateCatagory(updatedCatagory: Catagory): Observable<string> {
+    const paylodad = {
+      catName: updatedCatagory.catName,
+      sku: updatedCatagory.sku,
+      description: updatedCatagory.description,
+      parentSku: updatedCatagory.parentSku,
+    };
+    return this.http.put(
+      `${this.writePort}/api/catagories/${updatedCatagory.id}`,
+      paylodad,
+      { responseType: 'text' }
     );
   }
 
-  deleteCatagory(catagoryID: string): Observable<void> {
-    return this.http.delete<void>(`/api/catagories/${catagoryID}`);
+  deleteCatagory(catagoryID: string): Observable<string> {
+    return this.http.delete(`${this.writePort}/api/catagories/${catagoryID}`, {
+      responseType: 'text',
+    });
   }
 }

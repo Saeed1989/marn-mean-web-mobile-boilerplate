@@ -7,8 +7,10 @@ import { CatagoryUtil } from 'src/app/core/utils/cat.util';
 })
 export class CatagoryViewComponent implements OnInit {
 
+  @Input() hasAdd: boolean = false;
   @Input() data: any;
   @Output() select = new EventEmitter<string>();
+  @Output() add = new EventEmitter<string>();
 
 
 
@@ -21,5 +23,7 @@ export class CatagoryViewComponent implements OnInit {
     this.select.emit(item);
   }
 
-
+  onAdd(item) {
+    this.add.emit(item);
+  }
 }

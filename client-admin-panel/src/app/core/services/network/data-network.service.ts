@@ -18,7 +18,7 @@ export class DataNetworkService {
   getDataByCatagory(catHiararcy: string): Observable<any> {
     console.log('Getting all data from the server.');
     return this.http.post<any>(`${this.rootUrlRead}/api/data/search`, {
-      searchText: catHiararcy
+      searchText: catHiararcy,
     });
   }
 
@@ -26,28 +26,32 @@ export class DataNetworkService {
     return this.http.get<Data>(`${this.rootUrlRead}/api/data/${id}`);
   }
 
-  addData(data: Data): Observable<String> {
+  addData(data: Data): Observable<string> {
     const payload = {
       name: data.name,
       catagory: data.catagory,
-      description: data.description
-    }
-    return this.http.post<String>(`${this.rootUrlWrite}/api/data`, payload);
+      description: data.description,
+    };
+    return this.http.post<string>(`${this.rootUrlWrite}/api/data`, payload);
   }
 
-  updateData(updatedData: Data): Observable<String> {
-
-    const ops = { observe: 'response', responseType: 'text' }
+  updateData(updatedData: Data): Observable<string> {
     const payload = {
       name: updatedData.name,
       catagory: updatedData.catagory,
-      description: updatedData.description
-    }
-    return this.http.put(`${this.rootUrlWrite}/api/data/${updatedData.id}`, payload, {responseType: 'text'});
+      description: updatedData.description,
+    };
+    return this.http.put(
+      `${this.rootUrlWrite}/api/data/${updatedData.id}`,
+      payload,
+      { responseType: 'text' }
+    );
   }
 
-  deleteData(dataID: string): Observable<String> {
-    return this.http.delete(`${this.rootUrlWrite}/api/data/${dataID}`,{responseType: 'text'});
+  deleteData(dataID: string): Observable<string> {
+    return this.http.delete(`${this.rootUrlWrite}/api/data/${dataID}`, {
+      responseType: 'text',
+    });
   }
 
   getAlerts(userId: string): Observable<void> {

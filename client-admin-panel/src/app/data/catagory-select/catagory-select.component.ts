@@ -15,12 +15,30 @@ import { Catagory } from '../../core/modles/catagory.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatagoryListComponent {
-  @Input() hasAdd: boolean = false;
   @Input() catList: Catagory[];
   @Output() catagorySelect = new EventEmitter<Catagory>();
-  @Output() add = new EventEmitter<string>();
 
-  catListStructure = [];
+  catListStructure = [
+    {
+      name: 'Main Cat 1',
+      sku: 'maincat001',
+      catHierarchy: 'maincat001',
+      sub: [
+        {
+          name: 'sub cat 1',
+          sku: 'subcat1',
+          catHierarchy: '/maincat001/subcat1',
+          sub: null,
+        },
+      ],
+    },
+    {
+      name: 'Main Cat 3',
+      sku: 'maincat003',
+      catHierarchy: '/maincat003',
+      sub: null,
+    },
+  ];
 
   ngOnChanges(changes: SimpleChanges) {
     // changes.prop contains the old and the new value...
@@ -31,9 +49,5 @@ export class CatagoryListComponent {
 
   onSelectCatagory(Catagory: Catagory): void {
     this.catagorySelect.emit(Catagory);
-  }
-
-  onAdd(item): void {
-    this.add.emit(item);
   }
 }

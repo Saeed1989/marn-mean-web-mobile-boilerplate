@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Data } from '../core/modles/data.model';
+import { Data } from '../../core/modles/data.model';
 import { Store } from '@ngrx/store';
 import {
   State as DataState,
@@ -8,16 +8,16 @@ import {
   getCurrentData,
   getDataList,
   getError as getDataError,
-} from './state/data.selectors';
+} from '../state/data.selectors';
 import {
   State as CatState,
   getShowCatagoryCode,
   getCurrentCatagory,
   getCatagoryList,
-  getError as getCatError,
-} from './state/catagory.selectors';
-import { CatagoryPageActions, DataPageActions } from './state/actions';
-import { Catagory } from '../core/modles/catagory.model';
+  getCatagoryError as getCatError,
+} from '../state/catagory.selectors';
+import { CatagoryPageActions, DataPageActions } from '../state/actions';
+import { Catagory } from '../../core/modles/catagory.model';
 
 @Component({
   templateUrl: './data-container.component.html',
@@ -89,14 +89,14 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onSelectcatagory(catHiararcy): void {
+  onSelectcatagory(item): void {
     // set current cat hiararcy
     this.dataStore.dispatch(
-      DataPageActions.setCurrentCatHiararcy({ catHiararcy: catHiararcy })
+      DataPageActions.setCurrentCatHiararcy({ catHiararcy: item.catHiararcy })
     );
     //  load data list for this cat hiararcy
     this.dataStore.dispatch(
-      DataPageActions.loadDataList({ catHierarchy: catHiararcy || '' })
+      DataPageActions.loadDataList({ catHierarchy: item?.catHiararcy || '' })
     );
   }
 }

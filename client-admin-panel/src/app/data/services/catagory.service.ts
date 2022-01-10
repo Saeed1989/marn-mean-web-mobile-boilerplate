@@ -31,7 +31,7 @@ export class CatagoryService {
     );
   }
 
-  createCatagory(catagory: Catagory): Observable<Catagory> {
+  createCatagory(catagory: Catagory): Observable<string> {
     // Catagory Id must be null for the Web API to assign an Id
     const newCatagory = { ...catagory, id: null };
     return this.addLaoding(

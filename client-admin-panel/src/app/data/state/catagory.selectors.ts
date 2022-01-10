@@ -25,10 +25,10 @@ export const getCurrentCatagory = createSelector(
     if (currentCatagoryId === '0') {
       return {
         id: '0',
-        catName: '0',
-        sku: '0',
-        description: '0',
-        parentSku: '0',
+        catName: '',
+        sku: '',
+        description: '',
+        parentSku: state.currentParentSku,
       };
     } else {
       return currentCatagoryId
@@ -43,7 +43,7 @@ export const getCatagoryList = createSelector(
   (state) => state.catagoryList
 );
 
-export const getError = createSelector(
+export const getCatagoryError = createSelector(
   getCatagoryFeatureState,
   (state) => state.error
 );

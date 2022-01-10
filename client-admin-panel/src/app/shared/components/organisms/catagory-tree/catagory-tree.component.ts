@@ -7,14 +7,19 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CatagoryTreeComponent implements OnInit {
 
   @Input() catListStructure = [];
+  @Input() hasAdd: boolean = false;
   @Output() select = new EventEmitter<any>();
+  @Output() add = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
 
   onSelect(item){
-    console.log(item.catHierarchy);
-    this.select.emit(item.catHierarchy);
+    this.select.emit(item);
+  }
+
+  onAdd(item) {
+    this.add.emit(item);
   }
 }

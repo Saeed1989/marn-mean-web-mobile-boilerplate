@@ -1,3 +1,9 @@
 <div class="container-fluid">
-  <app-catagory-view (select)="onSelect($event)"[data]="catListStructure"></app-catagory-view>
+  <app-catagory-view
+    (select)="onSelect($event)"
+    (add)="onAdd($event)"
+    [hasAdd]="hasAdd"
+    [data]="catListStructure"
+    
+  ></app-catagory-view>
 </div>

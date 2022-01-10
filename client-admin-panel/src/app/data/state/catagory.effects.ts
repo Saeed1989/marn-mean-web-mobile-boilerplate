@@ -17,7 +17,9 @@ export class CatagoryEffects {
       ofType(CatagoryPageActions.loadCatagoryList),
       mergeMap((action) =>
         this.catagoryService.getCatagoryList().pipe(
-          map((catagoryList) => CatagoryApiActions.loadCatagorySuccess({ catagoryList })),
+          map((catagoryList) =>
+            CatagoryApiActions.loadCatagorySuccess({ catagoryList })
+          ),
           catchError((error) =>
             of(CatagoryApiActions.loadCatagoryFailure({ error }))
           )
@@ -31,7 +33,9 @@ export class CatagoryEffects {
       ofType(CatagoryPageActions.updateCatagory),
       concatMap((action) =>
         this.catagoryService.updateCatagory(action.catagory).pipe(
-          map((catagory) => CatagoryApiActions.updateCatagorySuccess({ catagory })),
+          map((catagory) =>
+            CatagoryApiActions.updateCatagorySuccess({ catagory })
+          ),
           catchError((error) =>
             of(CatagoryApiActions.updateCatagoryFailure({ error }))
           )
@@ -45,8 +49,12 @@ export class CatagoryEffects {
       ofType(CatagoryPageActions.createCatagory),
       concatMap((action) =>
         this.catagoryService.createCatagory(action.catagory).pipe(
-          tap((catagory) => console.log(catagory)),
-          map((catagory) => CatagoryApiActions.createCatagorySuccess({ catagory })),
+          tap((catID) => console.log(catID)),
+          map((catID) =>
+            CatagoryApiActions.createCatagorySuccess({
+              catagory: { ...action.catagory, id: catID },
+            })
+          ),
           catchError((error) =>
             of(CatagoryApiActions.createCatagoryFailure({ error }))
           )
@@ -61,7 +69,9 @@ export class CatagoryEffects {
       mergeMap((action) =>
         this.catagoryService.deleteCatagory(action.catagoryId).pipe(
           map(() =>
-            CatagoryApiActions.deleteCatagorySuccess({ catagoryId: action.catagoryId })
+            CatagoryApiActions.deleteCatagorySuccess({
+              catagoryId: action.catagoryId,
+            })
           ),
           catchError((error) =>
             of(CatagoryApiActions.deleteCatagoryFailure({ error }))
