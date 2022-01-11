@@ -12,7 +12,10 @@ const update = async (catagory) => {
   const id = catagory.id;
   let model = await Model.findById(id);
   if (model) {
-    model.name = catagory.name;
+    model.catName = catagory.catName;
+    model.sku = catagory.sku;
+    model.description = catagory.description;
+    model.parentSku = catagory.parentSku;
     model.updatedAt = Date.now().toString();
     model.save();
     return model._id;
