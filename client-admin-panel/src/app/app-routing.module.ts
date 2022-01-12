@@ -16,17 +16,35 @@ const appRoutes: Routes = [
   },
   {
     path: SelfUrl.LOGIN,
-    loadChildren: () => import('./login/login.module').then((m) => m.LoginModule),
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
   {
     path: SelfUrl.DATA,
     canActivate: [AuthGuard],
     loadChildren: () => import('./data/data.module').then((m) => m.DataModule),
   },
-]
+  {
+    path: SelfUrl.RESOURCE,
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./resource/resource.module').then((m) => m.ResourceModule),
+  },
+  {
+    path: SelfUrl.ROLE,
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./role/role.module').then((m) => m.RoleModule),
+  },
+  {
+    path: SelfUrl.PERMISSION,
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./permission/permission.module').then((m) => m.PermissionModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
