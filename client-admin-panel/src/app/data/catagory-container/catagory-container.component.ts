@@ -10,6 +10,9 @@ import {
 } from '../state/catagory.selectors';
 import { CatagoryPageActions } from '../state/actions';
 import { Catagory } from '../../core/modles/catagory.model';
+import { getCurrentUser, UserState } from 'src/app/login/state/user.reducer';
+import { take } from 'rxjs/operators';
+import { Authority } from 'src/app/core/constants/authority.constant';
 
 @Component({
   templateUrl: './catagory-container.component.html',
@@ -19,9 +22,11 @@ export class CatagoryContainerComponent implements OnInit, AfterViewInit {
   errorMessage$: Observable<string>;
   catList$: Observable<Catagory[]>;
   selectedCatagory$: Observable<Catagory>;
+  hasEditPermission = false;
 
   constructor(
-    private catStore: Store<CatState>
+    private catStore: Store<CatState>,
+    private store: Store<UserState>
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +41,18 @@ export class CatagoryContainerComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // load catagory on start
     this.catStore.dispatch(CatagoryPageActions.loadCatagoryList());
+
+    this.store
+      .select(getCurrentUser)
+      .pipe(take(1))
+      .subscribe((user) => {
+        setTimeout(() => {
+          this.hasEditPermission = [
+            Authority.ADMIN,
+            Authority.MANAGER,
+          ].includes(user.currentAuthority);
+        });
+      });
   }
 
   checkChanged(): void {
@@ -43,7 +60,9 @@ export class CatagoryContainerComponent implements OnInit, AfterViewInit {
   }
 
   newCatagory(parentSku: string): void {
-    this.catStore.dispatch(CatagoryPageActions.initializeCurrentCatagory({parentSku}));
+    this.catStore.dispatch(
+      CatagoryPageActions.initializeCurrentCatagory({ parentSku })
+    );
   }
 
   catagorySelected(catagory: Catagory): void {
@@ -67,20 +86,26 @@ export class CatagoryContainerComponent implements OnInit, AfterViewInit {
 
   saveCatagory(catagory: Catagory): void {
     if (catagory) {
-      this.catStore.dispatch(CatagoryPageActions.createCatagory({ catagory: catagory }));
+      this.catStore.dispatch(
+        CatagoryPageActions.createCatagory({ catagory: catagory })
+      );
     }
   }
 
   updateCatagory(catagory: Catagory): void {
     if (catagory) {
-      this.catStore.dispatch(CatagoryPageActions.updateCatagory({ catagory: catagory }));
+      this.catStore.dispatch(
+        CatagoryPageActions.updateCatagory({ catagory: catagory })
+      );
     }
   }
 
   onSelectcatagory(item): void {
-     //  load catagory list for this cat hiararcy
+    //  load catagory list for this cat hiararcy
     this.catStore.dispatch(
-      CatagoryPageActions.setCurrentCatagory ({ currentCatagoryId: item?.catagory?.id || '0' })
+      CatagoryPageActions.setCurrentCatagory({
+        currentCatagoryId: item?.catagory?.id || '0',
+      })
     );
   }
 

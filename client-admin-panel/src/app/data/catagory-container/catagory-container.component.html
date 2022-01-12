@@ -10,6 +10,7 @@
   <div class="col-md-8">
     <app-catagory-edit
       [selectedCatagory]="selectedCatagory$ | async"
+      [hasEditPermission]="hasEditPermission" 
       (create)="saveCatagory($any($event))"
       (update)="updateCatagory($any($event))"
       (delete)="deleteCatagory($any($event))"

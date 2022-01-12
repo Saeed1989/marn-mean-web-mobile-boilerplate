@@ -44,7 +44,7 @@ const connectWithDataDb = () => {
 
 const uriUser = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME_USER}`;
 connectWithUserDb = () => {
-  return connectWithDataDb(uriUser, "User")
+  return connectWithDb(uriUser, "User")
 };
 
 module.exports = { connectWithCatagoryDb, connectWithDataDb, connectWithUserDb};

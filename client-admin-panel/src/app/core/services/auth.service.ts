@@ -36,11 +36,7 @@ export class AuthService {
     // and return user information
     // This is just hard-coded here.
     this.loginNetworkService.login(userName, password).subscribe(res=>{
-      this.currentUser = {
-        accessToken: res.accessToken,
-        type: res.type,
-        isAdmin: false,
-      };
+      this.currentUser = {...res};
       this.ssService.setCurrentUser(this.currentUser);
       this.store.dispatch(setCurrentUser({ currentUser: this.currentUser }));
     })

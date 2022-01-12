@@ -1,6 +1,8 @@
 /* user entity */
 export interface User {
+    firstName: string,
+    lastName: string,
     accessToken: string;
     type: string;
-    isAdmin: boolean;
+    currentAuthority: string,
 }

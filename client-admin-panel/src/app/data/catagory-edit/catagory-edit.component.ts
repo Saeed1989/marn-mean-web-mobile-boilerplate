@@ -21,10 +21,12 @@ import { GenericValidator } from 'src/app/core/validators/generic-validator';
   templateUrl: './catagory-edit.component.html',
 })
 export class CatagoryEditComponent implements OnInit, OnChanges {
+  @Input() selectedCatagory: Catagory;
+  @Input() hasEditPermission = false;
+
   pageTitle = 'Catagory Edit';
   errorMessage = '';
   catagoryForm: FormGroup;
-  @Input() selectedCatagory: Catagory;
 
   @Output() create = new EventEmitter<boolean>();
   @Output() update = new EventEmitter<void>();

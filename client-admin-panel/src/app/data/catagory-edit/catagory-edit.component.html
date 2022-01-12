@@ -19,6 +19,7 @@
               placeholder="Name (required)"
               formControlName="catName"
               (blur)="blur()"
+              [readonly] = "!hasEditPermission"
             />
             <span class="invalid-feedback" *ngIf="displayMessage.catName">
               {{ displayMessage.catName }}
@@ -40,6 +41,7 @@
               placeholder="Code (required)"
               formControlName="sku"
               (blur)="blur()"
+              [readonly] = "!hasEditPermission"
             />
             <span class="invalid-feedback" *ngIf="displayMessage.sku">
               {{ displayMessage.sku }}
@@ -61,6 +63,7 @@
               rows="3"
               cols="80"
               formControlName="description"
+              [readonly] = "!hasEditPermission"
             />
    
             <span class="invalid-feedback" *ngIf="displayMessage.description">
@@ -91,7 +94,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div *ngIf="hasEditPermission" class="form-group">
           <div class="col-md-10 col-md-offset-2">
             <span>
               <button

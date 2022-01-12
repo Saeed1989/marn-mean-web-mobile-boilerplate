@@ -26,7 +26,9 @@ const loginHandler = async (req, res) => {
       const antdPayload = {
         status: "ok",
         type: "account",
-        currentAuthority: "admin",
+        currentAuthority: rest.roleName,
+        firstName: rest.firstName,
+        lastName: rest.lastName,
         user: rest,
         accessToken: token,
         userInfo: {

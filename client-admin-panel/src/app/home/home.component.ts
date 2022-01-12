@@ -6,6 +6,9 @@ import { State } from '../state/app.state';
 import { getCurrentUser } from '../login/state/user.reducer';
 import { AlertPageActions } from './state/actions';
 import { getAlerts, getError } from './state/alert.selectors';
+import { Router } from '@angular/router';
+import { AuthService } from '../core/services/auth.service';
+import { SelfUrl } from '../core/constants/url.constant';
 
 @Component({
   templateUrl: './home.component.html',
@@ -17,7 +20,11 @@ export class HomeComponent {
 
   errorMessage$: Observable<string>;
 
-  constructor(private store: Store<State>) {}
+  constructor(
+    private store: Store<State>,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.store.select(getCurrentUser).subscribe((user) => {
@@ -27,5 +34,10 @@ export class HomeComponent {
     });
     this.alerts$ = this.store.select(getAlerts);
     this.errorMessage$ = this.store.select(getError);
+  }
+
+  onLogOut(): void {
+    this.authService.logout();
+    this.router.navigate([SelfUrl.LOGIN]);
   }
 }

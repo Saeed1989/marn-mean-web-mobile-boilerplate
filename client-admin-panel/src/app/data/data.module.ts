@@ -18,8 +18,9 @@ import { CatagoryEffects } from './state/catagory.effects';
 import { DataShellComponent } from './data-shell.component';
 import { CatagoryContainerComponent } from './catagory-container/catagory-container.component';
 import { CatagoryEditComponent } from './catagory-edit/catagory-edit.component';
+import { DataPermissionGuard } from './services/guards/permission-guard.service';
 
-const dataRoutes: Routes = [{ path: '', component: DataShellComponent, children: [
+const dataRoutes: Routes = [{ path: '', canActivate: [DataPermissionGuard], component: DataShellComponent, children: [
   { path: '', redirectTo: 'data-edit', pathMatch: 'full' },
   { path: 'data-edit', component: DataContainerComponent },
   { path: 'catagory-edit', component: CatagoryContainerComponent }
@@ -42,6 +43,6 @@ const dataRoutes: Routes = [{ path: '', component: DataShellComponent, children:
     CatagoryListComponent,
     DataShellComponent
   ],
-  providers: [DataService, CatagoryService],
+  providers: [DataService, CatagoryService, DataPermissionGuard],
 })
 export class DataModule {}

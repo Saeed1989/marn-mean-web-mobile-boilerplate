@@ -9,8 +9,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { getCurrentUser, UserState } from 'src/app/login/state/user.reducer';
-import { SelfUrl } from '../constants/url.constant';
-import { AuthService } from './auth.service';
+import { SelfUrl } from '../../constants/url.constant';
+import { AuthService } from '../auth.service';
 @Injectable({
   providedIn: 'root',
 })

@@ -1,32 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { SelfUrl } from 'src/app/core/constants/url.constant';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
 })
 export class MenuComponent implements OnInit {
-  pageTitle = 'Sample Data Management';
+  @Input() userName = '';
 
-  get isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
-  }
+  @Output() logOut = new EventEmitter<void>();
 
-  get userName(): string {
-    if (this.authService.currentUser) {
-      return this.authService.currentUser.type;
-    }
-    return '';
-  }
-
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit() {}
 
-  logOut(): void {
-    this.authService.logout();
-    this.router.navigate([SelfUrl.LOGIN]);
+  onLogOut(): void {
+    this.logOut.emit();
   }
 }

@@ -90,13 +90,14 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
   }
 
   onSelectcatagory(item): void {
+    console.log(item);
     // set current cat hiararcy
     this.dataStore.dispatch(
-      DataPageActions.setCurrentCatHiararcy({ catHiararcy: item.catHiararcy })
+      DataPageActions.setCurrentCatHiararcy({ catHiararcy: item.catHierarchy })
     );
     //  load data list for this cat hiararcy
     this.dataStore.dispatch(
-      DataPageActions.loadDataList({ catHierarchy: item?.catHiararcy || '' })
+      DataPageActions.loadDataList({ catHierarchy: item?.catHierarchy || '' })
     );
   }
 }

@@ -1,21 +1,27 @@
 const logger = require("pino")();
 const permissionSearch = require("../services/permission-service").search;
+const getUserById = require("../services/user-service").getById;
 
 const checkPermission = async (req, res, next) => {
-  next();
-  return ;
-  const user = req.user;
+  const userInfo = req.user;
   const resourceName = req.resourceName;
+  const user = await getUserById(userInfo.id);
   if (user && user.roleName && resourceName) {
     const permission = await permissionSearch({
       roleName: user.roleName,
-      resourceName: resourceName
+      resourceName: resourceName,
     });
 
-    if(permission && permission.isAllowed && !permission.isDisabled) {
+    if (
+      permission &&
+      permission.length > 0 &&
+      permission[0].isAllowed &&
+      !permission[0].isDisabled
+    ) {
       // the user has this permission
       logger.info("Has perission:", permission);
       next();
+      return;
     }
   }
 
