@@ -5,6 +5,8 @@ const Model = models.Catagory;
 const save = async (catagory) => {
   const model = await Model.createNew(catagory);
   const savedItem = await model.save();
+  model.updatedAt = Date.now().toString();
+  model.createdAt = Date.now().toString();
   return savedItem._id;
 };
 

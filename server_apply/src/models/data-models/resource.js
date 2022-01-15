@@ -5,6 +5,8 @@ const connectWithUserDb = mongo.connectWithUserDb;
 const resourceSchema = new mongoose.Schema({
   name: { type: String, required: true },
   type: { type: String, required: true },
+  createdAt: { type: String, required: false},
+  updatedAt: { type: String, required: false},
 });
 
 const Resource = connectWithUserDb().model("Resource", resourceSchema);

@@ -6,6 +6,8 @@ const connectWithUserDb = mongo.connectWithUserDb;
 const roleSchema = new mongoose.Schema({
     name: { type: String, unique: true, required: true },
     alias: { type: String, unique: true, required: true },
+    createdAt: { type: String, required: false},
+    updatedAt: { type: String, required: false},
 });
 
 // reference model

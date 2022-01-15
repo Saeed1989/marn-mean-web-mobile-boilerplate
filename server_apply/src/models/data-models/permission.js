@@ -9,6 +9,8 @@ const permissionSchema = new mongoose.Schema({
   resourceName: { type: String, required: true },
   isAllowed: { type: Boolean, required: true },
   isDisabled: { type: Boolean, required: true },
+  createdAt: { type: String, required: false},
+  updatedAt: { type: String, required: false},
 });
 
 // reference model

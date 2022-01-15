@@ -8,8 +8,8 @@ const dataSchema = new mongoose.Schema({
   secondDataField: { type: String },
   thirdDataField: { type: String },
   description: { type: String, required: true },
-  createdAt: { type: String, required: true },
-  updatedAt: { type: String, required: true },
+  createdAt: { type: String, required: false},
+  updatedAt: { type: String, required: false},
 });
 
 const Data = connectWithDataDb().model("Data", dataSchema);

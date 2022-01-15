@@ -21,6 +21,8 @@ const getAll = async () => {
 
 const save = async (user) => {
   const model = await Model.createNew(user);
+  model.updatedAt = Date.now().toString();
+  model.createdAt = Date.now().toString();
   const savedItem = await model.save();
   return savedItem._id;
 };

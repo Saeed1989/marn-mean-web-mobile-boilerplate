@@ -13,6 +13,8 @@ const getAll = async () => {
 
 const save = async (permission) => {
   const model = await Model.createNew(permission);
+  model.updatedAt = Date.now().toString();
+  model.createdAt = Date.now().toString();
   const savedItem = await model.save();
   return savedItem._id;
 };
