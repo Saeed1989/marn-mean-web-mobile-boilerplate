@@ -1,7 +1,5 @@
-const { PermissionViewModel } = require("./permission-view-model");
-const { FilterViewModel } = require("./filter-view-model");
+const { DataViewModel } = require("./data-view-model");
 
 module.exports = {
-  PermissionViewModel,
-  FilterViewModel,
+  DataViewModel
 };

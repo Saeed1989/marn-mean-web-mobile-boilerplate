@@ -7,8 +7,8 @@ const dataSchema = new mongoose.Schema({
   secondDataField: { type: String, required: true },
   thirdDataField: { type: String, required: true },
   description: { type: String, required: true },
-  createdAt: { type: Date, required: true },
-  updatedAt: { type: Date, required: true },
+  createdAt: { type: Date, required: false },
+  updatedAt: { type: Date, required: false },
 });
 
 dataSchema.index({ dataName: "text" });
