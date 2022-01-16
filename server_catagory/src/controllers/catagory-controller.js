@@ -36,7 +36,6 @@ const getBySkuHandler = async (req, res, next) => {
 };
 
 router.get("/:catSku", cors(), getBySkuHandler);
-
 router.get("/", cors(), getHandler);
 
 module.exports = router;

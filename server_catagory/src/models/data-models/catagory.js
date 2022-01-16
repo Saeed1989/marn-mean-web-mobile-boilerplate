@@ -6,6 +6,8 @@ const catagorySchema = new mongoose.Schema({
   sku: { type: String, required: true },
   description: { type: String, required: true },
   parentSku: { type: String, required: false },
+  createdAt: { type: String, required: false},
+  updatedAt: { type: String, required: false},
 });
 
 catagorySchema.index({ catagoryName: "text" });

@@ -1,4 +1,4 @@
-const catagoryValidate = require("./product-request-model");
+const catagoryValidate = require("./catagory-request-model");
 
 const validators = {
   catagorySchemaValidate: catagoryValidate,
