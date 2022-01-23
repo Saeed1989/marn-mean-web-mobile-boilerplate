@@ -49,3 +49,4 @@ This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICEN
 [swagger]: https://swagger.io/
 [jest]: https://jestjs.io/
 [super test]: https://github.com/visionmedia/supertest
+[Angular]: https://angular.io/
