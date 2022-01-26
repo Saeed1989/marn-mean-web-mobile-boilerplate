@@ -14,7 +14,8 @@ This repository is built on top of Express.js, React.js, React-Native and Angula
 #### Client side
 
 - [React] - A JavaScript library for building user interfaces
-- [Angular] - A JavaScript framework for building user interfaces
+- [Angular] - A JavaScript framework for building user interfaces]
+- [React-Native] - A JavaScript framework used to develop applications mostly for Android and iOS.
 - [MongoDB] - The application data platform
 - [Testing Library] - React Testing Library
 - [Axios] - Promise based HTTP client for the browser and node.js
@@ -50,3 +51,4 @@ This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICEN
 [jest]: https://jestjs.io/
 [super test]: https://github.com/visionmedia/supertest
 [Angular]: https://angular.io/
+[React-Native]: https://reactnative.dev/
