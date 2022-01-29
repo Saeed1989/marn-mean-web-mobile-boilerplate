@@ -12,7 +12,7 @@ This repository is built on top of Angular however in the implementation detail,
 - [NgRx] - Store is RxJS powered global state management for Angular applications, inspired by Redux.
 - [Karma] - Karma is a task runner for our tests.
 - [Jasmine] - Jasmine is a behavior-driven development framework for testing JavaScript code.
-- [Protractor] - Protractor is an end-to-end test framework for Angular.
+- [Cypress] - Cypress is a JavaScript end to end testing framework.
 
 ## Features
 
@@ -60,4 +60,4 @@ This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile
 [Karma]: https://karma-runner.github.io
 [Protractor]: http://www.protractortest.org/
 [NgRx]: https://ngrx.io/
-[Jasmine]: https://jasmine.github.io/
+[Cypress]: https://www.cypress.io/
