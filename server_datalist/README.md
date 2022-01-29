@@ -19,13 +19,20 @@ This repository is built on top of Express.js however in the implementation deta
 
 Details frameworks and packages can be found in the package.json files in server and client directory.
 
-### Features
+## Features
 
-### Parts
+- Get full datalist for a catagory
+- Get data by id
+- API is open without authorization check
+
+## Parts
+
+### Post: search by catagory name
+### Get: by id
 
 ## License
 
-This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICENSE).
+This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/blob/main/server_datalist/LICENSE)
 
 [node.js]: http://nodejs.org
 [express.js]: http://expressjs.com

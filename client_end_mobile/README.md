@@ -8,9 +8,14 @@ This repository is built on top of React.js however in the implementation detail
 
 - [React-Native] - A JavaScript framework used to develop applications mostly for Android and iOS.
 
-### Features
+## Features
 
-### Parts
+- Information of diverse fields is shown to the end clients category-wise.
+
+## Parts
+
+### Catagory selection panel
+### Data selection panel
 
 ## Development
 
@@ -31,7 +36,7 @@ Like `npm start`, but also attempts to open your app on a connected Android devi
 
 ## License
 
-This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICENSE).
+This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/blob/main/client_end_mobile/LICENSE).
 
 [node.js]: http://nodejs.org
 [express.js]: http://expressjs.com

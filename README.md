@@ -31,13 +31,30 @@ This repository is built on top of Express.js, React.js, React-Native and Angula
 
 Details frameworks and packages can be found in the package.json files in server and client directory.
 
-### Features
+## Features
 
-### Parts
+- Information of diverse fields is shown to the end clients category-wise.
+- In the admin panel data entry is done for users that have log-in credentials.
+- In the admin panel users have different levels of access.
+
+## Parts
+
+#### End client web application
+Folder: client-end
+#### End client mobile application
+Folder: client-end-mobile
+#### Admin panel web application
+Folder: client-admin-panel
+#### Datalist server
+Folder: server-datalist
+#### Catagory server
+Folder: server-catagory
+#### Data entry server
+Folder: server-apply
 
 ## License
 
-This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICENSE).
+This project is [MIT licensed](https://opensource.org/licenses/MIT)
 
 [node.js]: http://nodejs.org
 [express.js]: http://expressjs.com

@@ -24,13 +24,24 @@ This repository is built on top of Express.js however in the implementation deta
 
 Details frameworks and packages can be found in the package.json files in server and client directory.
 
-### Features
+## Features
 
-### Parts
+- CRUD for users, resources, role, permission, catagory, data
+- API is open to only authorised users
+- Operations are restriced based on level of usrs authority
+
+## Parts
+
+### User controller
+### Resource controller
+### Role controller
+### Permission controller
+### Catagory controller
+### Data controller
 
 ## License
 
-This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICENSE).
+This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/blob/main/server_apply/LICENSE)
 
 [node.js]: http://nodejs.org
 [express.js]: http://expressjs.com

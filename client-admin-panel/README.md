@@ -14,9 +14,20 @@ This repository is built on top of Angular however in the implementation detail,
 - [Jasmine] - Jasmine is a behavior-driven development framework for testing JavaScript code.
 - [Protractor] - Protractor is an end-to-end test framework for Angular.
 
-### Features
+## Features
 
-### Parts
+- In the admin panel data entry is done for users that have log-in credentials.
+- In the admin panel users have different levels of access.
+
+## Parts
+
+#### Login page
+#### Home page
+#### Data entry page
+#### Permission entry page
+#### Resource entry page
+#### Role entry page
+
 
 ## Development server
 

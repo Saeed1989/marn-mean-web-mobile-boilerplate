@@ -10,9 +10,14 @@ This repository is built on top of React.js however in the implementation detail
 - [Testing Library] - React Testing Library
 - [Axios] - Promise based HTTP client for the browser and node.js
 
-### Features
+## Features
 
-### Parts
+- Information of diverse fields is shown to the end clients category-wise.
+
+## Parts
+
+### Catagory selection panel
+### Data selection panel
 
 ## Development server
 
@@ -41,7 +46,7 @@ Your app is ready to be deployed!
 
 ## License
 
-This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICENSE).
+This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/blob/main/client-end/LICENSE).
 
 [node.js]: http://nodejs.org
 [express.js]: http://expressjs.com
