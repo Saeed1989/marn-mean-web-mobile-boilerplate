@@ -61,4 +61,4 @@ const upsert = async (data) => {
   return "Already exists";
 };
 
-module.exports = { getById, search, upsert };
+module.exports = { getById, search, upsert, save };

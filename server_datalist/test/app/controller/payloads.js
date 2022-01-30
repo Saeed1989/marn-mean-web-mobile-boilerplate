@@ -1,8 +1,9 @@
 const missingNamePayload = {
-  productName: '',
-  sku: 'abc',
-  price:1, 
-  cost:1,
+  "name": "",
+  "catagory": "",
+  "secondDataField": "",
+  "thirdDataField": "",
+  "description": "",
 }
 
 
