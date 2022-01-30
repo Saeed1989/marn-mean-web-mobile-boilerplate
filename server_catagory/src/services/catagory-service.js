@@ -22,9 +22,9 @@ const getAll = async () => {
 };
 
 const getBySku = async (sku) => {
-  let model = await Model.findById(sku);
-  let viewModel = CatagoryViewModel.convert(model);
-  return viewModel;
+  const item = await Model.findOne({sku});
+  let viewModels = CatagoryViewModel.convert(item);
+  return viewModels;
 };
 
 module.exports = {

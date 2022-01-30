@@ -14,7 +14,7 @@ describe("catagory", () => {
     const catagoryId = await catagoryService.upsert(catagoryComplete);
     expect(catagoryId).toBeDefined();
 
-    const catagory = await catagoryService.getBySku(catagoryId);
+    const catagory = await catagoryService.getBySku("thisisuniquesku");
     expect(catagory).toBeDefined();
     expect(catagory.catName).toBe("Main Cat 1");
   });
