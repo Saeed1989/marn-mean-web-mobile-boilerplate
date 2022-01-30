@@ -25,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage=true",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:ct": "cypress open-ct"
   },
   "eslintConfig": {
     "extends": [
@@ -46,8 +47,11 @@
     ]
   },
   "devDependencies": {
+    "@cypress/react": "^5.12.1",
+    "@cypress/webpack-dev-server": "^1.8.0",
     "@testing-library/react": "^11.2.7",
     "axios-mock-adapter": "^1.19.0",
+    "cypress": "^9.3.1",
     "eslint": "^7.31.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",

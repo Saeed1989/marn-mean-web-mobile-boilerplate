@@ -9,6 +9,7 @@ This repository is built on top of React.js however in the implementation detail
 - [React] - A JavaScript library for building user interfaces
 - [Testing Library] - React Testing Library
 - [Axios] - Promise based HTTP client for the browser and node.js
+- [Cypress] - Cypress is a JavaScript end to end testing framework.
 
 ## Features
 
@@ -59,4 +60,4 @@ This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile
 [swagger]: https://swagger.io/
 [jest]: https://jestjs.io/
 [super test]: https://github.com/visionmedia/supertest
-[Angular]: https://angular.io/
+[Cypress]: https://www.cypress.io/
