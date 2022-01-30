@@ -27,28 +27,8 @@ const getBySku = async (sku) => {
   return viewModel;
 };
 
-const search = async (payload) => {
-  let dateQuery = {};
-  if (payload.fromDate && payload.toDate) {
-    dateQuery = { updatedAt: { $gte: payload.fromDate, $lte: payload.toDate } };
-  }
-
-  let searchQuery = {};
-  if (payload.searchText) {
-    searchQuery = {
-      productName: { $regex: payload.searchText, $options: "i" },
-    };
-  }
-
-  let query = { $and: [dateQuery, searchQuery] };
-
-  const items = await Model.find(query).limit(10).sort({ updatedAt: -1 });
-  let viewModels = items.map((item) => CatagoryViewModel.convert(item));
-  return viewModels;
-};
-
 module.exports = {
   upsert,
   getAll,
-  getBySku: getBySku,
+  getBySku,
 };

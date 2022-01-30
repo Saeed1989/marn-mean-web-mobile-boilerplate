@@ -1,20 +1,12 @@
-const productRouter = require("../../../src/controllers/catagory-controller");
-const roleRouter = require("../../../src/controllers/role-controller");
+const catagoryRouter = require("../../../src/controllers/catagory-controller");
 
 describe("Routes", () => {
-  // product routes setup ok
-  test("product routes setup ok", () => {
-    const routes = productRouter.stack
+  // catagory routes setup ok
+  test("catagory routes setup ok", () => {
+    const routes = catagoryRouter.stack
       .filter((layer) => layer.route)
       .map((layer) => layer.route.path);
-    expect(routes.includes("/search")).toBe(true);
+    expect(routes.includes("/:catSku")).toBe(true);
   });
 
-  // role routes setup ok
-  test("role routes setup ok", () => {
-    const routes = roleRouter.stack
-      .filter((layer) => layer.route)
-      .map((layer) => layer.route.path);
-    expect(routes.includes("/search")).toBe(true);
-  });
 });
