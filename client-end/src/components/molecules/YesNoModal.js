@@ -11,26 +11,26 @@ export const YesNoModal = (props) => {
 
   return (
     <div
-      class={"modal fade " + (isShow ? "show" : "")}
+      className={"modal fade " + (isShow ? "show" : "")}
       id="exampleModal"
-      tabindex="-1"
+      tabIndex="-1"
       role="dialog"
       style={isShow ? { display: "block" } : null}
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Confirmation!</h5>
-            <button type="button" class="close" onClick={handleNo}>
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title">Confirmation!</h5>
+            <button type="button" className="close" onClick={handleNo}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">{message}</div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onClick={handleNo}>
+          <div className="modal-body">{message}</div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" onClick={handleNo}>
               NO
             </button>
-            <button type="button" class="btn btn-primary" onClick={handleYes}>
+            <button type="button" className="btn btn-primary" onClick={handleYes}>
               Yes
             </button>
           </div>

@@ -4,10 +4,10 @@ import "./App.css";
 import { Main } from "./Pages/Main";
 import { AppProvider } from "./contexts/app";
 
-function App() {
+export function App() {
   return (
     <div className="d-flex flex-column vh-100">
-      <header class="container p-3 mb-2 bg-dark text-white">
+      <header className="container p-3 mb-2 bg-dark text-white">
         <div className="container d-flex flex-column" style={{ maxWidth: 960 }}>
           <div className="row justify-content-center align-self-center">
             <div className="logo">
@@ -35,5 +35,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
