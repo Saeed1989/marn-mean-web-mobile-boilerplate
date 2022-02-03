@@ -1,5 +1,6 @@
 const request = require('supertest')
 const dbHandler = require('../db-handler');
+
 beforeAll(async () => await dbHandler.connect());
 
 afterEach(async () => await dbHandler.clearDatabase());

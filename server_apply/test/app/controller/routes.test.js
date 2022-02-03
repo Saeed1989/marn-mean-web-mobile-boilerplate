@@ -1,14 +1,14 @@
-const productRouter = require('../../../src/controllers/product-controller');
+const resourceRouter = require('../../../src/controllers/resource-controller');
 const roleRouter = require('../../../src/controllers/role-controller');
 
 describe('Routes', () => {
 
-  // product routes setup ok
-  test('product routes setup ok', () => {
-    const routes = productRouter.stack
+  // resource routes setup ok
+  test('resource routes setup ok', () => {
+    const routes = resourceRouter.stack
       .filter(layer => layer.route)
       .map(layer => layer.route.path);
-    expect(routes.includes('/search')).toBe(true)
+    expect(routes.includes('/:id')).toBe(true)
   })
 
   // role routes setup ok
@@ -16,7 +16,7 @@ describe('Routes', () => {
     const routes = roleRouter.stack
       .filter(layer => layer.route)
       .map(layer => layer.route.path);
-    expect(routes.includes('/search')).toBe(true)
+    expect(routes.includes('/:id')).toBe(true)
   })
 })
 
