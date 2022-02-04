@@ -32,10 +32,10 @@ describe("Resource", () => {
     const resource = await resourceService.getById(resourceId);
     expect(resource.name).toBe("testResource1");
 
-    await resourceService.update({...resource, name: "testResource1 Updated"});
+    await resourceService.update({...resource, name: "testResource1Updated"});
 
     const updatedResource = await resourceService.getById(resourceId);
-    expect(updatedResource.name).toBe("testResource1 Updated");
+    expect(updatedResource.name).toBe("testResource1Updated");
   });
 
   /**

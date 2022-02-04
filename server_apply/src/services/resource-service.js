@@ -25,7 +25,7 @@ const update = async (resource) => {
   if (model) {
     model.name = resource.name;
     model.updatedAt = Date.now().toString();
-    model.save() ;
+    await model.save() ;
     return model._id;
   }
   throw new NotFound("Resource not found by the id: " + id);

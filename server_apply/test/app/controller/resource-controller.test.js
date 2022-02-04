@@ -13,23 +13,13 @@ afterAll(async () => await dbHandler.closeDatabase());
 const payloads = require("./payloads");
 
 describe("Check resource endpoints", () => {
-  const app = require("../../../src/app");
-
   // should create a resource and get by id successfully
   it("should create a resource and get by id successfully", async () => {
-    const res = await request(app).post("/api/resources").send({
-      name: "testResource1",
-      type: "testType",
-      createdAt: "2020-01-01",
-      updatedAt: "2020-04-01",
-    });
-    expect(res.statusCode).toEqual(201);
-    console.log(res.body);
-    expect(res.body).not.toBeNull();
-    const id = res.body;
+    const app = require("../../../src/app");
 
-    const res2 = await request(app).get("/api/resources/" + id);
-    expect(res2.statusCode).toEqual(200);
-    expect(res2.body.name).toEqual("testResource1");
+    const res = await request(app).get("/api/resources");
+    expect(res.statusCode).toEqual(200);
+    console.log(res.body);
+    expect(res.body).toEqual([]);
   });
 });
