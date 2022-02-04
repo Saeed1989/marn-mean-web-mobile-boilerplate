@@ -20,12 +20,12 @@ const save = async (resource) => {
 };
 
 const update = async (resource) => {
-  const id = resource.id;
+  const id = resource._id;
   let model = await Model.findById(id);
   if (model) {
     model.name = resource.name;
     model.updatedAt = Date.now().toString();
-    model.save();
+    model.save() ;
     return model._id;
   }
   throw new NotFound("Resource not found by the id: " + id);
@@ -40,6 +40,7 @@ const deleteById = async (id) => {
 
   throw new NotFound("Resource not found by the id: " + id);
 };
+
 const getById = async (id) => {
   let model = await Model.findById(id);
   let viewModel = ResourceViewModel.convert(model);
