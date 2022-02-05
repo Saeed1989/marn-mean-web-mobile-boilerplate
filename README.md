@@ -4,8 +4,8 @@
 
 In this repository we will keep adding boilerplate code for a complete project which covers API, DB, Web and Mobile platform.
 We should follow in both MEAN and MERN (MongoDB, Express.js, React.js, React-Native, Angular, and Node.js) in the project depending the part of project.
-Different part of the project is arranged in different folders. Details of that part is available in the readme file inside that folder.
-
+Different part of the project is arranged in different folders. Details of that part is available in the readme file inside that folder.<br/><br/>
+![](overallArchitecture.PNG)
 
 ## Technology stack
 
