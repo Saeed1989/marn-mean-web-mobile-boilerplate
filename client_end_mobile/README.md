@@ -7,6 +7,8 @@ This is the end client part of the project. This is a mobile application.
 This repository is built on top of React.js however in the implementation detail, we will find other supporting technologies as well.
 
 - [React-Native] - A JavaScript framework used to develop applications mostly for Android and iOS.
+- [Jest] - Jest is a JavaScript Testing Framework.
+- [Detox] - Gray box end-to-end testing and automation framework for mobile apps.
 
 ## Features
 
@@ -50,3 +52,5 @@ This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile
 [jest]: https://jestjs.io/
 [super test]: https://github.com/visionmedia/supertest
 [Angular]: https://angular.io/
+[React-Native]: https://reactnative.dev/
+[Detox]: https://wix.github.io/Detox/
