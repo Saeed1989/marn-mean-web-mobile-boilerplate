@@ -41,16 +41,31 @@ Details frameworks and packages can be found in the package.json files in server
 ## Parts
 
 #### End client web application
+This is the end client part of the project. This is a React single-page web app.
 Folder: client-end
+
 #### End client mobile application
+This is the mobile phone version of end client part of the project. This is a React-Native mobile app.
 Folder: client-end-mobile
+
 #### Admin panel web application
+This is the admin panel part of the project. This is an Angular single-page web app.
 Folder: client-admin-panel
+
 #### Datalist server
+This api serves data list. This is a NodeJS microservice.
 Folder: server-datalist
+
 #### Catagory server
+This api catagory list. This is a NodeJS microservice.
 Folder: server-catagory
+
 #### Data entry server
+This API serves the following two functions:
+- Create or update data and category items.
+- Provide, create, and update user roles and permission items.
+- Log in to the authentication.
+This is a NodeJS microservice.
 Folder: server-apply
 
 ## License
