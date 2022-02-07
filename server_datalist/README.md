@@ -2,8 +2,9 @@
 
 
 In this repository we will keep adding boilerplate code for the server part of data list api.
-This api serves data list only without any authentication check.
+This api serves data list only without any authentication check.<br/><br/>
 
+![](readSequenceData.png)
 
 ## Technology stack
 
