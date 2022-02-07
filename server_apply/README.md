@@ -5,10 +5,13 @@ In this repository, we will keep adding boilerplate code for the server part of 
 This API serves the following two functions:
 1. Create or update data and category items.
 2. Provide, create, and update user roles and permission items.
-3. Log in to the authentication.
+3. Log in authentication.
 
-Operation for this API is authentication restricted. For every API endpoint authentication is checked.
+Operation for this API is authentication restricted. For every API endpoint authentication is checked.<br/><br/>
 
+![](loginSequence.png)
+![](readSequenceUser.png)
+![](writeSequence.png)
 
 ## Technology stack
 
