@@ -2,8 +2,9 @@
 
 
 In this repository we will keep adding boilerplate code for the server part of catagory list api.
-This api serves catagory list only without any authentication check.
+This api serves catagory list only without any authentication check.<br/><br/>
 
+![](readSequenceCategory.png)
 
 ## Technology stack
 
