@@ -1,6 +1,8 @@
 # Welcome to the end client part of MEAN MERN Boilerplate project
 
-This is the end client part of the project. This is a single-page web app.
+This is the end client part of the project. This is a single-page web app.<br/><br/>
+
+![](endCientFlow.gif)
 
 ## Technology stack
 
