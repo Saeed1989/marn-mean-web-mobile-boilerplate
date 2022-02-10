@@ -2,6 +2,8 @@
 
 This is the admin panel part of the project. This is a single-page web app.
 
+![](adminFlow.gif)
+
 ## Technology stack
 
 This repository is built on top of Angular however in the implementation detail, we will find other supporting technologies as well.
