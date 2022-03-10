@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
-import { setCurrentUser } from 'src/app/login/state/user.actions';
+import { setCurrentUser, setUserError } from 'src/app/login/state/user.actions';
 import { getCurrentUser, userReducer } from 'src/app/login/state/user.reducer';
 import { User } from '../modles/user.model';
 import { SessionStorageService } from './sessiont-storage.service';
 import { LoginNetworkService } from './network/login-network.service';
+import { ConvertUtil } from '../utils/convert.util';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   currentUser: User | null = null;
-  redirectUrl: string = "";
+  redirectUrl: string = '';
 
   constructor(
     private store: Store<State>,
@@ -32,15 +33,19 @@ export class AuthService {
   }
 
   login(userName: string, password: string): void {
-    // Code here would log into a back end service
-    // and return user information
-    // This is just hard-coded here.
-    this.loginNetworkService.login(userName, password).subscribe(res=>{
-      this.currentUser = {...res};
-      this.ssService.setCurrentUser(this.currentUser);
-      this.store.dispatch(setCurrentUser({ currentUser: this.currentUser }));
-    })
-
+    this.loginNetworkService.login(userName, password).subscribe({
+      next: (res) => {
+        this.currentUser = { ...res };
+        this.ssService.setCurrentUser(this.currentUser);
+        this.store.dispatch(setCurrentUser({ currentUser: this.currentUser }));
+        this.store.dispatch(setUserError({ error: '' }));
+      },
+      error: (err) => {
+        this.store.dispatch(
+          setUserError({ error: ConvertUtil.errorToErrorMsg(err) })
+        );
+      },
+    });
   }
 
   logout(): void {
