@@ -7,8 +7,11 @@ import { AppProvider } from "./contexts/app";
 export function App() {
   return (
     <div className="d-flex flex-column vh-100">
-      <header className="container p-3 mb-2 bg-dark text-white">
-        <div className="container d-flex flex-column" style={{ maxWidth: 960 }}>
+      <header
+        className="container p-3 mb-2 bg-dark text-white"
+        style={{ maxWidth: 960 }}
+      >
+        <div className="container d-flex flex-column">
           <div className="row justify-content-center align-self-center">
             <div className="logo">
               <h1 className="header">MERN Boilerplate</h1>
@@ -25,7 +28,7 @@ export function App() {
         </AppProvider>
       </main>
 
-      <footer className="container">
+      <footer className="container" style={{ maxWidth: 960 }}>
         <div className="d-flex flex-column">
           <div className="row justify-content-center align-self-center">
             This is footer
