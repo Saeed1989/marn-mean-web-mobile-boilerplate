@@ -70,6 +70,7 @@ export const DalaListComponent = () => {
     <div className="d-flex flex-column flex-fill">
       <div className="row justify-content-center align-self-center">
         <div className="d-grid gap-2" style={{ minWidth: "18rem" }}>
+           <h5>Data List:</h5>
           {dataList.map((data, indx) => (
             <DataView key={indx} onSelect={onSelect} data={data}></DataView>
           ))}

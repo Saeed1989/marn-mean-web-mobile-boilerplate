@@ -76,6 +76,7 @@ export const CatagoryHierarchyComponent = () => {
       <h5>
         {selctedCatList.length > 0 ? (
           <span>
+            <h5>Category Hierarchy:</h5>
             <button className="badge bg-danger" onClick={onClearAll}>
               X
             </button>{" "}
