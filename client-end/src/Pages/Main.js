@@ -1,6 +1,6 @@
 import React from "react";
 import { CatagoryHierarchyComponent } from "../components/organisms/CatagoryHierarchyComponent";
-import { DalaListComponent } from "../components/organisms/DalaListComponent";
+import { DataListComponent } from "../components/organisms/DataListComponent";
 import { AppContext } from "../contexts/app";
 import { useEffect } from "react";
 import * as CAT_API from "../services/catagoryService";
@@ -56,7 +56,7 @@ export const Main = () => {
         <CatagoryHierarchyComponent />
       </div>
       <div className="row">
-        <DalaListComponent />
+        <DataListComponent />
       </div>
       {isLoading ? (
         <div className="spinner-border" role="status">

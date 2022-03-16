@@ -22,7 +22,7 @@ export const DataView = (props) => {
   );
 };
 
-export const DalaListComponent = () => {
+export const CatListComponent = () => {
   const [state, dispatch] = React.useContext(AppContext);
   const { dataList } = state;
 
