@@ -7,6 +7,8 @@ import { User } from '../modles/user.model';
 import { SessionStorageService } from './sessiont-storage.service';
 import { LoginNetworkService } from './network/login-network.service';
 import { ConvertUtil } from '../utils/convert.util';
+import * as LoadingPageActions from 'src/app/state/loading.actions';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -33,19 +35,29 @@ export class AuthService {
   }
 
   login(userName: string, password: string): void {
-    this.loginNetworkService.login(userName, password).subscribe({
-      next: (res) => {
-        this.currentUser = { ...res };
-        this.ssService.setCurrentUser(this.currentUser);
-        this.store.dispatch(setCurrentUser({ currentUser: this.currentUser }));
-        this.store.dispatch(setUserError({ error: '' }));
-      },
-      error: (err) => {
-        this.store.dispatch(
-          setUserError({ error: ConvertUtil.errorToErrorMsg(err) })
-        );
-      },
-    });
+    this.store.dispatch(LoadingPageActions.showLoading());
+    this.loginNetworkService
+      .login(userName, password)
+      .pipe(
+        finalize(() => {
+          this.store.dispatch(LoadingPageActions.hideLoading());
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          this.currentUser = { ...res };
+          this.ssService.setCurrentUser(this.currentUser);
+          this.store.dispatch(
+            setCurrentUser({ currentUser: this.currentUser })
+          );
+          this.store.dispatch(setUserError({ error: '' }));
+        },
+        error: (err) => {
+          this.store.dispatch(
+            setUserError({ error: ConvertUtil.errorToErrorMsg(err) })
+          );
+        },
+      });
   }
 
   logout(): void {
