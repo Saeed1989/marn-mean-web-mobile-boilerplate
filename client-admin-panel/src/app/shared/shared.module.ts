@@ -8,6 +8,7 @@ import { LoadingIndicatorComponent } from './components/organisms/loading-indica
 import { CatagoryTreeComponent } from './components/organisms/catagory-tree/catagory-tree.component';
 import { CatagoryViewComponent } from './components/molecules/cat-view/catagory-view.component';
 import { LoadingOverlayComponent } from './components/organisms/loading-overlay/loading-overlay.component';
+import { ListCard } from './components/organisms/list-card/list-card.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
@@ -18,6 +19,7 @@ import { LoadingOverlayComponent } from './components/organisms/loading-overlay/
     CatagoryTreeComponent,
     CatagoryViewComponent,
     LoadingOverlayComponent,
+    ListCard,
   ],
   exports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { LoadingOverlayComponent } from './components/organisms/loading-overlay/
     LoadingIndicatorComponent,
     CatagoryTreeComponent,
     LoadingOverlayComponent,
+    ListCard
   ],
 })
 export class SharedModule {}
