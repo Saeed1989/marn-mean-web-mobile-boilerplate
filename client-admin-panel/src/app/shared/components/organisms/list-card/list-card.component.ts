@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-card',
@@ -6,16 +6,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ListCard implements OnInit {
 
-  @Input() catListStructure = [];
   @Input() showList: boolean = false;
   @Input() showFooter: boolean = false;
   @Input() title: string = '';
   @Input() errorMessage: string = '';
 
-
   constructor() {}
 
   ngOnInit() {}
-
 
 }
