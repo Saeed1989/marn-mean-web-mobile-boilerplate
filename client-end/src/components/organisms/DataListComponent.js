@@ -20,11 +20,11 @@ export const DataListComponent = () => {
         type: UPDATE_SELECT_CAT_LIST,
         selctedCatList: newSelectedCataList,
       });
-      const dataList = getSelectedCatList(state.catagoryList, data.sku);
-      if (dataList && dataList.length > 0) {
+      const catList = getSelectedCatList(state.catagoryList, data.sku);
+      if (catList && catList.length > 0) {
         dispatch({
           type: UPDATE_DATA,
-          dataList: dataList,
+          dataList: catList,
         });
       } else {
         reloadData(newSelectedCataList);
@@ -57,7 +57,7 @@ export const DataListComponent = () => {
     <div className="d-flex flex-column flex-fill">
       <div className="row justify-content-center align-self-center">
         <div className="d-grid gap-2" style={{ minWidth: "18rem" }}>
-           <h5>Data List:</h5>
+          {dataList && dataList.length > 0 && dataList[0].name ? <h5>Data List:</h5> : <h5>Cat List:</h5>}
           {dataList.map((data, indx) => (
             <DataView key={indx} onSelect={onSelect} data={data}></DataView>
           ))}
