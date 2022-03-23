@@ -28,11 +28,14 @@ export function App() {
         </AppProvider>
       </main>
 
-      <footer className="container" style={{ maxWidth: 960 }}>
-        <div className="d-flex flex-column">
-          <div className="row justify-content-center align-self-center">
-            This is footer
-          </div>
+      <footer
+        className="container bg-dark text-center text-white"
+        style={{ maxWidth: 960 }}
+      >
+        <div className="d-flex flex-column text-center p-3">
+          <a class="text-white text-decoration-none" href="https://torunmon.com">
+            © 2021 Copyright: einao.torunmon.com
+          </a>
         </div>
       </footer>
     </div>
