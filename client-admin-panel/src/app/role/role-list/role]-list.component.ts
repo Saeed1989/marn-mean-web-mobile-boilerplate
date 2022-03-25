@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
@@ -7,6 +7,10 @@ import { Store } from '@ngrx/store';
   templateUrl: './role-list.component.html',
 })
 export class RoleListComponent implements OnInit, AfterViewInit {
+  pageTitle = 'Role';
+
+  @Input() errorMessage: string;
+  
   constructor() {}
 
   ngOnInit(): void {}
