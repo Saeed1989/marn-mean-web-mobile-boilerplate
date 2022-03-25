@@ -7,6 +7,9 @@ import { Store } from '@ngrx/store';
   templateUrl: './role-edit.component.html',
 })
 export class RoleEditComponent implements OnInit, AfterViewInit {
+  pageTitle = 'Role Edit';
+  errorMessage = '';
+
   constructor() {}
 
   ngOnInit(): void {}

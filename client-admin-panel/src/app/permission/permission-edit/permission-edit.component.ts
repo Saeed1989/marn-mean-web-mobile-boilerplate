@@ -7,6 +7,9 @@ import { Store } from '@ngrx/store';
   templateUrl: './permission-edit.component.html',
 })
 export class PermissionEditComponent implements OnInit, AfterViewInit {
+  pageTitle = 'Permission Edit';
+  errorMessage = '';
+
   constructor() {}
 
   ngOnInit(): void {}

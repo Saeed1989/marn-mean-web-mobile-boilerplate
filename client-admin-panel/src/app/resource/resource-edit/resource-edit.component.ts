@@ -7,6 +7,10 @@ import { Store } from '@ngrx/store';
   templateUrl: './resource-edit.component.html',
 })
 export class ResourceEditComponent implements OnInit, AfterViewInit {
+
+  pageTitle = 'Resource Edit';
+  errorMessage = '';
+
   constructor() {}
 
   ngOnInit(): void {}
