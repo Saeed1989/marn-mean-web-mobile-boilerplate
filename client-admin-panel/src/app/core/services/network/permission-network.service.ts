@@ -15,7 +15,7 @@ export class PermissionNetworkService {
   writePort = '5003';
   constructor(private http: HttpClient) {}
 
-  getCatagories(): Observable<any> {
+  getPermissions(): Observable<any> {
     console.log('Getting all permission from the server.');
     return this.http.get<any>(`${this.readPort}/api/permissions`);
   }

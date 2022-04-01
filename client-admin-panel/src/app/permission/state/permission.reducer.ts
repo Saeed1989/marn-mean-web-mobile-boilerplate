@@ -42,6 +42,7 @@ export const permissionReducer = createReducer<PerState>(
     };
   }),
   on(PermissionApiActions.loadPermissionSuccess, (state, action): PerState => {
+    console.log(action);
     return {
       ...state,
       permissionList: action.permissionList,
@@ -74,7 +75,7 @@ export const permissionReducer = createReducer<PerState>(
   }),
   // After a create, the currentPermission is the new permission.
   on(PermissionApiActions.createPermissionSuccess, (state, action): PerState => {
-    console.log('create cat success');
+    console.log('create permission success');
     console.log(action.permission);
     const updatedPermissionList = [...state.permissionList, action.permission];
     return {

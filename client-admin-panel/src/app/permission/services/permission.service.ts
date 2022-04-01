@@ -19,12 +19,12 @@ export class PermissionService {
   getPermissionList(): Observable<Permission[]> {
     console.log('get...');
     return this.addLaoding(
-      this.networkService.getCatagories().pipe(
+      this.networkService.getPermissions().pipe(
         tap((data) => console.log(JSON.stringify(data))),
         map((res) => {
-          if (!res?.data) return [];
-          res.data.map((d) => (d.id = d._id));
-          return res.data;
+          if (!res || !res.length) return [];
+          res.map((d) => (d.id = d._id));
+          return res;
         }),
         catchError(this.handleError.bind(this))
       )

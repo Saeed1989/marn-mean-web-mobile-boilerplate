@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '../shared/shared.module';
 import { PermissionContainerComponent } from './permission-container/permission-container.component';
@@ -7,6 +8,8 @@ import { PermissionEditComponent } from './permission-edit/permission-edit.compo
 import { PermissionListComponent } from './permission-list/permission-list.component';
 import { PermissionShellComponent } from './permission-shell.component';
 import { PermissionPermissionGuard } from './services/guards/permission-permission-guard.service';
+import { PermissionService } from './services/permission.service';
+import { PermissionEffects } from './state/permission.effects';
 import { permissionReducer } from './state/permission.reducer';
 
 const permissionRoutes = [
@@ -26,6 +29,7 @@ const permissionRoutes = [
     SharedModule,
     RouterModule.forChild(permissionRoutes),
     StoreModule.forFeature('permissionList', permissionReducer),
+    EffectsModule.forFeature([PermissionEffects]),
   ],
   declarations: [
     PermissionShellComponent,
@@ -33,6 +37,6 @@ const permissionRoutes = [
     PermissionListComponent,
     PermissionEditComponent,
   ],
-  providers: [PermissionPermissionGuard],
+  providers: [PermissionService, PermissionPermissionGuard],
 })
 export class PermissionModule {}
