@@ -39,7 +39,6 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
     this.catList$ = this.catStore.select(getCatagoryList);
     // Data processing
     this.dataList$ = this.dataStore.select(getDataList);
-    this.dataList$ = this.dataStore.select(getDataList);
     this.errorMessage$ = this.dataStore.select(getDataError);
     this.selectedData$ = this.dataStore.select(getCurrentData);
     this.displayCode$ = this.dataStore.select(getShowDataCode);

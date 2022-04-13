@@ -1,0 +1,134 @@
+<app-edit-card
+  *ngIf="selectedPermission as per"
+  [title]="pageTitle"
+  [errorMessage]="errorMessage"
+>
+  <form
+    novalidate
+    (ngSubmit)="savePermission(per)"
+    [formGroup]="permissionForm"
+  >
+    <fieldset>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="roleNameId"
+          >Permission Name</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.roleName }"
+            class="form-control"
+            id="roleNameId"
+            type="text"
+            placeholder="Role Name (required)"
+            formControlName="roleName"
+            (blur)="blur()"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.roleName">
+            {{ displayMessage.roleName }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="resourceNameId"
+          >Resource name</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.resourceName }"
+            class="form-control"
+            id="resourceNameId"
+            type="text"
+            placeholder="Resource Name (required)"
+            formControlName="resourceName"
+            (blur)="blur()"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.resourceName">
+            {{ displayMessage.resourceName }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="isAllowedId">Allowed</label>
+
+        <div class="col-md-9">
+          <input
+            type="checkbox"
+            [ngClass]="{ 'is-invalid': displayMessage.isAllowed }"
+            class="form-check-input"
+            id="isAllowedId"
+            placeholder="isAllowed"
+            rows="3"
+            cols="80"
+            formControlName="isAllowed"
+          />
+
+          <span class="invalid-feedback" *ngIf="displayMessage.isAllowed">
+            {{ displayMessage.isAllowed }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="isDisabledId"
+          >Disabled</label
+        >
+
+        <div class="col-md-9">
+          <input
+            type="checkbox"
+            [ngClass]="{ 'is-invalid': displayMessage.isDisabled }"
+            class="form-check-input"
+            id="isDisabledId"
+            placeholder="isDisabled"
+            rows="3"
+            cols="80"
+            formControlName="isDisabled"
+          />
+
+          <span class="invalid-feedback" *ngIf="displayMessage.isDisabled">
+            {{ displayMessage.isDisabled }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <span>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              style="width: 80px; margin-right: 10px"
+              [disabled]="!permissionForm.valid || !permissionForm.dirty"
+            >
+              Save
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px; margin-right: 10px"
+              (click)="cancelEdit(per)"
+            >
+              Cancel
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px"
+              (click)="deletePermission(per)"
+            >
+              Delete
+            </button>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</app-edit-card>

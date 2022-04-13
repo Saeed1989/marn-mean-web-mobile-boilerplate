@@ -4,7 +4,11 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from '../state/app.state';
-import { getCurrentUser, getMaskUserName } from './state/user.reducer';
+import {
+  getCurrentUser,
+  getMaskUserName,
+  getUserError,
+} from './state/user.reducer';
 import * as UserActions from './state/user.actions';
 import { AuthService } from '../core/services/auth.service';
 import { SelfUrl } from '../core/constants/url.constant';
@@ -19,6 +23,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   maskUserName$: Observable<boolean>;
   getUser$: Observable<User>;
+  logInError$: Observable<string>;
+  errorMessage: string;
 
   constructor(
     private store: Store<State>,
@@ -29,17 +35,18 @@ export class LoginComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.maskUserName$ = this.store.select(getMaskUserName);
     this.getUser$ = this.store.select(getCurrentUser);
+    this.logInError$ = this.store.select(getUserError);
   }
 
   ngAfterViewInit(): void {
-      this.getUser$.subscribe(res=>{
-        if(!res) return;
-        if (this.authService.redirectUrl) {
-          this.router.navigateByUrl(this.authService.redirectUrl);
-        } else {
-          this.router.navigate([SelfUrl.HOME]);
-        }
-      });
+    this.getUser$.subscribe((res) => {
+      if (!res) return;
+      if (this.authService.redirectUrl) {
+        this.router.navigateByUrl(this.authService.redirectUrl);
+      } else {
+        this.router.navigate([SelfUrl.HOME]);
+      }
+    });
   }
 
   cancel(): void {

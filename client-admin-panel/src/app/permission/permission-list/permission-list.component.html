@@ -1,0 +1,35 @@
+<app-list-card
+  [title]="pageTitle"
+  [errorMessage]="errorMessage"
+  [showList]="true"
+  [showFooter]="true"
+>
+<div body class="list-group">
+  <button
+    class="list-group-item list-group-item-action rounded-0"
+    *ngFor="let permission of permissionList"
+    [ngClass]="{ active: permission?.id === selectedPermission?.id }"
+    (click)="onPermissionSelected(permission)"
+  >
+    {{ permission.roleName }} - {{ permission.resourceName }}
+    <ng-container *ngIf="displayCode"> ({{ permission.id }}) </ng-container>
+  </button>
+</div>
+
+<div footer class="row">
+  <div class="form-check col-md-7">
+    <label>
+      <input
+        class="form-check-input"
+        type="checkbox"
+        (change)="checkChanged()"
+        [checked]="displayCode"
+      />
+      Display Id
+    </label>
+  </div>
+  <div class="col-md-4 text-right">
+    <button class="btn btn-primary" (click)="newPermission()">Add</button>
+  </div>
+</div>
+</app-list-card>
