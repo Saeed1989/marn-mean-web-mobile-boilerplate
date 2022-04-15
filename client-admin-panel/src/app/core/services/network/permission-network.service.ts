@@ -36,6 +36,7 @@ export class PermissionNetworkService {
 
   updatePermission(updatedPermission: Permission): Observable<string> {
     const paylodad = {
+      id: updatedPermission.id,
       roleName: updatedPermission.roleName,
       resourceName: updatedPermission.resourceName,
       isDisabled: updatedPermission.isDisabled,
