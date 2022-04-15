@@ -11,6 +11,11 @@
     ></app-permission-list>
   </div>
   <div class="col-md-8">
-    <app-permission-edit></app-permission-edit>
+    <app-permission-edit
+      [selectedPermission]="selectedPermission$ | async"
+      (create)="savePermission($any($event))"
+      (update)="updatePermission($any($event))"
+      (delete)="deletePermission($any($event))"
+    ></app-permission-edit>
   </div>
 </div>
