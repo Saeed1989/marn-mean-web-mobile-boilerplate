@@ -1,3 +1,4 @@
+/* alert entity */
 export interface Alert {
   id: string | null;
   message: string;

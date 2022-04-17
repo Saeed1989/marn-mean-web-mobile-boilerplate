@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-4">
+    <app-permission-list
+      [errorMessage]="errorMessage$ | async"
+      [displayCode]="displayCode$ | async"
+      [permissionList]="permissionList$ | async"
+      [selectedPermission]="selectedPermission$ | async"
+      (displayCodeChanged)="checkChanged()"
+      (initializeNewPermission)="newPermission('')"
+      (permissionSelect)="permissionSelected($any($event))"
+    ></app-permission-list>
+  </div>
+  <div class="col-md-8">
+    <app-permission-edit
+      [selectedPermission]="selectedPermission$ | async"
+      (create)="savePermission($any($event))"
+      (update)="updatePermission($any($event))"
+      (delete)="deletePermission($any($event))"
+    ></app-permission-edit>
+  </div>
+</div>

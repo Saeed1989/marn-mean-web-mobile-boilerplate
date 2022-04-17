@@ -7,3 +7,8 @@ export const setCurrentUser = createAction(
   '[User] Set Current User',
   props<{ currentUser: User }>()
 );
+
+export const setUserError = createAction(
+  '[User] Set User Error',
+  props<{ error: string }>()
+);

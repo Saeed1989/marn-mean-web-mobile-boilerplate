@@ -1,4 +1,4 @@
-/* data entity */
+/* catagory entity */
 export interface Catagory {
   id: string;
   catName: string;

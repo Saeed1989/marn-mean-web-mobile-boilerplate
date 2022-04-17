@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header bg-light">
+    {{ title }}
+  </div>
+
+  <div class="card-body" *ngIf="showList">
+    <ng-content select="[body]"></ng-content>
+  </div>
+
+  <div class="card-footer" *ngIf="showFooter">
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
