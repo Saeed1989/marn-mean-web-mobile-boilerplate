@@ -24,23 +24,19 @@ export class ResourceNetworkService {
     return this.http.get<Resource>(`${this.readPort}/api/resources/${id}`);
   }
 
-addResource(resource: Resource): Observable<string> {
+  addResource(resource: Resource): Observable<string> {
     const paylodad = {
-      // roleName: resource.roleName,
-      // resourceName: resource.resourceName,
-      // isDisabled: resource.isDisabled,
-      // isAllowed: resource.isAllowed,
+      name: resource.name,
+      type: resource.type,
     };
     return this.http.post<string>(`${this.writePort}/api/resources`, paylodad);
   }
 
   updateResource(updatedResource: Resource): Observable<string> {
     const paylodad = {
-      // id: updatedResource.id,
-      // roleName: updatedResource.roleName,
-      // resourceName: updatedResource.resourceName,
-      // isDisabled: updatedResource.isDisabled,
-      // isAllowed: updatedResource.isAllowed,
+      id: updatedResource.id,
+      name: updatedResource.name,
+      type: updatedResource.type,
     };
     return this.http.put(
       `${this.writePort}/api/resources/${updatedResource.id}`,
