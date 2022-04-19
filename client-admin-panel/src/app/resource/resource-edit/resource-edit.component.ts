@@ -37,12 +37,12 @@ export class ResourceEditComponent implements OnInit {
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or resourcebase.
     this.validationMessages = {
-      roleName: {
-        required: 'Resource roleName is required.',
-        minlength: 'Resource roleName must be at least three characters.',
-        maxlength: 'Resource roleName cannot exceed 50 characters.',
+      name: {
+        required: 'Resource name is required.',
+        minlength: 'Resource name must be at least three characters.',
+        maxlength: 'Resource name cannot exceed 50 characters.',
       },
-      resourceName: {
+      type: {
         required: 'Resource code is required.',
       },
     };
@@ -55,7 +55,7 @@ export class ResourceEditComponent implements OnInit {
   ngOnInit(): void {
     // Define the form group
     this.resourceForm = this.fb.group({
-      roleName: [
+      name: [
         '',
         [
           Validators.required,
@@ -63,9 +63,7 @@ export class ResourceEditComponent implements OnInit {
           Validators.maxLength(50),
         ],
       ],
-      resourceName: ['', Validators.required],
-      isAllowed: '',
-      isDisabled: '',
+      type: ['', Validators.required]
     });
 
     // Watch for value changes for validation

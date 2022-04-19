@@ -1,7 +1,86 @@
 <app-edit-card
-  *ngIf="true"
+  *ngIf="selectedResource as res"
   [title]="pageTitle"
   [errorMessage]="errorMessage"
 >
-  Resource Edit Works
+  <form novalidate (ngSubmit)="saveResource(res)" [formGroup]="resourceForm">
+    <fieldset>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="nameId"
+          >Resource Name</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.name }"
+            class="form-control"
+            id="nameId"
+            type="text"
+            placeholder="Role Name (required)"
+            formControlName="name"
+            (blur)="blur()"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.name">
+            {{ displayMessage.name }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="typeId"
+          >Resource name</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.type }"
+            class="form-control"
+            id="typeId"
+            type="text"
+            placeholder="Resource Name (required)"
+            formControlName="type"
+            (blur)="blur()"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.type">
+            {{ displayMessage.type }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <span>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              style="width: 80px; margin-right: 10px"
+              [disabled]="!resourceForm.valid || !resourceForm.dirty"
+            >
+              Save
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px; margin-right: 10px"
+              (click)="cancelEdit(res)"
+            >
+              Cancel
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px"
+              (click)="deleteResource(res)"
+            >
+              Delete
+            </button>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+  </form>
 </app-edit-card>
