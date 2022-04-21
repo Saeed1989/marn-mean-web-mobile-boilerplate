@@ -6,6 +6,7 @@ import { RoleEditComponent } from './role-edit/role-edit.component';
 import { RoleListComponent } from './role-list/role]-list.component';
 import { RoleShellComponent } from './role-shell.component';
 import { RolePermissionGuard } from './services/guards/role-permission-guard.service';
+import { RoleService } from './services/role.service';
 
 const roleRoutes = [
   {
@@ -27,6 +28,6 @@ const roleRoutes = [
     RoleEditComponent,
     RoleListComponent,
   ],
-  providers: [RolePermissionGuard],
+  providers: [RoleService, RolePermissionGuard],
 })
 export class RoleModule {}
