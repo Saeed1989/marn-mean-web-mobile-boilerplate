@@ -26,7 +26,7 @@ export const getCurrentRole = createSelector(
       return {
         id: '0',
         name: '',
-        type: '',
+        alias: '',
       };
     } else {
       return currentRoleId

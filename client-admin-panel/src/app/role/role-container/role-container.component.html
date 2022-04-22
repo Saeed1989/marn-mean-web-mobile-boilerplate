@@ -1,6 +1,14 @@
 <div class="row">
   <div class="col-md-4">
-    <app-role-list></app-role-list>
+    <app-role-list
+      [errorMessage]="errorMessage$ | async"
+      [displayCode]="displayCode$ | async"
+      [roleList]="roleList$ | async"
+      [selectedRole]="selectedRole$ | async"
+      (displayCodeChanged)="checkChanged()"
+      (initializeNewRole)="newRole('')"
+      (roleSelect)="roleSelected($any($event))"
+    ></app-role-list>
   </div>
   <div class="col-md-8">
     <app-role-edit></app-role-edit>
