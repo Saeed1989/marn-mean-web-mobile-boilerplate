@@ -41,6 +41,7 @@ export const resourceReducer = createReducer<ResState>(
     (state, action): ResState => {
       return {
         ...state,
+        currentResourceId: '0'
       };
     }
   ),
@@ -61,12 +62,12 @@ export const resourceReducer = createReducer<ResState>(
   }),
   on(ResourceApiActions.updateResourceSuccess, (state, action): ResState => {
     const updatedResourceList = state.resourceList.map((item) =>
-      action.resource.name === item.name ? action.resource : item
+      action.resource.id === item.id ? action.resource : item
     );
     return {
       ...state,
       resourceList: updatedResourceList,
-      currentResourceId: action.resource.name,
+      currentResourceId: action.resource.id,
       error: '',
     };
   }),
@@ -99,7 +100,7 @@ export const resourceReducer = createReducer<ResState>(
     return {
       ...state,
       resourceList: state.resourceList.filter(
-        (resource) => resource.name !== action.resourceId
+        (resource) => resource.id !== action.resourceId
       ),
       currentResourceId: null,
       error: '',

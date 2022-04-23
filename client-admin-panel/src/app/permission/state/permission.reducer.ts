@@ -39,6 +39,7 @@ export const permissionReducer = createReducer<PerState>(
   on(PermissionPageActions.initializeCurrentPermission, (state, action): PerState => {
     return {
       ...state,
+      currentPermissionId: '0'
     };
   }),
   on(PermissionApiActions.loadPermissionSuccess, (state, action): PerState => {
@@ -58,12 +59,12 @@ export const permissionReducer = createReducer<PerState>(
   }),
   on(PermissionApiActions.updatePermissionSuccess, (state, action): PerState => {
     const updatedPermissionList = state.permissionList.map((item) =>
-      action.permission.roleName === item.roleName ? action.permission : item
+      action.permission.id === item.id ? action.permission : item
     );
     return {
       ...state,
       permissionList: updatedPermissionList,
-      currentPermissionId: action.permission.roleName,
+      currentPermissionId: action.permission.id,
       error: '',
     };
   }),
@@ -81,7 +82,7 @@ export const permissionReducer = createReducer<PerState>(
     return {
       ...state,
       permissionList: updatedPermissionList,
-      currentPermissionId: action.permission.roleName,
+      currentPermissionId: action.permission.id,
       error: '',
     };
   }),
@@ -95,7 +96,7 @@ export const permissionReducer = createReducer<PerState>(
   on(PermissionApiActions.deletePermissionSuccess, (state, action): PerState => {
     return {
       ...state,
-      permissionList: state.permissionList.filter((permission) => permission.roleName !== action.permissionId),
+      permissionList: state.permissionList.filter((permission) => permission.id !== action.permissionId),
       currentPermissionId: null,
       error: '',
     };

@@ -1,7 +1,86 @@
 <app-edit-card
-  *ngIf="true"
+  *ngIf="selectedRole as role"
   [title]="pageTitle"
   [errorMessage]="errorMessage"
 >
-  Role Edit Works
+  <form novalidate (ngSubmit)="saveRole(role)" [formGroup]="roleForm">
+    <fieldset>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="nameId"
+          >Role Name</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.name }"
+            class="form-control"
+            id="nameId"
+            type="text"
+            placeholder="Role Name (required)"
+            formControlName="name"
+            (blur)="blur()"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.name">
+            {{ displayMessage.name }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="aliasId"
+          >Role Alias</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.alias }"
+            class="form-control"
+            id="aliasId"
+            type="text"
+            placeholder="Role alias (required)"
+            formControlName="alias"
+            (blur)="blur()"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.alias">
+            {{ displayMessage.alias }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <span>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              style="width: 80px; margin-right: 10px"
+              [disabled]="!roleForm.valid || !roleForm.dirty"
+            >
+              Save
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px; margin-right: 10px"
+              (click)="cancelEdit(role)"
+            >
+              Cancel
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px"
+              (click)="deleteRole(role)"
+            >
+              Delete
+            </button>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+  </form>
 </app-edit-card>
