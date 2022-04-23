@@ -4,6 +4,32 @@
   [showList]="true"
   [showFooter]="true"
 >
-  <div body class="list-group">body</div>
-  <div footer class="row">footer</div>
+  <div body class="list-group">
+    <button
+      class="list-group-item list-group-item-action rounded-0"
+      *ngFor="let role of roleList"
+      [ngClass]="{ active: role?.id === selectedRole?.id }"
+      (click)="onRoleSelected(role)"
+    >
+      {{ role.alias }}
+      <ng-container *ngIf="displayCode"> ({{ role.id }}) </ng-container>
+    </button>
+  </div>
+
+  <div footer class="row">
+    <div class="form-check col-md-7">
+      <label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          (change)="checkChanged()"
+          [checked]="displayCode"
+        />
+        Display Id
+      </label>
+    </div>
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary" (click)="newRole()">Add</button>
+    </div>
+  </div>
 </app-list-card>
