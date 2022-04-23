@@ -11,6 +11,11 @@
     ></app-role-list>
   </div>
   <div class="col-md-8">
-    <app-role-edit></app-role-edit>
+    <app-role-edit
+    [selectedRole]="selectedRole$ | async"
+    (create)="saveRole($any($event))"
+    (update)="updateRole($any($event))"
+    (delete)="deleteRole($any($event))"
+    ></app-role-edit>
   </div>
 </div>

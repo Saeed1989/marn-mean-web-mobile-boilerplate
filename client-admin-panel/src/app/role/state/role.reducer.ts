@@ -41,6 +41,7 @@ export const roleReducer = createReducer<ResState>(
     (state, action): ResState => {
       return {
         ...state,
+        currentRoleId: '0',
       };
     }
   ),

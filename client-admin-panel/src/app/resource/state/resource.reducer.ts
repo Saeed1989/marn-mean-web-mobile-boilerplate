@@ -41,6 +41,7 @@ export const resourceReducer = createReducer<ResState>(
     (state, action): ResState => {
       return {
         ...state,
+        currentResourceId: '0'
       };
     }
   ),
