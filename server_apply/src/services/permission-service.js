@@ -23,7 +23,11 @@ const update = async (permission) => {
   const id = permission.id;
   let model = await Model.findById(id);
   if (model) {
-    model.name = permission.name;
+    model.roleName = permission.roleName;
+    model.resourceName = permission.resourceName;
+    model.isAllowed = permission.isAllowed;
+    model.isDisabled = permission.isDisabled;
+
     model.updatedAt = Date.now().toString();
     model.save();
     return model._id;

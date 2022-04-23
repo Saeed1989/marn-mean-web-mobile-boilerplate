@@ -20,12 +20,13 @@ const save = async (resource) => {
 };
 
 const update = async (resource) => {
-  const id = resource._id;
+  const id = resource.id;
   let model = await Model.findById(id);
   if (model) {
     model.name = resource.name;
+    model.type = resource.type;
     model.updatedAt = Date.now().toString();
-    await model.save() ;
+    await model.save();
     return model._id;
   }
   throw new NotFound("Resource not found by the id: " + id);

@@ -22,6 +22,7 @@ const update = async (role) => {
   let model = await Model.findById(id);
   if (model) {
     model.name = role.name;
+    model.alias = role.alias;
     model.updatedAt = Date.now().toString();
     model.save();
     return model._id;
