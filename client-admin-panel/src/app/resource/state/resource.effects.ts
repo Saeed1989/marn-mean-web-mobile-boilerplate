@@ -49,10 +49,10 @@ export class ResourceEffects {
       ofType(ResourcePageActions.createResource),
       concatMap((action) =>
         this.resourceService.createResource(action.resource).pipe(
-          tap((name) => console.log(name)),
-          map((name) =>
+          tap((resId) => console.log(resId)),
+          map((resId) =>
             ResourceApiActions.createResourceSuccess({
-              resource: { ...action.resource, name: name },
+              resource: { ...action.resource, id: resId },
             })
           ),
           catchError((error) =>

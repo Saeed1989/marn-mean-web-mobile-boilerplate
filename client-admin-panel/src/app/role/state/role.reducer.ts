@@ -62,12 +62,12 @@ export const roleReducer = createReducer<ResState>(
   }),
   on(RoleApiActions.updateRoleSuccess, (state, action): ResState => {
     const updatedRoleList = state.roleList.map((item) =>
-      action.role.name === item.name ? action.role : item
+      action.role.id === item.id ? action.role : item
     );
     return {
       ...state,
       roleList: updatedRoleList,
-      currentRoleId: action.role.name,
+      currentRoleId: action.role.id,
       error: '',
     };
   }),
@@ -85,7 +85,7 @@ export const roleReducer = createReducer<ResState>(
     return {
       ...state,
       roleList: updatedRoleList,
-      currentRoleId: action.role.name,
+      currentRoleId: action.role.id,
       error: '',
     };
   }),
@@ -100,7 +100,7 @@ export const roleReducer = createReducer<ResState>(
     return {
       ...state,
       roleList: state.roleList.filter(
-        (role) => role.name !== action.roleId
+        (role) => role.id !== action.roleId
       ),
       currentRoleId: null,
       error: '',

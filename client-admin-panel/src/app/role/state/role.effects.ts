@@ -49,10 +49,10 @@ export class RoleEffects {
       ofType(RolePageActions.createRole),
       concatMap((action) =>
         this.roleService.createRole(action.role).pipe(
-          tap((name) => console.log(name)),
-          map((name) =>
+          tap((roleId) => console.log(roleId)),
+          map((roleId) =>
             RoleApiActions.createRoleSuccess({
-              role: { ...action.role, name: name },
+              role: { ...action.role, id: roleId },
             })
           ),
           catchError((error) =>

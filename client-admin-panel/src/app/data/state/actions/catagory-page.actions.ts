@@ -7,16 +7,16 @@ export const toggleCatagoryCode = createAction(
 
 export const setCurrentCatagory = createAction(
   '[Catagory Page] Set Current Catagory',
-  props<{ currentCatagoryId: string}>()
-  );
-  
-  export const clearCurrentCatagory = createAction(
-    '[Catagory Page] Clear Current Catagory'
-    );
-    
-    export const initializeCurrentCatagory = createAction(
-      '[Catagory Page] Initialize Current Catagory',
-      props<{ parentSku: string }>()
+  props<{ currentCatagoryId: string }>()
+);
+
+export const clearCurrentCatagory = createAction(
+  '[Catagory Page] Clear Current Catagory'
+);
+
+export const initializeCurrentCatagory = createAction(
+  '[Catagory Page] Initialize Current Catagory',
+  props<{ parentSku: string }>()
 );
 
 export const loadCatagoryList = createAction('[Catagory Page] Load');

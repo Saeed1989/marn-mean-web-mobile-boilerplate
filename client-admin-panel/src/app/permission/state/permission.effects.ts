@@ -49,10 +49,10 @@ export class PermissionEffects {
       ofType(PermissionPageActions.createPermission),
       concatMap((action) =>
         this.permissionService.createPermission(action.permission).pipe(
-          tap((roleName) => console.log(roleName)),
-          map((roleName) =>
+          tap((perId) => console.log(perId)),
+          map((perId) =>
             PermissionApiActions.createPermissionSuccess({
-              permission: { ...action.permission, roleName: roleName },
+              permission: { ...action.permission, id: perId },
             })
           ),
           catchError((error) =>
