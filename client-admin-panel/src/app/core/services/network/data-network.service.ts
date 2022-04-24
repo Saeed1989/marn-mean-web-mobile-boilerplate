@@ -54,7 +54,4 @@ export class DataNetworkService {
     });
   }
 
-  getAlerts(userId: string): Observable<void> {
-    return this.http.get<void>(`${this.rootUrlRead}/api/alerts/${userId}`);
-  }
 }

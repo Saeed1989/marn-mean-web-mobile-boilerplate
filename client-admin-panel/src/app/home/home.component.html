@@ -3,7 +3,7 @@
     {{ pageTitle }}
   </div>
   <div class="card-body">
-    <app-alert [alerts]="alerts$ | async"></app-alert>
+    <app-alert [alerts]="alerts"></app-alert>
   </div>
   <app-menu (logOut)="onLogOut()"></app-menu>
 </div>

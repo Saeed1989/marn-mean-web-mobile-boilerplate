@@ -1,3 +1,5 @@
+import { Alert } from "./alert.model";
+
 /* user entity */
 export interface User {
     firstName: string,
@@ -5,4 +7,5 @@ export interface User {
     accessToken: string;
     type: string;
     currentAuthority: string,
+    alerts: Alert[]
 }
