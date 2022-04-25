@@ -47,4 +47,9 @@ connectWithUserDb = () => {
   return connectWithDb(uriUser, "User")
 };
 
-module.exports = { connectWithCatagoryDb, connectWithDataDb, connectWithUserDb};
+const uriAlert = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME_ALERT}`;
+connectWithAlertDb = () => {
+  return connectWithDb(uriAlert, "Alert")
+};
+
+module.exports = { connectWithCatagoryDb, connectWithDataDb, connectWithUserDb, connectWithAlertDb};
