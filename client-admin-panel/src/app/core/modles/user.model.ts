@@ -1,4 +1,4 @@
-import { Alert } from "./alert.model";
+import { UserInfo } from "./userInfo.model";
 
 /* user entity */
 export interface User {
@@ -7,5 +7,5 @@ export interface User {
     accessToken: string;
     type: string;
     currentAuthority: string,
-    alerts: Alert[]
+    userInfo: UserInfo
 }

@@ -2,10 +2,10 @@
   <div class="card-header btn-light">
     {{ pageTitle }}
   </div>
+  <app-menu (logOut)="onLogOut()"></app-menu>
   <div class="card-body">
     <app-alert [alerts]="alerts"></app-alert>
   </div>
-  <app-menu (logOut)="onLogOut()"></app-menu>
 </div>
 <div *ngIf="errorMessage$ | async" class="alert alert-danger">
   Error: {{ errorMessage$ | async }}

@@ -26,7 +26,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.store.select(getCurrentUser).subscribe((user) => {
-     this.alerts = user.alerts;
+     this.alerts = user.userInfo.alerts;
     });
   }
 
