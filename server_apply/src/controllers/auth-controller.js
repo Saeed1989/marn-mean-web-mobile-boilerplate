@@ -4,6 +4,7 @@ const {
   searchOne,
   changePassword,
 } = require("../services/auth-service");
+const { getUserAlerts } = require("../services/alert-service");
 const jwt = require("jsonwebtoken");
 // import { search as searchPermissions } from "../services/permission-service";
 
@@ -23,6 +24,8 @@ const loginHandler = async (req, res) => {
       );
       const { passwordHash, ...rest } = user;
 
+      let alerts = await getUserAlerts(user._id);
+
       const antdPayload = {
         status: "ok",
         type: "account",
@@ -32,7 +35,7 @@ const loginHandler = async (req, res) => {
         user: rest,
         accessToken: token,
         userInfo: {
-          // TODO: add user info
+          alerts: alerts,
         },
       };
 
