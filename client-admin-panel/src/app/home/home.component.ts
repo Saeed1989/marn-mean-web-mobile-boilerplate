@@ -12,7 +12,7 @@ import { SelfUrl } from '../core/constants/url.constant';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public pageTitle = 'Welcome';
+  public pageTitle = 'Menu';
 
   alerts: Alert[];
 

@@ -1,12 +1,19 @@
-﻿<div class="card">
-  <div class="card-header btn-light">
-    {{ pageTitle }}
+﻿<div class="container-fluid">
+  <div class="row">
+    <div class="card">
+      <div class="card-header btn-light">
+        {{ pageTitle }}
+      </div>
+      <div class="card-body">
+        <app-menu (logOut)="onLogOut()"></app-menu>
+      </div>
+    </div>
+    <div *ngIf="errorMessage$ | async" class="alert alert-danger">
+      Error: {{ errorMessage$ | async }}
+    </div>
   </div>
-  <app-menu (logOut)="onLogOut()"></app-menu>
-  <div class="card-body">
+
+  <div class="row">
     <app-alert [alerts]="alerts"></app-alert>
   </div>
-</div>
-<div *ngIf="errorMessage$ | async" class="alert alert-danger">
-  Error: {{ errorMessage$ | async }}
 </div>
