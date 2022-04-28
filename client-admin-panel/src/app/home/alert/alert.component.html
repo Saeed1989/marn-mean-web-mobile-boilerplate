@@ -4,7 +4,14 @@
   </div>
   <div class="card-body">
     <div *ngFor="let alert of alerts">
-      {{ alert.date | date: "dd/MM/yyyy" }} : {{ alert.message }}
+      <span
+        class="bi-exclamation-triangle-fill"
+        [ngClass]="alert.priority === 'high' ? 'text-danger' : 'text-warning'"
+      >&nbsp;</span>
+      <span class="badge bg-secondary"
+        >{{ alert.date | date: "dd/MM/yyyy" }}
+      </span>
+      <span>&nbsp;{{ alert.message }}</span>
     </div>
   </div>
 </div>
