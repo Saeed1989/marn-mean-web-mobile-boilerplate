@@ -1,0 +1,50 @@
+[
+  {
+    "roleName": "admin",
+    "resourceName": "data-edit",
+    "isAllowed": true,
+    "isDisabled": false
+  },
+  {
+    "roleName": "admin",
+    "resourceName": "catagory-edit",
+    "isAllowed": true,
+    "isDisabled": false
+  },
+  {
+    "roleName": "admin",
+    "resourceName": "resource-edit",
+    "isAllowed": true,
+    "isDisabled": false
+  },
+  {
+    "roleName": "admin",
+    "resourceName": "permission-edit",
+    "isAllowed": true,
+    "isDisabled": false
+  },
+  {
+    "roleName": "admin",
+    "resourceName": "role-edit",
+    "isAllowed": true,
+    "isDisabled": false
+  },
+  {
+    "roleName": "manager",
+    "resourceName": "data-edit",
+    "isAllowed": true,
+    "isDisabled": false
+  },
+  {
+    "roleName": "editor",
+    "resourceName": "data-edit",
+    "isAllowed": true,
+    "isDisabled": false
+  },
+  {
+    "roleName": "manager",
+    "resourceName": "catagory-edit",
+    "isAllowed": false,
+    "isDisabled": false
+  }
+]
