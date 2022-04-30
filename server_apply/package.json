@@ -10,7 +10,10 @@
     "stop:pm2": "pm2 stop ./src/server.js",
     "start": "nodemon ./src/server.js",
     "db:up": "docker-compose -f ./db.yml up",
-    "db:seed": "node ./setup/seed-users.js"
+    "db:seeduser": "node ./setup/seed-users.js",
+    "db:seedrole": "node ./setup/seed-roles.js",
+    "db:seedpermission": "node ./setup/seed-permissions.js",
+    "db:seedresource": "node ./setup/seed-resources.js"
   },
   "keywords": [],
   "author": "",

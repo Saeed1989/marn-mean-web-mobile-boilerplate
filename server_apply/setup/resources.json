@@ -1,0 +1,14 @@
+[
+  {
+    "name": "testResource1",
+    "type": "testType",
+    "createdAt": "1643802742001",
+    "updatedAt": "1643802742001"
+  },
+  {
+    "name": "testResource1",
+    "type": "testType",
+    "createdAt": "1643802743108",
+    "updatedAt": "1643802743108"
+  }
+]
