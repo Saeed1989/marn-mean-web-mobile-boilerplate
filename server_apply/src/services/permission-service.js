@@ -11,6 +11,16 @@ const getAll = async () => {
   return viewModels;
 };
 
+const upsert = async (permission) => {
+  const item = await Model.findOne(permission);
+  if (item == null) {
+    const model = await Model.createNew(permission);
+    const savedItem = await model.save();
+    return savedItem._id;
+  }
+  return "Already exists";
+};
+
 const save = async (permission) => {
   const model = await Model.createNew(permission);
   model.updatedAt = Date.now().toString();
@@ -56,4 +66,4 @@ const search = async (searchRequest) => {
   return viewModels;
 };
 
-module.exports = { getAll, save, update, deleteById, getById, search };
+module.exports = { getAll, save, update, deleteById, getById, search, upsert };

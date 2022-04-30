@@ -9,6 +9,16 @@ const getAll = async () => {
   return viewModels;
 };
 
+const upsert = async (role) => {
+  const item = await Model.findOne(role);
+  if (item == null) {
+    const model = await Model.createNew(role);
+    const savedItem = await model.save();
+    return savedItem._id;
+  }
+  return "Already exists";
+};
+
 const save = async (role) => {
   const model = await Model.createNew(role);
   model.updatedAt = Date.now().toString();
@@ -63,4 +73,4 @@ const search = async (payload) => {
   return viewModels;
 };
 
-module.exports = { getAll, save, update, deleteById, getById, search };
+module.exports = { getAll, save, update, deleteById, getById, search, upsert };

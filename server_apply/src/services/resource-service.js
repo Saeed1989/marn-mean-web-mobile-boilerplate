@@ -5,6 +5,16 @@ const {
 const { NotFound } = require("../utils/errors");
 const Model = models.Resource;
 
+const upsert = async (resource) => {
+  const item = await Model.findOne(resource);
+  if (item == null) {
+    const model = await Model.createNew(resource);
+    const savedItem = await model.save();
+    return savedItem._id;
+  }
+  return "Already exists";
+};
+
 const getAll = async () => {
   const items = await Model.find();
   let viewModels = items.map((item) => ResourceViewModel.convert(item));
@@ -48,4 +58,4 @@ const getById = async (id) => {
   return viewModel;
 };
 
-module.exports = { getAll, save, update, deleteById, getById };
+module.exports = { getAll, save, update, deleteById, getById, upsert };
