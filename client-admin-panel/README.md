@@ -2,7 +2,11 @@
 
 This is the admin panel part of the project. This is a single-page web app.
 
+<br/><br/>
 ![](adminFlow.gif)
+<br/><br/>
+![](adminFlowInputValidation.gif)
+<br/><br/>
 
 ## Technology stack
 
