@@ -1,6 +1,6 @@
 ﻿<div class="container-fluid">
   <div class="row">
-    <div class="card">
+    <div class="card p-0">
       <div class="card-header btn-light">
         {{ pageTitle }}
       </div>
@@ -14,6 +14,8 @@
   </div>
 
   <div class="row">
-    <app-alert [alerts]="alerts"></app-alert>
+    <div class="card p-0 mt-2">
+      <app-alert [alerts]="alerts"></app-alert>
+    </div>
   </div>
 </div>

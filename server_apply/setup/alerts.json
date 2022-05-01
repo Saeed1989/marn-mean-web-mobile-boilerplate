@@ -1,0 +1,11 @@
+[
+  {
+    "userId": "626cc3b654988e506dad1768",
+    "type": "general",
+    "priority": "high",
+    "message": "This is demo error message.",
+    "date": "2021-01-01T00:00:00.000Z",
+    "createdAt": "2021-01-01T00:00:00.000Z",
+    "updatedAt": "2021-01-01T00:00:00.000Z"
+  }
+]

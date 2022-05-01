@@ -1,4 +1,4 @@
-<div *ngIf="alerts.length > 0" class="card">
+<ng-container *ngIf="alerts.length > 0">
   <div class="card-header btn-light">
     {{ TITLE }}
   </div>
@@ -14,7 +14,7 @@
       <span>&nbsp;{{ alert.message }}</span>
     </div>
   </div>
-</div>
+</ng-container>
 <div *ngIf="errorMessage" class="alert alert-danger">
   Error: {{ errorMessage }}
 </div>
