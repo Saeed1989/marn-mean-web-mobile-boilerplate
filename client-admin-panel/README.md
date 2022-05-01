@@ -33,15 +33,15 @@ This repository is built on top of Angular however in the implementation detail,
 #### Home page
 - Home page has a menu with links to other pages. On this page alerts for the user are shown in a list view.
 #### Data entry page
--Data is shown category-wise. All users can read, update and add data.
+- Data is shown category-wise. All users can read, update and add data.
 #### Catagory page
--All users can read, update and add the category.
+- All users can read, update and add the category.
 #### Permission entry page
--Users with the admin role can read, update and add permissions. Users with manager roles can read permissions.
+- Users with the admin role can read, update and add permissions. Users with manager roles can read permissions.
 #### Resource entry page
--Users with the admin role can read, update and add resources. Users with manager roles can read resources.
+- Users with the admin role can read, update and add resources. Users with manager roles can read resources.
 #### Role entry page
--Users with the admin role can read, update and add roles. Users with manager roles can read roles.
+- Users with the admin role can read, update and add roles. Users with manager roles can read roles.
 
 
 ## Development server
