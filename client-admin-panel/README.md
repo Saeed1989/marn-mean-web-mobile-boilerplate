@@ -69,7 +69,7 @@ This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile
 [docker]: https://www.docker.com
 [Angular]: https://angular.io/
 [Karma]: https://karma-runner.github.io
-[Protractor]: http://www.protractortest.org/
+[Jasmine]: https://jasmine.github.io/
 [NgRx]: https://ngrx.io/
 [Cypress]: https://www.cypress.io/
 [RxJS]: https://rxjs.dev/
