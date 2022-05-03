@@ -49,23 +49,23 @@ Following are the parts of the project. Details of each part are given in the re
 
 #### End client web application
 This is the end client part of the project. This is a React single-page web app.<br/>
-Folder: client-end
+Folder: client_end
 
 #### End client mobile application
 This is the mobile phone version of the end client part of the project. This is a React-Native mobile app.<br/>
-Folder: client-end-mobile
+Folder: client_end_mobile
 
 #### Admin panel web application
 This is the admin panel part of the project. This is an Angular single-page web app.<br/>
-Folder: client-admin-panel
+Folder: client_admin_panel
 
 #### Datalist server
 This API serves the data list. This is a NodeJS microservice.<br/>
-Folder: server-datalist
+Folder: server_datalist
 
 #### Catagory server
 This API category list. This is a NodeJS microservice.<br/>
-Folder: server-category
+Folder: server_category
 
 #### Data entry server
 This API serves the following two functions:
