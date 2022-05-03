@@ -20,10 +20,10 @@ This repository is built on top of Express.js however in the implementation deta
 - [Node.js] - evented I/O for the backend
 - [Express.js] - Fast, unopinionated, minimalist web framework for Node.js
 - [MongoDB] - The application data platform
-- [Mongoose] - mongoose
-- [Swagger]
-- [Jest]
-- [Super Test]
+- [Mongoose] - Mongodb object modeling for node.js
+- [Swagger] - API development and testing tool
+- [Jest] - JavaScript testing framework
+- [Super Test] - Super test API testing framework
 
 Details frameworks and packages can be found in the package.json files in server and client directory.
 
