@@ -128,7 +128,7 @@ Password: password1
 
 ## License
 
-This project is [MIT licensed](https://opensource.org/licenses/MIT)
+This project is [MIT licensed](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/blob/main/LICENSE)
 
 [node.js]: http://nodejs.org
 [express.js]: http://expressjs.com
