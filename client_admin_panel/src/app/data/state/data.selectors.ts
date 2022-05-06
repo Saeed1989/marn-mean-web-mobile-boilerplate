@@ -32,7 +32,7 @@ export const getCurrentData = createSelector(
       return {
         id: '0',
         name: '',
-        catagory: state.currentCatHiararchy,
+        category: state.currentCatHiararchy,
         description: ''
       };
     } else {

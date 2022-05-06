@@ -29,7 +29,7 @@ Details frameworks and packages can be found in the package.json files in server
 
 ## Features
 
-- CRUD for users, resources, role, permission, catagory, data
+- CRUD for users, resources, role, permission, category, data
 - API is open to only authorised users
 - Operations are restriced based on level of usrs authority
 
@@ -39,7 +39,7 @@ Details frameworks and packages can be found in the package.json files in server
 ### Resource controller
 ### Role controller
 ### Permission controller
-### Catagory controller
+### Category controller
 ### Data controller
 
 ## License

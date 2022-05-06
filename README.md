@@ -63,7 +63,7 @@ Folder: client_admin_panel
 This API serves the data list. This is a NodeJS microservice.<br/>
 Folder: server_datalist
 
-#### Catagory server
+#### Category server
 This API category list. This is a NodeJS microservice.<br/>
 Folder: server_category
 

@@ -23,7 +23,7 @@
                 "name": {
                   "type": "string"
                 },
-                "catagory": {
+                "category": {
                   "type": "string"
                 },
                 "description": {
@@ -85,7 +85,7 @@
                 "name": {
                   "type": "string"
                 },
-                "catagory": {
+                "category": {
                   "type": "string"
                 },
                 "description": {

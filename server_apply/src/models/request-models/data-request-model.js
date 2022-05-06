@@ -2,7 +2,7 @@ const Joi = require("joi");
 
 const schema = Joi.object().keys({
   name: Joi.string().required(),
-  catagory: Joi.string().required(),
+  category: Joi.string().required(),
   description: Joi.string().required(),
 });
 

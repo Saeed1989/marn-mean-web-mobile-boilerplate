@@ -3,7 +3,7 @@ const roleValidate = require("./role-request-model");
 const permissionValidate = require("./permission-request-model");
 const resourceValidate = require("./resource-request-model");
 const datatValidate = require("./data-request-model");
-const catagoryValidate = require("./catagory-request-model");
+const categoryValidate = require("./category-request-model");
 
 const validators = {
   userSchemaValidate: userValidate,
@@ -11,7 +11,7 @@ const validators = {
   permissionSchemaValidate: permissionValidate,
   resourceSchemaValidate: resourceValidate,
   dataSchemaValidate: datatValidate,
-  catagorySchemaValidate: catagoryValidate,
+  categorySchemaValidate: categoryValidate,
 };
 
 module.exports = validators;

@@ -2,8 +2,8 @@ const models = require("../models/data-models");
 const { NotFound } = require("../utils/errors");
 const Model = models.Data;
 
-const save = async (catagory) => {
-  const model = await Model.createNew(catagory);
+const save = async (category) => {
+  const model = await Model.createNew(category);
   model.updatedAt = Date.now().toString();
   model.createdAt = Date.now().toString();
   const savedItem = await model.save();
@@ -16,7 +16,7 @@ const update = async (data) => {
   if (model) {
     model.name = data.name;
     model.description = data.description;
-    model.catagory = data.catagory;
+    model.category = data.category;
     model.updatedAt = Date.now().toString();
     model.save();
     return model._id;

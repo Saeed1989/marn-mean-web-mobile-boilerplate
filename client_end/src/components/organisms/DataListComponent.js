@@ -20,7 +20,7 @@ export const DataListComponent = () => {
         type: UPDATE_SELECT_CAT_LIST,
         selctedCatList: newSelectedCataList,
       });
-      const catList = getSelectedCatList(state.catagoryList, data.sku);
+      const catList = getSelectedCatList(state.categoryList, data.sku);
       if (catList && catList.length > 0) {
         dispatch({
           type: UPDATE_DATA,
@@ -34,9 +34,9 @@ export const DataListComponent = () => {
     }
   };
 
-  const reloadData = async (catagoryList) => {
-    console.log(catagoryList);
-    DATA_API.getData(getCatHierarchy(catagoryList))
+  const reloadData = async (categoryList) => {
+    console.log(categoryList);
+    DATA_API.getData(getCatHierarchy(categoryList))
       .then((dataList) => {
         dispatch({
           type: UPDATE_DATA,

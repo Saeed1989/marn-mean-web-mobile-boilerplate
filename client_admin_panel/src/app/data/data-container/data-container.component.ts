@@ -11,13 +11,13 @@ import {
 } from '../state/data.selectors';
 import {
   State as CatState,
-  getShowCatagoryCode,
-  getCurrentCatagory,
-  getCatagoryList,
-  getCatagoryError as getCatError,
-} from '../state/catagory.selectors';
-import { CatagoryPageActions, DataPageActions } from '../state/actions';
-import { Catagory } from '../../core/modles/catagory.model';
+  getShowCategoryCode,
+  getCurrentCategory,
+  getCategoryList,
+  getCategoryError as getCatError,
+} from '../state/category.selectors';
+import { CategoryPageActions, DataPageActions } from '../state/actions';
+import { Category } from '../../core/modles/category.model';
 
 @Component({
   templateUrl: './data-container.component.html',
@@ -26,7 +26,7 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
   displayCode$: Observable<boolean>;
   errorMessage$: Observable<string>;
   dataList$: Observable<Data[]>;
-  catList$: Observable<Catagory[]>;
+  catList$: Observable<Category[]>;
   selectedData$: Observable<Data>;
 
   constructor(
@@ -35,8 +35,8 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    // Catagory processing
-    this.catList$ = this.catStore.select(getCatagoryList);
+    // Category processing
+    this.catList$ = this.catStore.select(getCategoryList);
     // Data processing
     this.dataList$ = this.dataStore.select(getDataList);
     this.errorMessage$ = this.dataStore.select(getDataError);
@@ -45,8 +45,8 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // load catagory on start
-    this.catStore.dispatch(CatagoryPageActions.loadCatagoryList());
+    // load category on start
+    this.catStore.dispatch(CategoryPageActions.loadCategoryList());
   }
 
   checkChanged(): void {
@@ -88,7 +88,7 @@ export class DataContainerComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onSelectcatagory(item): void {
+  onSelectcategory(item): void {
     console.log(item);
     // set current cat hiararcy
     this.dataStore.dispatch(

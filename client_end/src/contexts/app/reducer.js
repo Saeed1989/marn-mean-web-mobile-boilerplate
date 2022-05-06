@@ -12,8 +12,8 @@ export const reducer = (state, action) => {
     case AppActions.UPDATE_CAT_LIST:
       return {
         ...state,
-        catagoryList: action.catagoryList,
-        dataList: getSelectedCatList(action.catagoryList, ""),
+        categoryList: action.categoryList,
+        dataList: getSelectedCatList(action.categoryList, ""),
       };
 
     case AppActions.UPDATE_SELECT_CAT_LIST:
@@ -41,7 +41,7 @@ export const reducer = (state, action) => {
 
 export const initialState = {
   dataList: [],
-  catagoryList: [],
+  categoryList: [],
   selctedCatList: [],
   error: {},
   isLoading: false,

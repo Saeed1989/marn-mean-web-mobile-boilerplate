@@ -1,0 +1,135 @@
+<app-edit-card
+*ngIf="selectedCategory as category"
+  [title]="pageTitle"
+  [errorMessage]="errorMessage"
+>
+  <form
+    novalidate
+    (ngSubmit)="saveCategory(category)"
+    [formGroup]="categoryForm"
+  >
+    <fieldset>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="catNameId"
+          >Category Name</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.catName }"
+            class="form-control"
+            id="catNameId"
+            type="text"
+            placeholder="Name (required)"
+            formControlName="catName"
+            (blur)="blur()"
+            [readonly]="!hasEditPermission"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.catName">
+            {{ displayMessage.catName }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="categoryCodeId">SKU</label>
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.sku }"
+            class="form-control"
+            id="categoryCodeId"
+            type="text"
+            placeholder="Code (required)"
+            formControlName="sku"
+            (blur)="blur()"
+            [readonly]="!hasEditPermission"
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.sku">
+            {{ displayMessage.sku }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="descriptionId"
+          >Description</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.description }"
+            class="form-control"
+            id="descriptionId"
+            placeholder="Description"
+            rows="3"
+            cols="80"
+            formControlName="description"
+            [readonly]="!hasEditPermission"
+          />
+
+          <span class="invalid-feedback" *ngIf="displayMessage.description">
+            {{ displayMessage.description }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="categoryCodeId"
+          >Parent SKU</label
+        >
+
+        <div class="col-md-9">
+          <input
+            [ngClass]="{ 'is-invalid': displayMessage.parentSku }"
+            class="form-control"
+            id="categoryCodeId"
+            type="text"
+            placeholder="parentSku"
+            formControlName="parentSku"
+            (blur)="blur()"
+            readonly
+          />
+          <span class="invalid-feedback" *ngIf="displayMessage.parentSku">
+            {{ displayMessage.parentSku }}
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="hasEditPermission" class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <span>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              style="width: 80px; margin-right: 10px"
+              [disabled]="!categoryForm.valid || !categoryForm.dirty"
+            >
+              Save
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px; margin-right: 10px"
+              (click)="cancelEdit(category)"
+            >
+              Cancel
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn btn-light"
+              type="button"
+              style="width: 80px"
+              (click)="deleteCategory(category)"
+            >
+              Delete
+            </button>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</app-edit-card>

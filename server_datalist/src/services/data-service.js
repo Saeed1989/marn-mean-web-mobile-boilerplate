@@ -39,7 +39,7 @@ const search = async (payload) => {
   let searchQuery = {};
   if (payload.searchText) {
     searchQuery = {
-      catagory: { $regex: payload.searchText, $options: "i" },
+      category: { $regex: payload.searchText, $options: "i" },
     };
   }
 

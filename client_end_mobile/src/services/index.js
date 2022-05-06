@@ -1,4 +1,4 @@
-import {getAllCatagory} from './catagory/catagoryService';
+import {getAllCategory} from './category/categoryService';
 import {getData} from './data/dataService';
 
-export {getAllCatagory, getData};
+export {getAllCategory, getData};

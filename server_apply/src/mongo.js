@@ -32,9 +32,9 @@ const connectWithDb = (uri, dbName) => {
   return db;
 };
 
-const uriCatagory = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME_CATAGORY}`;
-const connectWithCatagoryDb = () => {
-  return connectWithDb(uriCatagory, "Catagory");
+const uriCategory = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME_CATAGORY}`;
+const connectWithCategoryDb = () => {
+  return connectWithDb(uriCategory, "Category");
 };
 
 const uriData = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME_DATA}`;
@@ -52,4 +52,4 @@ connectWithAlertDb = () => {
   return connectWithDb(uriAlert, "Alert")
 };
 
-module.exports = { connectWithCatagoryDb, connectWithDataDb, connectWithUserDb, connectWithAlertDb};
+module.exports = { connectWithCategoryDb, connectWithDataDb, connectWithUserDb, connectWithAlertDb};

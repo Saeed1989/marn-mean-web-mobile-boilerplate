@@ -7,7 +7,7 @@
   },
   {
     "roleName": "admin",
-    "resourceName": "catagory-edit",
+    "resourceName": "category-edit",
     "isAllowed": true,
     "isDisabled": false
   },
@@ -43,7 +43,7 @@
   },
   {
     "roleName": "manager",
-    "resourceName": "catagory-edit",
+    "resourceName": "category-edit",
     "isAllowed": false,
     "isDisabled": false
   }

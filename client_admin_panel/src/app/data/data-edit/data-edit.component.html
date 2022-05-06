@@ -25,21 +25,21 @@
       </div>
 
       <div class="form-group row">
-        <label class="col-md-3 col-form-label" for="dataCodeId">Catagory</label>
+        <label class="col-md-3 col-form-label" for="dataCodeId">Category</label>
 
         <div class="col-md-9">
           <input
-            [ngClass]="{ 'is-invalid': displayMessage.catagory }"
+            [ngClass]="{ 'is-invalid': displayMessage.category }"
             class="form-control"
             id="dataCodeId"
             type="text"
             placeholder="Code (required)"
-            formControlName="catagory"
+            formControlName="category"
             (blur)="blur()"
             readonly
           />
-          <span class="invalid-feedback" *ngIf="displayMessage.catagory">
-            {{ displayMessage.catagory }}
+          <span class="invalid-feedback" *ngIf="displayMessage.category">
+            {{ displayMessage.category }}
           </span>
         </div>
       </div>

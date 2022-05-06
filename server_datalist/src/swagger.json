@@ -23,8 +23,8 @@
   "paths": {
     "/data/search": {
       "post": {
-        "tags": ["Data by catagory"],
-        "summary": "Checks the data list for a catagory",
+        "tags": ["Data by category"],
+        "summary": "Checks the data list for a category",
         "parameters": [
           {
             "name": "input",

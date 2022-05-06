@@ -1,9 +1,9 @@
-import { Catagory } from '../modles/catagory.model';
+import { Category } from '../modles/category.model';
 
 /**
  *
  */
-export class CatagoryUtil {
+export class CategoryUtil {
   /**
    *
    * @param catList
@@ -36,11 +36,11 @@ export class CatagoryUtil {
   }
 
   public static getCatListStructure(
-    catList: Catagory[],
+    catList: Category[],
     parentSku: string = '',
     catHierarchy: string = ''
   ): any {
-    const newCatList: Catagory[] = catList.filter((cat) => {
+    const newCatList: Category[] = catList.filter((cat) => {
       return cat.parentSku === parentSku;
     });
 
@@ -52,7 +52,7 @@ export class CatagoryUtil {
         name: cat.catName,
         sku: cat.sku,
         catHierarchy: hierarcy,
-        catagory: cat,
+        category: cat,
         sub: this.getCatListStructure(catList, cat.sku, hierarcy),
       };
     });

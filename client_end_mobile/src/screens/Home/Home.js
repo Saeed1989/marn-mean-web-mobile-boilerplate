@@ -2,9 +2,9 @@ import React, {useEffect} from 'react';
 import {ActivityIndicator, View, Text} from 'react-native';
 import * as Theme from '@/assets/styles';
 import {NavUtils} from '@/utils';
-import {getAllCatagory} from '@/services';
+import {getAllCategory} from '@/services';
 import {Example} from '@/components';
-import {CatagoryHierarchyComponent} from '@/components';
+import {CategoryHierarchyComponent} from '@/components';
 import {
   UPDATE_CAT_LIST,
   UPDATE_ERROR,
@@ -29,11 +29,11 @@ export const HomeComponent = () => {
   };
 
   const reloadCatList = async () => {
-    getAllCatagory()
+    getAllCategory()
       .then(catList => {
         dispatch({
           type: UPDATE_CAT_LIST,
-          catagoryList: catList,
+          categoryList: catList,
         });
       })
       .catch(err => {
@@ -58,7 +58,7 @@ export const HomeComponent = () => {
 
   return (
     <View style={[Layout.fill, Layout.colCenter]}>
-      <CatagoryHierarchyComponent />
+      <CategoryHierarchyComponent />
       <DalaListComponent />
     </View>
   );

@@ -39,7 +39,7 @@ export const DalaListComponent = () => {
         type: UPDATE_SELECT_CAT_LIST,
         selctedCatList: newSelectedCataList,
       });
-      const dataList = getSelectedCatList(state.catagoryList, data.sku);
+      const dataList = getSelectedCatList(state.categoryList, data.sku);
       if (dataList && dataList.length > 0) {
         dispatch({
           type: UPDATE_DATA,
@@ -53,9 +53,9 @@ export const DalaListComponent = () => {
     }
   };
 
-  const reloadData = async catagoryList => {
-    console.log(catagoryList);
-    getData(getCatHierarchy(catagoryList))
+  const reloadData = async categoryList => {
+    console.log(categoryList);
+    getData(getCatHierarchy(categoryList))
       .then(dataList => {
         dispatch({
           type: UPDATE_DATA,

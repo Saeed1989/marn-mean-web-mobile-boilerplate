@@ -1,6 +1,6 @@
 import {Example} from './Example/Example';
 import {PrimaryButton} from './PrimaryButton/PrimaryButton';
-import {CatagoryHierarchyComponent} from './Catagory/CatagoryHierarchyComponent';
+import {CategoryHierarchyComponent} from './Category/CategoryHierarchyComponent';
 import {DalaListComponent} from './DataList/DalaListComponent';
 
-export {Example, PrimaryButton, CatagoryHierarchyComponent, DalaListComponent};
+export {Example, PrimaryButton, CategoryHierarchyComponent, DalaListComponent};

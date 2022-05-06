@@ -1,6 +1,6 @@
 const missingNamePayload = {
   "name": "",
-  "catagory": "",
+  "category": "",
   "secondDataField": "",
   "thirdDataField": "",
   "description": "",

@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <app-category-view
+    (select)="onSelect($event)"
+    (add)="onAdd($event)"
+    [hasAdd]="hasAdd"
+    [data]="catListStructure"
+    
+  ></app-category-view>
+</div>

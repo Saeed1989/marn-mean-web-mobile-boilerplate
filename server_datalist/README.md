@@ -22,13 +22,13 @@ Details frameworks and packages can be found in the package.json files in server
 
 ## Features
 
-- Get full datalist for a catagory
+- Get full datalist for a category
 - Get data by id
 - API is open without authorization check
 
 ## Parts
 
-### Post: search by catagory name
+### Post: search by category name
 ### Get: by id
 
 ## License

@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/organisms/menu/menu.component';
 import { PageNotFoundComponent } from './components/organisms/no-page/page-not-found.component';
 import { LoadingIndicatorComponent } from './components/organisms/loading-indicator/loading-indicator.component';
-import { CatagoryTreeComponent } from './components/organisms/catagory-tree/catagory-tree.component';
-import { CatagoryViewComponent } from './components/molecules/cat-view/catagory-view.component';
+import { CategoryTreeComponent } from './components/organisms/category-tree/category-tree.component';
+import { CategoryViewComponent } from './components/molecules/cat-view/category-view.component';
 import { LoadingOverlayComponent } from './components/organisms/loading-overlay/loading-overlay.component';
 import { ListCard } from './components/organisms/list-card/list-card.component';
 import { EditCard } from './components/organisms/edit-card/edit-card.component';
@@ -17,8 +17,8 @@ import { EditCard } from './components/organisms/edit-card/edit-card.component';
     MenuComponent,
     PageNotFoundComponent,
     LoadingIndicatorComponent,
-    CatagoryTreeComponent,
-    CatagoryViewComponent,
+    CategoryTreeComponent,
+    CategoryViewComponent,
     LoadingOverlayComponent,
     ListCard,
     EditCard
@@ -30,7 +30,7 @@ import { EditCard } from './components/organisms/edit-card/edit-card.component';
     MenuComponent,
     PageNotFoundComponent,
     LoadingIndicatorComponent,
-    CatagoryTreeComponent,
+    CategoryTreeComponent,
     LoadingOverlayComponent,
     ListCard,
     EditCard

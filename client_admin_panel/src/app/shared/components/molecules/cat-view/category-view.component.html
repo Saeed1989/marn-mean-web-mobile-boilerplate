@@ -1,0 +1,28 @@
+<ul *ngFor="let item of data; let i = index" class="list-group">
+  <li class="list-group-item">
+    {{ item.name }}
+    <button
+      *ngIf="hasAdd"
+      type="button"
+      class="btn btn-info"
+      (click)="onAdd(item)"
+    >
+       + 
+    </button>
+    <button
+      *ngIf="!item.sub || hasAdd"
+      type="button"
+      class="btn btn-info"
+      (click)="onSelect(item)"
+    >
+      Select
+    </button>
+    <app-category-view
+      (add)="onAdd($event)"
+      [hasAdd]="hasAdd"
+      (select)="onSelect($event)"
+      *ngIf="item.sub"
+      [data]="item.sub"
+    ></app-category-view>
+  </li>
+</ul>

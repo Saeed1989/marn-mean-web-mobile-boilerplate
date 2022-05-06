@@ -1,0 +1,14 @@
+<button
+  *ngIf="hasAdd"
+  type="button"
+  class="btn btn-info"
+  (click)="onAdd(null)"
+>
+  +
+</button>
+<app-category-tree
+  [catListStructure]="catListStructure"
+  [hasAdd]="hasAdd"
+  (select)="onSelectCategory($event)"
+  (add)="onAdd($event)"
+></app-category-tree>

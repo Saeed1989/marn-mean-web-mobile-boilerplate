@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-4">
+    <app-category-list
+      [catList]="catList$ | async"
+      [hasAdd]="true"
+      (categorySelect)="onSelectcategory($event)"
+      (add)="onAdd($event)"
+    ></app-category-list>
+  </div>
+  <div class="col-md-8">
+    <app-category-edit
+      [selectedCategory]="selectedCategory$ | async"
+      [hasEditPermission]="hasEditPermission" 
+      (create)="saveCategory($any($event))"
+      (update)="updateCategory($any($event))"
+      (delete)="deleteCategory($any($event))"
+    ></app-category-edit>
+  </div>
+  <div *ngIf="errorMessage$ | async" class="alert alert-danger">
+    Error: {{ errorMessage$ | async}}
+  </div>
+</div>

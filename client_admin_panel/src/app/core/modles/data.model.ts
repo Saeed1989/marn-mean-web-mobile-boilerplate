@@ -2,6 +2,6 @@
 export interface Data {
   id: string;
   name: string;
-  catagory: string;
+  category: string;
   description: string;
 }

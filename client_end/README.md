@@ -19,7 +19,7 @@ This repository is built on top of React.js however in the implementation detail
 
 ## Parts
 
-### Catagory selection panel
+### Category selection panel
 ### Data selection panel
 
 ## Development server

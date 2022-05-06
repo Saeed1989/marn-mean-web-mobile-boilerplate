@@ -1,9 +1,9 @@
 import React from "react";
-import { CatagoryHierarchyComponent } from "../components/organisms/CatagoryHierarchyComponent";
+import { CategoryHierarchyComponent } from "../components/organisms/CategoryHierarchyComponent";
 import { DataListComponent } from "../components/organisms/DataListComponent";
 import { AppContext } from "../contexts/app";
 import { useEffect } from "react";
-import * as CAT_API from "../services/catagoryService";
+import * as CAT_API from "../services/categoryService";
 import {
   UPDATE_CAT_LIST,
   UPDATE_ERROR,
@@ -22,11 +22,11 @@ export const Main = () => {
   };
 
   const reloadCatList = async () => {
-    CAT_API.getAllCatagory()
+    CAT_API.getAllCategory()
       .then((catList) => {
         dispatch({
           type: UPDATE_CAT_LIST,
-          catagoryList: catList,
+          categoryList: catList,
         });
       })
       .catch((err) => {
@@ -53,7 +53,7 @@ export const Main = () => {
     <div className="container mt-10">
       {error ? error.msg : null}
       <div className="row">
-        <CatagoryHierarchyComponent />
+        <CategoryHierarchyComponent />
       </div>
       <div className="row">
         <DataListComponent />

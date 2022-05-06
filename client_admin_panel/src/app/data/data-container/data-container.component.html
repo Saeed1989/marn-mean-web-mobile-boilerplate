@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-4">
-    <app-catagory-list
+    <app-category-list
       [catList]="catList$ | async"
-      (catagorySelect)="onSelectcatagory($event)"
-    ></app-catagory-list>
+      (categorySelect)="onSelectcategory($event)"
+    ></app-category-list>
     <app-data-list
       [errorMessage]="errorMessage$ | async"
       [displayCode]="displayCode$ | async"

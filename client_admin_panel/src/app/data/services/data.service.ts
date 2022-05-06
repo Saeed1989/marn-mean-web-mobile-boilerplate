@@ -18,7 +18,7 @@ export class DataService {
 
   getDataList(catHiararcy: string): Observable<Data[]> {
     return this.addLaoding(
-      this.networkService.getDataByCatagory(catHiararcy).pipe(
+      this.networkService.getDataByCategory(catHiararcy).pipe(
         tap((data) => console.log(JSON.stringify(data))),
         map((res) => {
           if (!res?.data) return [];

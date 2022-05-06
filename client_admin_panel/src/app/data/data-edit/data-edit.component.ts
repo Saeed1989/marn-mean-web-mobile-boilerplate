@@ -44,7 +44,7 @@ export class DataEditComponent implements OnInit, OnChanges {
         minlength: 'Data name must be at least three characters.',
         maxlength: 'Data name cannot exceed 50 characters.',
       },
-      catagory: {
+      category: {
         required: 'Data code is required.',
       }
     };
@@ -65,7 +65,7 @@ export class DataEditComponent implements OnInit, OnChanges {
           Validators.maxLength(50),
         ],
       ],
-      catagory: ['', Validators.required],
+      category: ['', Validators.required],
       description: '',
     });
 
@@ -109,7 +109,7 @@ export class DataEditComponent implements OnInit, OnChanges {
       // Update the data on the form
       this.dataForm.patchValue({
         name: data.name,
-        catagory: data.catagory,
+        category: data.category,
         description: data.description,
       });
     }

@@ -11,19 +11,19 @@ import { StoreModule } from '@ngrx/store';
 import { dataReducer } from './state/data.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { DataEffects } from './state/data.effects';
-import { CatagoryService } from './services/catagory.service';
-import { CatagoryListComponent } from './catagory-list/catagory-list.component';
-import { catagoryReducer } from './state/catagory.reducer';
-import { CatagoryEffects } from './state/catagory.effects';
+import { CategoryService } from './services/category.service';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { categoryReducer } from './state/category.reducer';
+import { CategoryEffects } from './state/category.effects';
 import { DataShellComponent } from './data-shell.component';
-import { CatagoryContainerComponent } from './catagory-container/catagory-container.component';
-import { CatagoryEditComponent } from './catagory-edit/catagory-edit.component';
+import { CategoryContainerComponent } from './category-container/category-container.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { DataPermissionGuard } from './services/guards/data-permission-guard.service';
 
 const dataRoutes: Routes = [{ path: '', canActivate: [DataPermissionGuard], component: DataShellComponent, children: [
   { path: '', redirectTo: 'data-edit', pathMatch: 'full' },
   { path: 'data-edit', component: DataContainerComponent },
-  { path: 'catagory-edit', component: CatagoryContainerComponent }
+  { path: 'category-edit', component: CategoryContainerComponent }
 ] }];
 
 @NgModule({
@@ -31,18 +31,18 @@ const dataRoutes: Routes = [{ path: '', canActivate: [DataPermissionGuard], comp
     SharedModule,
     RouterModule.forChild(dataRoutes),
     StoreModule.forFeature('dataList', dataReducer),
-    StoreModule.forFeature('catagoryList', catagoryReducer),
-    EffectsModule.forFeature([DataEffects, CatagoryEffects]),
+    StoreModule.forFeature('categoryList', categoryReducer),
+    EffectsModule.forFeature([DataEffects, CategoryEffects]),
   ],
   declarations: [
     DataContainerComponent,
-    CatagoryContainerComponent,
+    CategoryContainerComponent,
     DataListComponent,
     DataEditComponent,
-    CatagoryEditComponent,
-    CatagoryListComponent,
+    CategoryEditComponent,
+    CategoryListComponent,
     DataShellComponent
   ],
-  providers: [DataService, CatagoryService, DataPermissionGuard],
+  providers: [DataService, CategoryService, DataPermissionGuard],
 })
 export class DataModule {}

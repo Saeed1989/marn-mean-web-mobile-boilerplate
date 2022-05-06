@@ -2,10 +2,10 @@ import { post } from "./httpService";
 
 const URL = ":5001/api/data/search";
 
-export const getData = async (catagory) => {
+export const getData = async (category) => {
   let payload = {};
-  if (catagory) {
-    payload = { searchText: catagory, ...payload };
+  if (category) {
+    payload = { searchText: category, ...payload };
   }
 
   return post(URL, payload)

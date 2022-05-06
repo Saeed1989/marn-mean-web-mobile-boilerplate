@@ -17,7 +17,7 @@ describe("Data", () => {
     expect(dataId).toBeDefined();
 
     const datas = await dataService.search({
-      searchText: "thisisloguniquecatagory",
+      searchText: "thisisloguniquecategory",
     });
     expect(datas.length).toBe(1);
     expect(datas[0].name).toBe("Thisislonguniquename");
@@ -28,7 +28,7 @@ describe("Data", () => {
    */
   const dataComplete = {
     name: "Thisislonguniquename",
-    catagory: "thisisloguniquecatagory",
+    category: "thisisloguniquecategory",
     secondDataField: "dummy",
     thirdDataField: "dummy",
     description: "dummy"

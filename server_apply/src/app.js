@@ -24,7 +24,7 @@ app.use(pino);
 app.use(handleRequest);
 
 const swaggerDocument = require("./swagger.json");
-const swaggerDocumentCat = require("./swagger-paths/catagory-path-swagger.json");
+const swaggerDocumentCat = require("./swagger-paths/category-path-swagger.json");
 const swaggerDocumentData = require("./swagger-paths/data-path-swagger.json");
 const swaggerDocumentResource = require("./swagger-paths/resource-path-swagger.json");
 const swaggerDocumentRole = require("./swagger-paths/role-path-swagger.json");

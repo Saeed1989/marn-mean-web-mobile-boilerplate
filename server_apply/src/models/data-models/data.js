@@ -4,7 +4,7 @@ const connectWithDataDb = mongo.connectWithDataDb;
 
 const dataSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  catagory: { type: String, required: true },
+  category: { type: String, required: true },
   secondDataField: { type: String },
   thirdDataField: { type: String },
   description: { type: String, required: true },

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // schema
 const dataSchema = new mongoose.Schema({
   name: { type: String, unique: true, required: true },
-  catagory: { type: String, required: true },
+  category: { type: String, required: true },
   secondDataField: { type: String, required: true },
   thirdDataField: { type: String, required: true },
   description: { type: String, required: true },
