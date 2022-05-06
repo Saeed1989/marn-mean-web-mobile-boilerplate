@@ -49,23 +49,33 @@ Following are the parts of the project. Details of each part are given in the re
 
 #### End client web application
 This is the end client part of the project. This is a React single-page web app.<br/>
-Folder: client_end
+Layer: Frontend (Web SPA)<br/>
+Primary Technology: ReactJS<br/>
+Folder: [client_end](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/tree/main/client_end)
 
 #### End client mobile application
 This is the mobile phone version of the end client part of the project. This is a React-Native mobile app.<br/>
-Folder: client_end_mobile
+Layer: Frontend (Mobile application)<br/>
+Primary Technology: React Native<br/>
+Folder: [client_end_mobile](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/tree/main/client_end_mobile)
 
 #### Admin panel web application
 This is the admin panel part of the project. This is an Angular single-page web app.<br/>
-Folder: client_admin_panel
+Layer: Frontend (Web SPA)<br/>
+Primary Technology: Angular<br/>
+Folder: [client_admin_panel](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/tree/main/client_admin_panel)
 
 #### Datalist server
 This API serves the data list. This is a NodeJS microservice.<br/>
-Folder: server_datalist
+Layer: Backend (Microservice)<br/>
+Primary Technology: NodeJS<br/>
+Folder: [server_datalist](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/tree/main/server_datalist)
 
 #### Category server
 This API category list. This is a NodeJS microservice.<br/>
-Folder: server_category
+Layer: Backend (Microservice)<br/>
+Primary Technology: NodeJS<br/>
+Folder: [server_category](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/tree/main/server_category)
 
 #### Data entry server
 This API serves the following two functions:
@@ -74,7 +84,9 @@ This API serves the following two functions:
 - Log in authentication.
 
 This is a NodeJS microservice.<br/>
-Folder: server-apply
+Layer: Backend (Microservice)<br/>
+Primary Technology: NodeJS<br/>
+Folder: [server_apply](https://github.com/Saeed1989/mern-mean-web-mobile-boilerplate/tree/main/server_apply)
 
 ## Running the application
 This project can be run basically in two ways. One is using docker, other way is to run manually via vscode.
