@@ -133,9 +133,9 @@ npm run db:seed
 npm run db:migrate
 ```
 
-You should be able to see the username and password hash in the `/server/setup/users.json` file.
-One admin user id as follows -
-User id: saeed.sharman
+You should be able to see the username and password hash in the `/server_apply/setup/users.json` file.
+One admin user id as follows -<br/>
+User id: saeed.sharman<br/>
 Password: password1
 
 ## License
