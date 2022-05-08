@@ -25,6 +25,13 @@ This repository is built on top of Angular however in the implementation detail,
 
 - In the admin panel data entry is done for users that have log-in credentials.
 - In the admin panel users have different levels of access.
+- Folloging is the access table.
+
+| User Type | Data      | Catagory  | Resource  | Role      | Permission|
+| ---------:| ---------:| ---------:| ---------:| ---------:| ---------:|
+| Admin     | RW        | RW        | RW        | RW        | RW        |
+| Manager   | RW        | RW        | R         | R         | R         |
+| Editor    | RW        | R         | -         | -         | -         |
 
 ## Parts
 
