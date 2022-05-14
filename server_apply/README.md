@@ -29,9 +29,16 @@ Details frameworks and packages can be found in the package.json files in server
 
 ## Features
 
-- CRUD for users, resources, role, permission, category, data
-- API is open to only authorised users
-- Operations are restriced based on level of usrs authority
+- CRUD operation for users, resources, role, permission, category, data.
+- API is open to only authorised users.
+- Operations are restriced based on level of usrs authority.
+- Following is the access table:
+
+| User Type | Data      | Catagory  | Resource  | Role      | Permission|
+| ---------:| ---------:| ---------:| ---------:| ---------:| ---------:|
+| Admin     | RW        | RW        | RW        | RW        | RW        |
+| Manager   | RW        | RW        | R         | R         | R         |
+| Editor    | RW        | R         | -         | -         | -         |
 
 ## Parts
 
