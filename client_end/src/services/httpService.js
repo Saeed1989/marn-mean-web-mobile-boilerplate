@@ -1,6 +1,12 @@
 import axios from "axios";
 
-console.log("envs", process.env);
+// console.log("envs", process.env);
+
+axios.interceptors.request.use(config => {
+  config.headers['x-api-key'] = process.env.API_KEY;
+	return config;
+});
+
 
 const BaseUrl = process.env.REACT_APP_API_URL
   ? process.env.REACT_APP_API_URL
