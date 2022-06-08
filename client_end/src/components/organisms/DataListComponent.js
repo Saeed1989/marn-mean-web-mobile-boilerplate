@@ -8,6 +8,7 @@ import { AppContext } from "../../contexts/app";
 import { getCatHierarchy, getSelectedCatList } from "../../utils/catHierarchy";
 import { DataView } from "../molecules/DataView";
 import * as DATA_API from "../../services/dataService";
+import { openUrlInNewTab } from "../../services/browserUtilsService";
 
 export const DataListComponent = () => {
   const [state, dispatch] = React.useContext(AppContext);
@@ -30,7 +31,11 @@ export const DataListComponent = () => {
         reloadData(newSelectedCataList);
       }
     } else {
-      alert(data.name);
+      // show link in browser
+      if(!data.type || data.type === "WEB") {
+        console.log(data);
+        openUrlInNewTab("google.com");
+      }
     }
   };
 
