@@ -33,8 +33,8 @@ export const DataListComponent = () => {
     } else {
       // show link in browser
       if(!data.type || data.type === "WEB") {
-        console.log(data);
-        openUrlInNewTab("google.com");
+        // console.log(data.url);
+        openUrlInNewTab(data.url);
       }
     }
   };

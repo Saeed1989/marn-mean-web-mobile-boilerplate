@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dataSchema = new mongoose.Schema({
   name: { type: String, unique: true, required: true },
   category: { type: String, required: true },
+  url: { type: String, required: false },
   secondDataField: { type: String, required: true },
   thirdDataField: { type: String, required: true },
   description: { type: String, required: true },

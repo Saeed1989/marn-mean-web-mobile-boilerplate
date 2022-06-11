@@ -2,6 +2,7 @@
   {
     "name": "Name one",
     "category": "/maincat001/subcat1",
+    "url": "https://google.com",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -10,6 +11,7 @@
   },
   {
     "name": "Name two",
+    "url": "https://google.com",
     "category": "/maincat001/subcat1",
     "secondDataField": "two",
     "thirdDataField": "third",
@@ -20,6 +22,7 @@
   {
     "name": "Name three",
     "category": "/maincat001/subcat1",
+    "url": "https://google.com",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -29,6 +32,7 @@
   {
     "name": "Name four",
     "category": "/maincat003",
+    "url": "https://google.com",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -38,6 +42,7 @@
   {
     "name": "Name six",
     "category": "/maincat004",
+    "url": "https://google.com",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
@@ -47,6 +52,7 @@
   {
     "name": "Name seven",
     "category": "/maincat005",
+    "url": "https://google.com",
     "secondDataField": "two",
     "thirdDataField": "third",
     "description": "A description",
