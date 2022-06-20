@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const express = require("express");
 const { getAll, getBySku } = require("../services/category-service");
-const { logRequest } = require("../middlewares");
+const { logRequest, checkApiKey } = require("../middlewares");
 const { NotFound } = require("../utils/errors");
 const cors = require("cors");
 
@@ -37,7 +37,8 @@ const getBySkuHandler = async (req, res, next) => {
 };
 
 const commonMiddleware = [
-  logRequest
+  logRequest,
+  checkApiKey
 ];
 
 router.get("/:catSku", cors(), commonMiddleware, getBySkuHandler);
