@@ -1,7 +1,9 @@
 const express = require("express");
 const { search, getById } = require("../services/data-service");
+const { logRequest, checkApiKey } = require("../middlewares");
 const validators = require("../models/request-models");
 const { NotFound } = require("../utils/errors");
+const cors = require("cors");
 
 const router = express.Router();
 
@@ -34,7 +36,12 @@ const searchHandler = async (req, res, next) => {
   }
 };
 
-router.get("/:id", getByIdHandler);
-router.post("/search", searchHandler);
+const commonMiddleware = [
+  logRequest,
+  checkApiKey
+];
+
+router.get("/:id", cors(), commonMiddleware, getByIdHandler);
+router.post("/search", cors(), commonMiddleware, searchHandler);
 
 module.exports = router;
