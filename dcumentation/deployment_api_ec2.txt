@@ -1,0 +1,2 @@
+1. How to connect EC2 Ubuntu GUI
+   https://blog.knoldus.com/access-gui-of-aws-ec2-instance-of-ubuntu/
