@@ -1,2 +1,17 @@
 1. How to connect EC2 Ubuntu GUI
    https://blog.knoldus.com/access-gui-of-aws-ec2-instance-of-ubuntu/
+
+2. Install node and npm
+   sudo apt install nodejs
+   sudo apt install npm
+
+3. Install MongoDB
+   https://www.cherryservers.com/blog/how-to-install-and-start-using-mongodb-on-ubuntu-20-04
+   Note:
+        To install libssl1
+        wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb 
+        sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+
+4. Start MongoDB
+   sudo systemctl start mongod
+   sudo systemctl status mongod
